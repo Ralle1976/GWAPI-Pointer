@@ -1,0 +1,39 @@
+[CreateData]
+
+[CreateASM]
+ASM=CommandCraftItemEx:
+ASM=add eax,4
+ASM=push eax
+ASM=add eax,4
+ASM=push eax
+ASM=push 1
+ASM=push 0
+ASM=push 0
+ASM=push dword[eax+4]
+ASM=add eax,4
+ASM=push dword[eax+4]
+ASM=add eax,4
+ASM=mov edx,esp
+ASM=mov ecx,dword[CraftGlobal]
+ASM=mov dword[edx-70],ecx
+ASM=mov ecx,dword[edx+1C]
+ASM=mov dword[edx+54],ecx
+ASM=mov ecx,dword[edx+4]
+ASM=mov dword[edx-14],ecx
+ASM=mov ecx,3
+ASM=mov ebx,dword[eax]
+ASM=mov edx,dword[eax+4]
+ASM=call BuyItemFunction
+ASM=ljmp CommandReturn
+
+[CreateScans]
+ScanCraftGlobal=89750C83C60F83E6F089750C5657FF35
+
+[CreateDetours]
+
+[SetValues]
+Name=CraftGlobal
+Scan=ScanCraftGlobal
+Offset=17
+MemRead=1
+Add=0

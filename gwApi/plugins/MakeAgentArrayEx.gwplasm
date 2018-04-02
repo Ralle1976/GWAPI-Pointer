@@ -1,0 +1,37 @@
+[CreateData]
+Data=AgentCopyCount/4
+Data=AgentCopyBase/114688
+
+[CreateASM]
+ASM=CommandMakeAgentArrayEx:
+ASM=mov ecx,dword[eax+8]
+ASM=mov eax,dword[eax+4]
+ASM=xor ebx,ebx
+ASM=xor edx,edx
+ASM=mov edi,AgentCopyBase
+ASM=AgentCopyLoopStartEx:
+ASM=inc ebx
+ASM=cmp ebx,dword[MaxAgents]
+ASM=jge AgentCopyLoopExitEx
+ASM=mov esi,dword[AgentBase]
+ASM=lea esi,dword[esi+ebx*4]
+ASM=mov esi,dword[esi]
+ASM=test esi,esi
+ASM=jz AgentCopyLoopStartEx
+ASM=cmp eax,0
+ASM=jz CopyAgentEx
+ASM=cmp eax,dword[esi+9C]
+ASM=jnz AgentCopyLoopStartEx
+ASM=cmp ecx,0
+ASM=jz CopyAgentEx
+ASM=cmp cl,byte[esi+1B1]
+ASM=jnz AgentCopyLoopStartEx
+ASM=CopyAgentEx:
+ASM=mov dword[edi],esi
+ASM=add edi,4
+ASM=inc edx
+ASM=jmp AgentCopyLoopStartEx
+ASM=AgentCopyLoopExitEx:
+ASM=mov dword[AgentCopyCount],edx
+ASM=ljmp CommandReturn
+

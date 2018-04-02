@@ -1,0 +1,24 @@
+[CreateData]
+
+[CreateASM]
+ASM=CommandCollectItem:
+ASM=push 0
+ASM=add eax,4
+ASM=push eax
+ASM=push 1
+ASM=push 0
+ASM=add eax,4
+ASM=push eax
+ASM=add eax,4
+ASM=push eax
+ASM=push 1
+ASM=mov ecx,2
+ASM=mov edx,0
+ASM=call BuyItemFunction
+ASM=ljmp CommandReturn
+
+[CreateScans]
+
+[CreateDetours]
+
+[SetValues]
