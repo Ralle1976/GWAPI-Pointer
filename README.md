@@ -4,7 +4,6 @@ An AutoIt API to interface with the Guild Wars client.
 
 All credit goes to GameRevision members.
 
-**As for now, the library is broken due to the latest game update on March 23 2018. We are working on it**
 
 ## Getting Started
 
