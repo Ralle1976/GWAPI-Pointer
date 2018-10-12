@@ -1,3 +1,4 @@
+
 #include-once
 
 #Region Ptr
@@ -410,11 +411,16 @@ Func StartSalvage($aItem, $aSalvageKitID = 0)
    If Not Enqueue($mSalvagePtr, 16) Then Return False
    Return SetExtended($lSalvageSessionID, $lSalvageKitID)
 EndFunc   ;==>StartSalvage
+
 ;~ Description: Salvage the materials out of an item.
 Func SalvageMaterials()
-   Return SendPacket(0x4, 0x74)
+   Return SendPacket(0x4, $CtoGS_MSG_SalvageMaterials) And SalvageSleep(250) ;And SendPacket(0x4, $CtoGS_MSG_FinishSalvageMaterials) And SalvageSleep(500)
 EndFunc   ;==>SalvageMaterials
 
+Func SalvageSleep($SleepTime)
+	Sleep($SleepTime + GetPing())
+	Return True
+EndFunc
 
 Func StartSalvageWithPacket($aItem, $aSalvageKitID = 0)
 ;~ Start Salvage
@@ -437,24 +443,17 @@ EndIf
 
 ConsoleWrite("$lSalvageKitID = " & $lSalvageKitID & @CRLF)
 
-If $lSalvageKitID = 0 Then Return False
-SendPacket(0x10, 0x71, $lItemID, $lSalvageKitID, $lSalvageSessionID)
-
+Return SendPacket(0x10, $CtoGS_MSG_StartSalvage, $lItemID, $lSalvageKitID, $lSalvageSessionID) And SalvageSleep(250)
 EndFunc   ;==>StartSalvage
 
 ;~ Description: Salvages a mod out of an item.
 ;~ ModIndex: 0 -> Insignia, 1 -> Rune for armor upgrades.
 Func SalvageMod($aModIndex)
-;~ If $aModIndex > 0 Then
-	SendPacket(0x8, 0x75, $aModIndex)
-;~ 	Sleep(GetPing()+ 250)
-;~ EndIf
-
-;~ SendPacket(0x4, 0x73)
+Return SendPacket(0x8, $CtoGS_MSG_SalvageMod, $aModIndex) And SalvageSleep(250)
 EndFunc   ;==>SalvageMod
 
 Func Chancel()
-Return SendPacket(0x4, 0x72)
+Return SendPacket(0x4, $CtoGS_MSG_CancelAction)
 EndFunc
 #EndRegion Salvage
 
@@ -477,7 +476,7 @@ Func IdentifyItem($aItem, $aIDKit = 0)
    Local $lTimer = TimerInit()
    Local $lDeadlock
    While GetIsUnIDed($aItem) And TimerDiff($lTimer) < 30000
-	  SendPacket(0xC, 0x66, $lIDKit, $lItemID)
+	  SendPacket(0xC, $CtoGS_MSG_IdentifyItem, $lIDKit, $lItemID)
 	  $lDeadlock = TimerInit()
 	  Do
 		 Sleep(250)
@@ -489,22 +488,22 @@ EndFunc   ;==>IdentifyItem
 ;~ Description: Equips an item.
 Func EquipItem($aItem)
    If IsPtr($aItem) <> 0 Then
-	  Return SendPacket(0x8, 0x2A, MemoryRead($aItem, 'long'))
+	  Return SendPacket(0x8, $CtoGS_MSG_EquipItem, MemoryRead($aItem, 'long'))  ;~ old -> 	  Return SendPacket(0x8, 0x2A, MemoryRead($aItem, 'long'))
    ElseIf IsDllStruct($aItem) <> 0 Then
-	  Return SendPacket(0x8, 0x2A, DllStructGetData($aItem, 'ID'))
+	  Return SendPacket(0x8, $CtoGS_MSG_EquipItem, DllStructGetData($aItem, 'ID'))  ;~ old -> 	  Return SendPacket(0x8, 0x2A, DllStructGetData($aItem, 'ID'))
    Else
-	  Return SendPacket(0x8, 0x2A, $aItem)
+	  Return SendPacket(0x8, $CtoGS_MSG_EquipItem, $aItem)  ;~ old -> 	  Return SendPacket(0x8, 0x2A, $aItem)
    EndIf
 EndFunc   ;==>EquipItem
 
 ;~ Description: Uses an item.
 Func UseItem($aItem)
    If IsPtr($aItem) <> 0 Then
-	  Return SendPacket(0x8, 0x78, MemoryRead($aItem, 'long'))
+	  Return SendPacket(0x8, $CtoGS_MSG_UseItem, MemoryRead($aItem, 'long'))  ;~ old -> 	  Return SendPacket(0x8, 0x78, MemoryRead($aItem, 'long'))
    ElseIf IsDllStruct($aItem) <> 0 Then
-	  Return SendPacket(0x8, 0x78, DllStructGetData($aItem, 'ID'))
+	  Return SendPacket(0x8, $CtoGS_MSG_UseItem, DllStructGetData($aItem, 'ID'))  ;~ old -> 	  Return SendPacket(0x8, 0x78, DllStructGetData($aItem, 'ID'))
    Else
-	  Return SendPacket(0x8, 0x78, $aItem)
+	  Return SendPacket(0x8, $CtoGS_MSG_UseItem, $aItem)  ;~ old -> 	  Return SendPacket(0x8, 0x78, $aItem)
    EndIf
 EndFunc   ;==>UseItem
 
@@ -512,13 +511,13 @@ EndFunc   ;==>UseItem
 Func DropItem($aItem, $aAmount = 0)
    If IsPtr($aItem) <> 0 Then
 	  If $aAmount = 0 Then $aAmount = MemoryRead($aItem + 75, 'byte')
-	  Return SendPacket(0xC, 0x26, MemoryRead($aItem, 'long'), $aAmount)
+	  Return SendPacket(0xC, $CtoGS_MSG_DropItem, MemoryRead($aItem, 'long'), $aAmount)  ;~ old -> 	  Return SendPacket(0xC, 0x26, MemoryRead($aItem, 'long'), $aAmount)
    ElseIf IsDllStruct($aItem) <> 0 Then
 	  If $aAmount = 0 Then $aAmount = DllStructGetData($aItem, 'Quantity')
-	  Return SendPacket(0xC, 0x26, DllStructGetData($aItem, 'ID'), $aAmount)
+	  Return SendPacket(0xC, $CtoGS_MSG_DropItem, DllStructGetData($aItem, 'ID'), $aAmount)  ;~ old -> 	  Return SendPacket(0xC, 0x26, DllStructGetData($aItem, 'ID'), $aAmount)
    Else
 	  If $aAmount = 0 Then $aAmount = MemoryRead(GetItemPtr($aItem) + 75, 'byte')
-	  Return SendPacket(0xC, 0x26, $aItem, $aAmount)
+	  Return SendPacket(0xC, $CtoGS_MSG_DropItem, $aItem, $aAmount)  ;~ old -> 	  Return SendPacket(0xC, 0x26, $aItem, $aAmount)
    EndIf
 EndFunc   ;==>DropItem
 
@@ -538,7 +537,7 @@ Func MoveItem($aItem, $aBag, $aSlot)
    Else
 	  Local $lBagID = MemoryRead(GetBagPtr($aBag) + 8, 'long')
    EndIf
-   Return SendPacket(0x10, 0x6C, $lItemID, $lBagID, $aSlot - 1)
+   Return SendPacket(0x10, $CtoGS_MSG_MoveItem, $lItemID, $lBagID, $aSlot - 1)
 EndFunc   ;==>MoveItem
 
 ;~ Description: Moves an item, with amount to be moved.
@@ -561,7 +560,7 @@ Func MoveItemEx($aItem, $aBag, $aSlot, $aAmount)
 	  Local $lBagID = MemoryRead(GetBagPtr($aBag) + 8, 'long')
    EndIf
    If $lQuantity > $aAmount Then $lQuantity = $aAmount
-   Return SendPacket(0x14, 0x6F, $lItemID, $lQuantity, $lBagID, $aSlot - 1)
+   Return SendPacket(0x14, $CtoGS_MSG_SplitStack, $lItemID, $lQuantity, $lBagID, $aSlot - 1)
 EndFunc   ;==>MoveItemEx
 
 ;~ Description: Unequips item to $abag, $aslot (1-based).
@@ -580,23 +579,23 @@ Func UnequipItem($aEquipmentSlot, $aBag, $aSlot)
    Else
 	  Local $lBagID = MemoryRead(GetBagPtr($aBag) + 8, 'long')
    EndIf
-   Return SendPacket(0x10, 0x49, $aEquipmentSlot - 1, $lBagID, $aSlot - 1)
+   Return SendPacket(0x10, $CtoGS_MSG_EquipItem, $aEquipmentSlot - 1, $lBagID, $aSlot - 1)
 EndFunc   ;==>UnequipItem
 
 ;~ Description: Destroys an item.
 Func DestroyItem($aItem)
    If IsPtr($aItem) <> 0 Then
-	  Return SendPacket(0x8, 0x63, MemoryRead($aItem, 'long'))
+	  Return SendPacket(0x8, $CtoGS_MSG_DeleteItem, MemoryRead($aItem, 'long'))  ;~ old -> 	  Return SendPacket(0x8, 0x63, MemoryRead($aItem, 'long'))
    ElseIf IsDllStruct($aItem) <> 0 Then
-	  Return SendPacket(0x8, 0x63, DllStructGetData($aItem, 'ID'))
+	  Return SendPacket(0x8, $CtoGS_MSG_DeleteItem, DllStructGetData($aItem, 'ID'))  ;~ old -> 	  Return SendPacket(0x8, 0x63, DllStructGetData($aItem, 'ID'))
    Else
-	  Return SendPacket(0x8, 0x63, $aItem)
+	  Return SendPacket(0x8, $CtoGS_MSG_DeleteItem, $aItem)  ;~ old -> 	  Return SendPacket(0x8, 0x63, $aItem)
    EndIf
 EndFunc   ;==>DestroyItem
 
 ;~ Description: Accepts unclaimed items after a mission.
 Func AcceptAllItems()
-   Return SendPacket(0x8, 0x6D, MemoryRead(GetBagPtr(7) + 8, 'long'))
+   Return SendPacket(0x8, $CtoGS_MSG_AcceptAllItems, MemoryRead(GetBagPtr(7) + 8, 'long'))
 EndFunc   ;==>AcceptAllItems
 #EndRegion ItemActions
 #EndRegion Inventory and Storage
@@ -859,14 +858,41 @@ EndFunc   ;==>GetTraderCostValue
 #EndRegion
 
 #Region PickingUp
+;~ Description: Finds items on ground, used for Pick Up Loot fuction.
+Func GetNearestItemPtrTo($aAgent = GetAgentPtr(-2))
+   Local $lAgentX, $lAgentY
+   If IsPtr($aAgent) <> 0 Then
+      UpdateAgentPosByPtr($aAgent, $lAgentX, $lAgentY)
+   ElseIf IsDllStruct($aAgent) <> 0 Then
+      $lAgentX = DllStructGetData($aAgent, 'X')
+      $lAgentY = DllStructGetData($aAgent, 'Y')
+   Else
+      UpdateAgentPosByPtr(GetAgentPtr($aAgent), $lAgentX, $lAgentY)
+   EndIf
+   Local $lNearestAgent = 0, $lNearestDistance = 100000000
+   Local $lDistance, $lAgentToCompare, $lAgentToCompareX, $lAgentToCompareY
+   For $i = 1 To GetMaxAgents()
+      $lAgentToCompare = GetAgentPtr($i)
+      If MemoryRead($lAgentToCompare + 156, 'long') <> 0x400 Then ContinueLoop
+      UpdateAgentPosByPtr($lAgentToCompare, $lAgentToCompareX, $lAgentToCompareY)
+      $lDistance = ($lAgentToCompareY - $lAgentY) ^ 2 + ($lAgentToCompareX - $lAgentX) ^ 2
+      If $lDistance < $lNearestDistance Then
+         $lNearestAgent = $lAgentToCompare
+         $lNearestDistance = $lDistance
+      EndIf
+   Next
+   SetExtended(Sqrt($lNearestDistance)) ;this could be used to retrieve the distance also
+   Return $lNearestAgent
+EndFunc   ;==>GetNearestItemPtrTo
+
 ;~ Description: Picks up an item, requires AgentID.
 Func PickUpItem($aAgentID)
    If IsPtr($aAgentID) <> 0 Then
-	  Return SendPacket(0xC, 0x39, MemoryRead($aAgentID + 44, 'long'), 0)
+	  Return SendPacket(0xC, $CtoGS_MSG_PickUpItem, MemoryRead($aAgentID + 44, 'long'), 0)  ;~ old -> 	  Return SendPacket(0xC, 0x39, MemoryRead($aAgentID + 44, 'long'), 0)
    ElseIf IsDllStruct($aAgentID) <> 0 Then
-	  Return SendPacket(0xC, 0x39, DllStructGetData($aAgentID, 'ID'), 0)
+	  Return SendPacket(0xC, $CtoGS_MSG_PickUpItem, DllStructGetData($aAgentID, 'ID'), 0)  ;~ old -> 	  Return SendPacket(0xC, 0x39, DllStructGetData($aAgentID, 'ID'), 0)
    Else
-	  Return SendPacket(0xC, 0x39, ConvertID($aAgentID), 0)
+	  Return SendPacket(0xC, $CtoGS_MSG_PickUpItem, ConvertID($aAgentID), 0)  ;~ old -> 	  Return SendPacket(0xC, 0x39, ConvertID($aAgentID), 0)
    EndIf
 EndFunc   ;==>PickUpItem
 
@@ -1310,7 +1336,7 @@ Func DropGold($aAmount = 0)
    Else
 	  $lAmount = GetGoldCharacter()
    EndIf
-   Return SendPacket(0x8, 0x29, $lAmount)
+   Return SendPacket(0x8, $CtoGS_MSG_DropGold, $lAmount)
 EndFunc   ;==>DropGold
 
 ;~ Description: Deposit gold into storage.
@@ -1343,7 +1369,7 @@ EndFunc   ;==>WithdrawGold
 
 ;~ Description: Internal use for moving gold.
 Func ChangeGold($aCharacter, $aStorage)
-   Local $lResult = SendPacket(0xC, 0x76, $aCharacter, $aStorage)
+   Local $lResult = SendPacket(0xC, $CtoGS_MSG_ChangeGold, $aCharacter, $aStorage)
    Sleep(250)
    Return $lResult
 EndFunc   ;==>ChangeGold

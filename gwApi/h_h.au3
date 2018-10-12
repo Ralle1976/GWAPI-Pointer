@@ -1,49 +1,50 @@
+
 #include-once
 
 #Region PartyCommands
 ;~ Description: Adds a hero to the party.
 Func AddHero($aHeroId)
-   Return SendPacket(0x8, 0x17, $aHeroId)
+   Return SendPacket(0x8, $CtoGS_MSG_AddHero, $aHeroId)
 EndFunc   ;==>AddHero
 
 ;~ Description: Kicks a hero from the party.
 Func KickHero($aHeroId)
-   Return SendPacket(0x8, 0x18, $aHeroId)
+   Return SendPacket(0x8, $CtoGS_MSG_KickHero, $aHeroId)
 EndFunc   ;==>KickHero
 
 ;~ Description: Kicks all heroes from the party.
 Func KickAllHeroes()
-   Return SendPacket(0x8, 0x18, 0x26)
+   Return SendPacket(0x8, $CtoGS_MSG_KickHero, 0x26)
 EndFunc   ;==>KickAllHeroes
 
 ;~ Description: Add a henchman to the party.
 Func AddNpc($aNpcId)
-   Return SendPacket(0x8, 0x99, $aNpcId)
+   Return SendPacket(0x8, $CtoGS_MSG_AddNpc, $aNpcId)
 EndFunc   ;==>AddNpc
 
 ;~ Description: Kick a henchman from the party.
 Func KickNpc($aNpcId)
-   Return SendPacket(0x8, 0xA2, $aNpcId)
+   Return SendPacket(0x8, $CtoGS_MSG_KickNpc, $aNpcId)
 EndFunc   ;==>KickNpc
 
 ;~ Description: Place a hero's position flag.
 Func CommandHero($aHeroNumber, $aX, $aY, $aHeroID = GetHeroID($aHeroNumber))
-   Return SendPacket(0x14, 0x13, $aHeroID, FloatToInt($aX), FloatToInt($aY), 0)
+   Return SendPacket(0x14, $CtoGS_MSG_CommandHero, $aHeroID, FloatToInt($aX), FloatToInt($aY), 0)
 EndFunc   ;==>CommandHero
 
 ;~ Description: Clear the position flag from a hero.
 Func CancelHero($aHeroNumber, $aAgentID = GetHeroID($aHeroNumber))
-   Return SendPacket(0x14, 0x13, $aAgentID, 0x7F800000, 0x7F800000, 0)
+   Return SendPacket(0x14, $CtoGS_MSG_CommandHero, $aAgentID, 0x7F800000, 0x7F800000, 0)
 EndFunc   ;==>CancelHero
 
 ;~ Description: Place the full-party position flag.
 Func CommandAll($aX, $aY)
-   Return SendPacket(0x10, 0x14, FloatToInt($aX), FloatToInt($aY), 0)
+   Return SendPacket(0x10, $CtoGS_MSG_CommandAll, FloatToInt($aX), FloatToInt($aY), 0)
 EndFunc   ;==>CommandAll
 
 ;~ Description: Clear the full-party position flag.
 Func CancelAll()
-   Return SendPacket(0x10, 0x14, 0x7F800000, 0x7F800000, 0)
+   Return SendPacket(0x10, $CtoGS_MSG_CommandAll, 0x7F800000, 0x7F800000, 0)
 EndFunc   ;==>CancelAll
 
 ;~ Description: Clear all hero flags.
@@ -54,12 +55,12 @@ EndFunc   ;==>ClearPartyCommands
 
 ;~ Description: Lock a hero onto a target.
 Func LockHeroTarget($aHeroNumber, $aAgentID = 0, $aHeroID = GetHeroID($aHeroNumber)) ;$aAgentID=0 Cancels Lock
-   Return SendPacket(0xC, 0xF, $aHeroID, $aAgentID)
+   Return SendPacket(0xC, $CtoGS_MSG_LockHeroTarget, $aHeroID, $aAgentID)
 EndFunc   ;==>LockHeroTarget
 
 ;~ Description: Change a hero's aggression level.
 Func SetHeroAggression($aHeroNumber, $aAggression, $aHeroID = GetHeroID($aHeroNumber)) ;0=Fight, 1=Guard, 2=Avoid
-   Return SendPacket(0xC, 0xE, $aHeroID, $aAggression)
+   Return SendPacket(0xC, $CtoGS_MSG_SetHeroAggression, $aHeroID, $aAggression)
 EndFunc   ;==>SetHeroAggression
 #EndRegion
 
@@ -88,7 +89,7 @@ EndFunc   ;==>EnableHeroSkillSlot
 
 ;~ Description: Internal use for enabling or disabling hero skills
 Func ChangeHeroSkillSlotState($aHeroNumber, $aSkillSlot, $aHeroID = GetHeroID($aHeroNumber))
-   Return SendPacket(0xC, 0x12, $aHeroID, $aSkillSlot - 1)
+   Return SendPacket(0xC, $CtoGS_MSG_ChangeHeroSkillSlotState, $aHeroID, $aSkillSlot - 1)
 EndFunc   ;==>ChangeHeroSkillSlotState
 
 ;~ Description: Tests if a hero's skill slot is disabled.

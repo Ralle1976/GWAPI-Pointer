@@ -1,3 +1,4 @@
+
 #include-once
 
 ;~ Description: Updates all the information you need for combat.

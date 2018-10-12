@@ -1,3 +1,4 @@
+1324
 #include-once
 
 Global $aArray_Of_Skill_Names[3000][3] = [ _
@@ -25,25 +26,25 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[24, 'Power_Leak', 'Kraftleck'], _
 		[25, 'Power_Drain', 'Kraftentzug'], _
 		[26, 'Empathy', 'Empathie'], _
-		[27, 'Shatter_Delusions', 'Täuschungen_brechen'], _
-		[28, 'Backfire', 'Rückschlag'], _
+		[27, 'Shatter_Delusions', 'TÃ¤uschungen_brechen'], _
+		[28, 'Backfire', 'RÃ¼ckschlag'], _
 		[29, 'Blackout', 'Blackout'], _
 		[30, 'Diversion', 'Ablenkung'], _
-		[31, 'Conjure_Phantasm', 'Trugbild_beschwören'], _
-		[32, 'Illusion_of_Weakness', 'Illusion_der_Schwäche'], _
+		[31, 'Conjure_Phantasm', 'Trugbild_beschwÃ¶ren'], _
+		[32, 'Illusion_of_Weakness', 'Illusion_der_SchwÃ¤che'], _
 		[33, 'Illusionary_Weaponry', 'Illusion_der_Waffen'], _
 		[34, 'Sympathetic_Visage', 'Sympathisches_Gesicht'], _
 		[35, 'Ignorance', 'Ignoranz'], _
-		[36, 'Arcane_Conundrum', 'Arkanes_Rätsel'], _
+		[36, 'Arcane_Conundrum', 'Arkanes_RÃ¤tsel'], _
 		[37, 'Illusion_of_Haste', 'Illusion_der_Eile'], _
 		[38, 'Channeling', 'Kanalisieren'], _
 		[39, 'Energy_Surge', 'Energiewelle'], _
-		[40, 'Ether_Feast', 'Ätherschmaus'], _
-		[41, 'Ether_Lord', 'Herr_über_den_Äther'], _
+		[40, 'Ether_Feast', 'Ã„therschmaus'], _
+		[41, 'Ether_Lord', 'Herr_Ã¼ber_den_Ã„ther'], _
 		[42, 'Energy_Burn', 'Energiebrand'], _
 		[43, 'Clumsiness', 'Ungeschick'], _
 		[44, 'Phantom_Pain', 'Phantomschmerz'], _
-		[45, 'Ethereal_Burden', 'Ätherische_Bürde'], _
+		[45, 'Ethereal_Burden', 'Ã„therische_BÃ¼rde'], _
 		[46, 'Guilt', 'Schuld'], _
 		[47, 'Ineptitude', 'Unbeholfenheit'], _
 		[48, 'Spirit_of_Failure', 'Geist_des_Versagens'], _
@@ -51,13 +52,13 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[50, 'Wastrels_Worry', 'Verschwendung'], _
 		[51, 'Shame', 'Schande'], _
 		[52, 'Panic', 'Panik'], _
-		[53, 'Migraine', 'Migräne'], _
-		[54, 'Crippling_Anguish', 'Verkrüppelnde_Qual'], _
-		[55, 'Fevered_Dreams', 'Fieberträume'], _
+		[53, 'Migraine', 'MigrÃ¤ne'], _
+		[54, 'Crippling_Anguish', 'VerkrÃ¼ppelnde_Qual'], _
+		[55, 'Fevered_Dreams', 'FiebertrÃ¤ume'], _
 		[56, 'Soothing_Images', 'Beruhigende_Bilder'], _
 		[57, 'Cry_of_Frustration', 'Schrei_der_Frustration'], _
 		[58, 'Signet_of_Midnight', 'Siegel_der_Mitternacht'], _
-		[59, 'Signet_of_Weariness', 'Siegel_der_Müdigkeit'], _
+		[59, 'Signet_of_Weariness', 'Siegel_der_MÃ¼digkeit'], _
 		[61, 'Leech_Signet', 'Blutsauger_Siegel'], _
 		[62, 'Signet_of_Humility', 'Siegel_der_Demut'], _
 		[63, 'Keystone_Signet', 'Schlussstein_Siegel'], _
@@ -67,23 +68,23 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[68, 'Drain_Enchantment', 'Verzauberung_entziehen'], _
 		[69, 'Shatter_Enchantment', 'Verzauberung_brechen'], _
 		[72, 'Elemental_Resistance', 'Elementarwiderstand'], _
-		[73, 'Physical_Resistance', 'Körperlicher_Widerstand'], _
+		[73, 'Physical_Resistance', 'KÃ¶rperlicher_Widerstand'], _
 		[74, 'Echo', 'Echo'], _
 		[75, 'Arcane_Echo', 'Arkanes_Echo'], _
-		[76, 'Imagined_Burden', 'Eingebildete_Bürde'], _
+		[76, 'Imagined_Burden', 'Eingebildete_BÃ¼rde'], _
 		[77, 'Chaos_Storm', 'Chaossturm'], _
 		[78, 'Epidemic', 'Epidemie'], _
 		[79, 'Energy_Drain', 'Energieentzug'], _
 		[80, 'Energy_Tap', 'Energie_abzapfen'], _
 		[81, 'Arcane_Thievery', 'Arkaner_Diebstahl'], _
-		[82, 'Mantra_of_Recall', 'Mantra_der_Zurückrufung'], _
+		[82, 'Mantra_of_Recall', 'Mantra_der_ZurÃ¼ckrufung'], _
 		[83, 'Animate_Bone_Horror', 'Knochenschreck_beleben'], _
 		[84, 'Animate_Bone_Fiend', 'Knochenteufel_beleben'], _
 		[85, 'Animate_Bone_Minions', 'Knochendiener_beleben'], _
 		[86, 'Grenths_Balance', 'Grenths_Ausgleich'], _
 		[87, 'Veratas_Gaze', 'Veratas_Starren'], _
 		[88, 'Veratas_Aura', 'Veratas_Aura'], _
-		[89, 'Deathly_Chill', 'Tödliche_Kühlung'], _
+		[89, 'Deathly_Chill', 'TÃ¶dliche_KÃ¼hlung'], _
 		[90, 'Veratas_Sacrifice', 'Veratas_Opfer'], _
 		[91, 'Well_of_Power', 'Brunnen_der_Kraft'], _
 		[92, 'Well_of_Blood', 'Brunnen_des_Blutes'], _
@@ -93,38 +94,38 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[96, 'Soul_Feast', 'Seelenschmaus'], _
 		[97, 'Necrotic_Traversal', 'Nekrotische_Verwechslung'], _
 		[98, 'Consume_Corpse', 'Kadaver_verzehren'], _
-		[99, 'Parasitic_Bond', 'Parasitäre_Fesseln'], _
+		[99, 'Parasitic_Bond', 'ParasitÃ¤re_Fesseln'], _
 		[100, 'Soul_Barbs', 'Seelenwiderhaken'], _
 		[101, 'Barbs', 'Widerhaken'], _
 		[102, 'Shadow_Strike', 'Schattenschlag'], _
 		[103, 'Price_of_Failure', 'Preis_des_Versagens'], _
 		[104, 'Death_Nova', 'Todesnova'], _
-		[105, 'Deathly_Swarm', 'Tödlicher_Schwarm'], _
+		[105, 'Deathly_Swarm', 'TÃ¶dlicher_Schwarm'], _
 		[106, 'Rotting_Flesh', 'Verrottendes_Fleisch'], _
 		[107, 'Virulence', 'Ansteckung'], _
 		[108, 'Suffering', 'Leiden'], _
 		[109, 'Life_Siphon', 'Leben_abzapfen'], _
 		[110, 'Unholy_Feast', 'Unheiliger_Schmaus'], _
 		[111, 'Awaken_the_Blood', 'Das_Blut_erwecken'], _
-		[112, 'Desecrate_Enchantments', 'Verzauberungsschändung'], _
+		[112, 'Desecrate_Enchantments', 'VerzauberungsschÃ¤ndung'], _
 		[113, 'Tainted_Flesh', 'Verdorbenes_Fleisch'], _
 		[114, 'Aura_of_the_Lich', 'Aura_des_Lich'], _
 		[115, 'Blood_Renewal', 'Bluterneuerung'], _
 		[116, 'Dark_Aura', 'Dunkle_Aura'], _
-		[117, 'Enfeeble', 'Schwächen'], _
-		[118, 'Enfeebling_Blood', 'Schwächendes_Blut'], _
+		[117, 'Enfeeble', 'SchwÃ¤chen'], _
+		[118, 'Enfeebling_Blood', 'SchwÃ¤chendes_Blut'], _
 		[119, 'Blood_is_Power', 'Blut_ist_Kraft'], _
 		[120, 'Blood_of_the_Master', 'Blut_des_Meisters'], _
 		[121, 'Spiteful_Spirit', 'Boshafter_Geist'], _
 		[122, 'Malign_Intervention', 'Unheilvoller_Eingriff'], _
-		[123, 'Insidious_Parasite', 'Heimtückischer_Parasit'], _
-		[124, 'Spinal_Shivers', 'Rückenschauer'], _
+		[123, 'Insidious_Parasite', 'HeimtÃ¼ckischer_Parasit'], _
+		[124, 'Spinal_Shivers', 'RÃ¼ckenschauer'], _
 		[125, 'Wither', 'Verwelken'], _
-		[126, 'Life_Transfer', 'Lebensübertragung'], _
+		[126, 'Life_Transfer', 'LebensÃ¼bertragung'], _
 		[127, 'Mark_of_Subversion', 'Zeichen_der_Subversion'], _
 		[128, 'Soul_Leech', 'Seelenfresser'], _
-		[129, 'Defile_Flesh', 'Fleisch_schänden'], _
-		[130, 'Demonic_Flesh', 'Dämonenfleisch'], _
+		[129, 'Defile_Flesh', 'Fleisch_schÃ¤nden'], _
+		[130, 'Demonic_Flesh', 'DÃ¤monenfleisch'], _
 		[131, 'Barbed_Signet', 'Siegel_der_Widerhaken'], _
 		[132, 'Plague_Signet', 'Pest_Siegel'], _
 		[133, 'Dark_Pact', 'Dunkler_Pakt'], _
@@ -133,9 +134,9 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[136, 'Shadow_of_Fear', 'Schatten_der_Angst'], _
 		[137, 'Rigor_Mortis', 'Totenstarre'], _
 		[138, 'Dark_Bond', 'Dunkles_Band'], _
-		[139, 'Infuse_Condition', 'Zustand_einflößen'], _
+		[139, 'Infuse_Condition', 'Zustand_einflÃ¶ÃŸen'], _
 		[140, 'Malaise', 'Unwohlsein'], _
-		[141, 'Rend_Enchantments', 'Verzauberungen_entreißen'], _
+		[141, 'Rend_Enchantments', 'Verzauberungen_entreiÃŸen'], _
 		[142, 'Lingering_Curse', 'Bleibender_Fluch'], _
 		[143, 'Strip_Enchantment', 'Verzauberung_rauben'], _
 		[144, 'Chilblains', 'Frostbeulen'], _
@@ -148,18 +149,18 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[151, 'Feast_of_Corruption', 'Schmaus_der_Verdorbenheit'], _
 		[152, 'Taste_of_Death', 'Geschmack_des_Todes'], _
 		[153, 'Vampiric_Gaze', 'Vampir_Starren'], _
-		[154, 'Plague_Touch', 'Pest_Berührung'], _
-		[155, 'Vile_Touch', 'Abscheuliche_Berührung'], _
-		[156, 'Vampiric_Touch', 'Vampir_Berührung'], _
+		[154, 'Plague_Touch', 'Pest_BerÃ¼hrung'], _
+		[155, 'Vile_Touch', 'Abscheuliche_BerÃ¼hrung'], _
+		[156, 'Vampiric_Touch', 'Vampir_BerÃ¼hrung'], _
 		[157, 'Blood_Ritual', 'Blutritual'], _
-		[158, 'Touch_of_Agony', 'Berührung_der_Qual'], _
-		[159, 'Weaken_Armor', 'Rüstung_schwächen'], _
+		[158, 'Touch_of_Agony', 'BerÃ¼hrung_der_Qual'], _
+		[159, 'Weaken_Armor', 'RÃ¼stung_schwÃ¤chen'], _
 		[160, 'Windborne_Speed', 'Windgeschwindigkeit'], _
 		[162, 'Gale', 'Orkan'], _
 		[163, 'Whirlwind', 'Wirbelsturm'], _
 		[164, 'Elemental_Attunement', 'Elementareinstimmung'], _
-		[165, 'Armor_of_Earth', 'Erdrüstung'], _
-		[166, 'Kinetic_Armor', 'Kinetik_Rüstung'], _
+		[165, 'Armor_of_Earth', 'ErdrÃ¼stung'], _
+		[166, 'Kinetic_Armor', 'Kinetik_RÃ¼stung'], _
 		[167, 'Eruption', 'Eruption'], _
 		[168, 'Magnetic_Aura', 'Magnet_Aura'], _
 		[169, 'Earth_Attunement', 'Erdeinstimmung'], _
@@ -171,22 +172,22 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[175, 'Ward_Against_Elements', 'Abwehr_gegen_Elemente'], _
 		[176, 'Ward_Against_Melee', 'Abwehr_gegen_Nahkampf'], _
 		[177, 'Ward_Against_Foes', 'Abwehr_gegen_Feinde'], _
-		[178, 'Ether_Prodigy', 'Ätherwunder'], _
-		[179, 'Incendiary_Bonds', 'Brandbänder'], _
+		[178, 'Ether_Prodigy', 'Ã„therwunder'], _
+		[179, 'Incendiary_Bonds', 'BrandbÃ¤nder'], _
 		[180, 'Aura_of_Restoration', 'Wiederherstellungs_Aura'], _
-		[181, 'Ether_Renewal', 'Äthererneuerung'], _
-		[182, 'Conjure_Flame', 'Flammenbeschwörung'], _
+		[181, 'Ether_Renewal', 'Ã„thererneuerung'], _
+		[182, 'Conjure_Flame', 'FlammenbeschwÃ¶rung'], _
 		[183, 'Inferno', 'Inferno'], _
 		[184, 'Fire_Attunement', 'Feuereinstimmung'], _
 		[185, 'Mind_Burn', 'Geistige_Verbrennung'], _
 		[186, 'Fireball', 'Feuerball'], _
 		[187, 'Meteor', 'Meteor'], _
-		[188, 'Flame_Burst', 'Flammenstoß'], _
+		[188, 'Flame_Burst', 'FlammenstoÃŸ'], _
 		[189, 'Rodgort_s_Invocation', 'Anrufung_von_Rodgort'], _
 		[190, 'Mark_of_Rodgort', 'Zeichen_des_Rodgort'], _
 		[191, 'Immolate', 'Feueropfer'], _
 		[192, 'Meteor_Shower', 'Meteorschauer'], _
-		[193, 'Phoenix', 'Phönix'], _
+		[193, 'Phoenix', 'PhÃ¶nix'], _
 		[194, 'Flare', 'Feuergeschoss'], _
 		[195, 'Lava_Font', 'Lavabecken'], _
 		[196, 'Searing_Heat', 'Sengende_Hitze'], _
@@ -199,11 +200,11 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[203, 'Glyph_of_Renewal', 'Glyphe_der_Erneuerung'], _
 		[204, 'Rust', 'Rost'], _
 		[205, 'Lightning_Surge', 'Blitzwelle'], _
-		[206, 'Armor_of_Frost', 'Frostrüstung'], _
-		[207, 'Conjure_Frost', 'Frost_beschwören'], _
+		[206, 'Armor_of_Frost', 'FrostrÃ¼stung'], _
+		[207, 'Conjure_Frost', 'Frost_beschwÃ¶ren'], _
 		[208, 'Water_Attunement', 'Wassereinstimmung'], _
 		[209, 'Mind_Freeze', 'Geistige_Erfrierung'], _
-		[210, 'Ice_Prison', 'Eisgefängnis'], _
+		[210, 'Ice_Prison', 'EisgefÃ¤ngnis'], _
 		[211, 'Ice_Spikes', 'Eisdornen'], _
 		[212, 'Frozen_Burst', 'Frostexplosion'], _
 		[213, 'Shard_Storm', 'Scherbensturm'], _
@@ -214,10 +215,10 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[218, 'Obsidian_Flesh', 'Obsidianfleisch'], _
 		[219, 'Obsidian_Flame', 'Obsidianflamme'], _
 		[220, 'Blinding_Flash', 'Blitzblendung'], _
-		[221, 'Conjure_Lightning', 'Blitzbeschwörung'], _
+		[221, 'Conjure_Lightning', 'BlitzbeschwÃ¶rung'], _
 		[222, 'Lightning_Strike', 'Blitzschlag'], _
 		[223, 'Chain_Lightning', 'Kettenblitz'], _
-		[224, 'Enervating_Charge', 'Schwächende_Aufladung'], _
+		[224, 'Enervating_Charge', 'SchwÃ¤chende_Aufladung'], _
 		[225, 'Air_Attunement', 'Lufteinstimmung'], _
 		[226, 'Mind_Shock', 'Geistiger_Schock'], _
 		[227, 'Glimmering_Mark', 'Schimmerndes_Zeichen'], _
@@ -225,33 +226,33 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[229, 'Lightning_Orb', 'Kugelblitz'], _
 		[230, 'Lightning_Javelin', 'Blitzspeer'], _
 		[231, 'Shock', 'Schock'], _
-		[232, 'Lightning_Touch', 'Blitz_Berührung'], _
+		[232, 'Lightning_Touch', 'Blitz_BerÃ¼hrung'], _
 		[233, 'Swirling_Aura', 'Wirbelnde_Aura'], _
 		[234, 'Deep_Freeze', 'Tiefgefrieren'], _
 		[235, 'Blurred_Vision', 'Verschwommene_Sicht'], _
 		[236, 'Mist_Form', 'Nebelform'], _
 		[237, 'Water_Trident', 'Wasserdreizack'], _
-		[238, 'Armor_of_Mist', 'Nebelrüstung'], _
+		[238, 'Armor_of_Mist', 'NebelrÃ¼stung'], _
 		[239, 'Ward_Against_Harm', 'Abwehr_gegen_Schaden'], _
 		[240, 'Smite', 'Peinigung'], _
 		[241, 'Life_Bond', 'Lebensbindung'], _
 		[242, 'Balthazars_Spirit', 'Balthasars_Geist'], _
-		[243, 'Strength_of_Honor', 'Stärke_der_Ehre'], _
+		[243, 'Strength_of_Honor', 'StÃ¤rke_der_Ehre'], _
 		[244, 'Life_Attunement', 'Lebenseinstimmung'], _
 		[245, 'Protective_Spirit', 'Schutzgeist'], _
-		[246, 'Divine_Intervention', 'Göttliche_Intervention'], _
+		[246, 'Divine_Intervention', 'GÃ¶ttliche_Intervention'], _
 		[247, 'Symbol_of_Wrath', 'Symbol_des_Zorns'], _
 		[248, 'Retribution', 'Vergeltung'], _
 		[249, 'Holy_Wrath', 'Heiliger_Zorn'], _
 		[250, 'Essence_Bond', 'Essenzbindung'], _
-		[251, 'Scourge_Healing', 'Geißelheilung'], _
+		[251, 'Scourge_Healing', 'GeiÃŸelheilung'], _
 		[252, 'Banish', 'Verbannung'], _
-		[253, 'Scourge_Sacrifice', 'Geißelopfer'], _
+		[253, 'Scourge_Sacrifice', 'GeiÃŸelopfer'], _
 		[254, 'Vigorous_Spirit', 'Energischer_Geist'], _
 		[255, 'Watchful_Spirit', 'Wachsamer_Geist'], _
 		[256, 'Blessed_Aura', 'Gesegnete_Aura'], _
 		[257, 'Aegis', 'Aegis'], _
-		[258, 'Guardian', 'Wächter'], _
+		[258, 'Guardian', 'WÃ¤chter'], _
 		[259, 'Shield_of_Deflection', 'Ablenkungsschild'], _
 		[260, 'Aura_of_Faith', 'Glaubensaura'], _
 		[261, 'Shield_of_Regeneration', 'Schild_der_Regeneration'], _
@@ -271,28 +272,28 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[275, 'Mend_Condition', 'Zustand_bessern'], _
 		[276, 'Restore_Condition', 'Zustand_wiederherstellen'], _
 		[277, 'Mend_Ailment', 'Leiden_heilen'], _
-		[278, 'Purge_Conditions', 'Zustände_reinigen'], _
-		[279, 'Divine_Healing', 'Göttliche_Heilung'], _
+		[278, 'Purge_Conditions', 'ZustÃ¤nde_reinigen'], _
+		[279, 'Divine_Healing', 'GÃ¶ttliche_Heilung'], _
 		[280, 'Heal_Area', 'Gebiet_heilen'], _
-		[281, 'Orison_of_Healing', 'Fürbitte_der_Heilung'], _
+		[281, 'Orison_of_Healing', 'FÃ¼rbitte_der_Heilung'], _
 		[282, 'Word_of_Healing', 'Wort_der_Heilung'], _
 		[283, 'Dwaynas_Kiss', 'Dwaynas_Kuss'], _
-		[284, 'Divine_Boon', 'Göttlicher_Segen'], _
-		[285, 'Healing_Hands', 'Heilende_Hände'], _
+		[284, 'Divine_Boon', 'GÃ¶ttlicher_Segen'], _
+		[285, 'Healing_Hands', 'Heilende_HÃ¤nde'], _
 		[286, 'Heal_Other', 'Anderen_heilen'], _
 		[287, 'Heal_Party', 'Gruppe_heilen'], _
 		[288, 'Healing_Breeze', 'Heilender_Hauch'], _
 		[289, 'Vital_Blessing', 'Lebendige_Segnung'], _
 		[290, 'Mending', 'Genesung'], _
 		[291, 'Live_Vicariously', 'Ersatzleben'], _
-		[292, 'Infuse_Health', 'Leben_einflößen'], _
+		[292, 'Infuse_Health', 'Leben_einflÃ¶ÃŸen'], _
 		[293, 'Signet_of_Devotion', 'Siegel_der_Hingabe'], _
 		[294, 'Signet_of_Judgment', 'Siegel_des_Urteils'], _
 		[295, 'Purge_Signet', 'Siegel_der_Reinigung'], _
 		[296, 'Bane_Signet', 'Siegel_des_Ruins'], _
 		[297, 'Blessed_Signet', 'Gesegnetes_Siegel'], _
-		[298, 'Martyr', 'Märtyrer'], _
-		[299, 'Shielding_Hands', 'Schützende_Hände'], _
+		[298, 'Martyr', 'MÃ¤rtyrer'], _
+		[299, 'Shielding_Hands', 'SchÃ¼tzende_HÃ¤nde'], _
 		[300, 'Contemplation_of_Purity', 'Gebot_der_Reinheit'], _
 		[301, 'Remove_Hex', 'Verhexung_entfernen'], _
 		[302, 'Smite_Hex', 'Verhexung_zerschlagen'], _
@@ -303,40 +304,40 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[307, 'Reversal_of_Fortune', 'Umkehrung_des_Schicksals'], _
 		[308, 'Succor', 'Beistand'], _
 		[309, 'Holy_Veil', 'Heiliger_Schleier'], _
-		[310, 'Divine_Spirit', 'Göttlicher_Geist'], _
-		[311, 'Draw_Conditions', 'Zustände_entziehen'], _
+		[310, 'Divine_Spirit', 'GÃ¶ttlicher_Geist'], _
+		[311, 'Draw_Conditions', 'ZustÃ¤nde_entziehen'], _
 		[312, 'Holy_Strike', 'Heiliger_Schlag'], _
-		[313, 'Healing_Touch', 'Heilende_Berührung'], _
+		[313, 'Healing_Touch', 'Heilende_BerÃ¼hrung'], _
 		[314, 'Restore_Life', 'Leben_erneuern'], _
 		[315, 'Vengeance', 'Rache'], _
 		[316, 'To_the_Limit', 'Bis_ans_Limit'], _
 		[317, 'Battle_Rage', 'Kampfwut'], _
 		[318, 'Defy_Pain', 'Schmerz_trotzen'], _
 		[319, 'Rush', 'Ansturm'], _
-		[320, 'Hamstring', 'Lähmung'], _
+		[320, 'Hamstring', 'LÃ¤hmung'], _
 		[321, 'Wild_Blow', 'Rundumschlag'], _
 		[322, 'Power_Attack', 'Kraftangriff'], _
 		[323, 'Desperation_Blow', 'Verzweiflungsschlag'], _
 		[324, 'Thrill_of_Victory', 'Rausch_des_Sieges'], _
 		[325, 'Distracting_Blow', 'Ablenkungsschlag'], _
-		[326, 'Protectors_Strike', 'Schlag_des_Beschützers'], _
+		[326, 'Protectors_Strike', 'Schlag_des_BeschÃ¼tzers'], _
 		[327, 'Griffons_Sweep', 'Greifenschlag'], _
 		[328, 'Pure_Strike', 'Reiner_Schlag'], _
-		[329, 'Skull_Crack', 'Schädel_spalten'], _
+		[329, 'Skull_Crack', 'SchÃ¤del_spalten'], _
 		[330, 'Cyclone_Axe', 'Zyklonaxt'], _
 		[331, 'Hammer_Bash', 'Hammerstreich'], _
-		[332, 'Bulls_Strike', 'Bullenstoß'], _
-		[333, 'I_Will_Avenge_You', 'Ich_werde_Euch_rächen'], _
+		[332, 'Bulls_Strike', 'BullenstoÃŸ'], _
+		[333, 'I_Will_Avenge_You', 'Ich_werde_Euch_rÃ¤chen'], _
 		[334, 'Axe_Rake', 'Harkenaxt'], _
 		[335, 'Cleave', 'Spalten'], _
 		[336, 'Executioners_Strike', 'Henkerschlag'], _
-		[337, 'Dismember', 'Zerstückeln'], _
+		[337, 'Dismember', 'ZerstÃ¼ckeln'], _
 		[338, 'Eviscerate', 'Ausweiden'], _
 		[339, 'Penetrating_Blow', 'Durchdringender_Schlag'], _
 		[340, 'Disrupting_Chop', 'Unterbrechender_Hieb'], _
 		[341, 'Swift_Chop', 'Schneller_Hieb'], _
 		[342, 'Axe_Twist', 'Axtdrehung'], _
-		[343, 'For_Great_Justice', 'Für_höhere_Gerechtigkeit'], _
+		[343, 'For_Great_Justice', 'FÃ¼r_hÃ¶here_Gerechtigkeit'], _
 		[344, 'Flurry', 'Schauer'], _
 		[345, 'Defensive_Stance', 'Verteidigungshaltung'], _
 		[346, 'Frenzy', 'Raserei'], _
@@ -344,14 +345,14 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[348, 'Watch_Yourself', 'Passt_auf_Euch_auf'], _
 		[349, 'Sprint', 'Sprinten'], _
 		[350, 'Belly_Smash', 'Bauchklatscher'], _
-		[351, 'Mighty_Blow', 'Mächtiger_Schlag'], _
+		[351, 'Mighty_Blow', 'MÃ¤chtiger_Schlag'], _
 		[352, 'Crushing_Blow', 'Vernichtender_Schlag'], _
 		[353, 'Crude_Swing', 'Grober_Schwung'], _
-		[354, 'Earth_Shaker', 'Erdrüttler'], _
+		[354, 'Earth_Shaker', 'ErdrÃ¼ttler'], _
 		[355, 'Devastating_Hammer', 'Verheerender_Hammer'], _
 		[356, 'Irresistible_Blow', 'Brutaler_Schlag'], _
 		[357, 'Counter_Blow', 'Gegenschlag'], _
-		[358, 'Backbreaker', 'Rückenbrecher'], _
+		[358, 'Backbreaker', 'RÃ¼ckenbrecher'], _
 		[359, 'Heavy_Blow', 'Heftiger_Schlag'], _
 		[360, 'Staggering_Blow', 'Umwerfender_Schlag'], _
 		[361, 'Dolyak_Signet', 'Dolyak_Siegel'], _
@@ -359,9 +360,9 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[363, 'Shield_Bash', 'Heftiger_Schildschlag'], _
 		[364, 'Charge', 'Angriff'], _
 		[365, 'Victory_Is_Mine', 'Der_Sieg_ist_mein'], _
-		[366, 'Fear_Me', 'Fürchtet_mich'], _
+		[366, 'Fear_Me', 'FÃ¼rchtet_mich'], _
 		[367, 'Shields_Up', 'Schilde_hoch'], _
-		[368, 'I_Will_Survive', 'Ich_überlebe'], _
+		[368, 'I_Will_Survive', 'Ich_Ã¼berlebe'], _
 		[370, 'Berserker_Stance', 'Berserkerhaltung'], _
 		[371, 'Balanced_Stance', 'Ausgeglichene_Haltung'], _
 		[372, 'Gladiators_Defense', 'Gladiatoren_Verteidigung'], _
@@ -377,31 +378,31 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[382, 'Sever_Artery', 'Arterienabtrennung'], _
 		[383, 'Galrath_Slash', 'Galrath_Hieb'], _
 		[384, 'Gash', 'Schnittwunde'], _
-		[385, 'Final_Thrust', 'Endstoß'], _
+		[385, 'Final_Thrust', 'EndstoÃŸ'], _
 		[386, 'Seeking_Blade', 'Suchende_Klinge'], _
 		[387, 'Riposte', 'Entgegnung'], _
-		[388, 'Deadly_Riposte', 'Tödliche_Entgegnung'], _
-		[389, 'Flourish', 'Blütezeit'], _
+		[388, 'Deadly_Riposte', 'TÃ¶dliche_Entgegnung'], _
+		[389, 'Flourish', 'BlÃ¼tezeit'], _
 		[390, 'Savage_Slash', 'Wilder_Hieb'], _
-		[391, 'Hunters_Shot', 'Jägerschuss'], _
+		[391, 'Hunters_Shot', 'JÃ¤gerschuss'], _
 		[392, 'Pin_Down', 'Festnageln'], _
-		[393, 'Crippling_Shot', 'Verkrüppelungs_Schuss'], _
+		[393, 'Crippling_Shot', 'VerkrÃ¼ppelungs_Schuss'], _
 		[394, 'Power_Shot', 'Kraftschuss'], _
 		[395, 'Barrage', 'Sperrfeuer'], _
 		[396, 'Dual_Shot', 'Doppelschuss'], _
 		[397, 'Quick_Shot', 'Schnellschuss'], _
 		[398, 'Penetrating_Attack', 'Durchbohr_Angriff'], _
 		[399, 'Distracting_Shot', 'Ablenk_Schuss'], _
-		[400, 'Precision_Shot', 'Präzisionsschuss'], _
+		[400, 'Precision_Shot', 'PrÃ¤zisionsschuss'], _
 		[402, 'Determined_Shot', 'Entschlossener_Schuss'], _
-		[403, 'Called_Shot', 'Ankündigungs_Schuss'], _
+		[403, 'Called_Shot', 'AnkÃ¼ndigungs_Schuss'], _
 		[404, 'Poison_Arrow', 'Giftpfeil'], _
 		[405, 'Oath_Shot', 'Eidschuss'], _
-		[406, 'Debilitating_Shot', 'Entkräftungs_Schuss'], _
+		[406, 'Debilitating_Shot', 'EntkrÃ¤ftungs_Schuss'], _
 		[407, 'Point_Blank_Shot', 'Kurzdistanzschuss'], _
-		[408, 'Concussion_Shot', 'Erschütterungsschuss'], _
+		[408, 'Concussion_Shot', 'ErschÃ¼tterungsschuss'], _
 		[409, 'Punishing_Shot', 'Bestrafungs_Schuss'], _
-		[411, 'Charm_Animal', 'Tier_zähmen'], _
+		[411, 'Charm_Animal', 'Tier_zÃ¤hmen'], _
 		[412, 'Call_of_Protection', 'Ruf_des_Schutzes'], _
 		[415, 'Call_of_Haste', 'Ruf_der_Eile'], _
 		[422, 'Revive_Animal', 'Tier_wiederbeleben'], _
@@ -412,15 +413,15 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[427, 'Antidote_Signet', 'Gegengift_Siegel'], _
 		[428, 'Incendiary_Arrows', 'Flammenpfeile'], _
 		[429, 'Melandrus_Arrows', 'Melandrus_Pfeile'], _
-		[430, 'Marksmans_Wager', 'Schützenwette'], _
+		[430, 'Marksmans_Wager', 'SchÃ¼tzenwette'], _
 		[431, 'Ignite_Arrows', 'Brandpfeile'], _
 		[432, 'Read_the_Wind', 'Wind_lesen'], _
-		[433, 'Kindle_Arrows', 'Zündelpfeile'], _
-		[434, 'Choking_Gas', 'Würgegas'], _
+		[433, 'Kindle_Arrows', 'ZÃ¼ndelpfeile'], _
+		[434, 'Choking_Gas', 'WÃ¼rgegas'], _
 		[435, 'Apply_Poison', 'Gift_auftragen'], _
 		[436, 'Comfort_Animal', 'Tier_erquicken'], _
 		[437, 'Bestial_Pounce', 'Bestiensprung'], _
-		[438, 'Maiming_Strike', 'Verkrüppelungs_Schlag'], _
+		[438, 'Maiming_Strike', 'VerkrÃ¼ppelungs_Schlag'], _
 		[439, 'Feral_Lunge', 'Wilder_Ausfall'], _
 		[440, 'Scavenger_Strike', 'Aasfresser_Schlag'], _
 		[441, 'Melandrus_Assault', 'Melandrus_Angriff'], _
@@ -431,13 +432,13 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[446, 'Troll_Unguent', 'Trollsalbe'], _
 		[447, 'Otyughs_Cry', 'Otyughs_Schrei'], _
 		[448, 'Escape', 'Flucht'], _
-		[449, 'Practiced_Stance', 'Geübte_Haltung'], _
+		[449, 'Practiced_Stance', 'GeÃ¼bte_Haltung'], _
 		[450, 'Whirling_Defense', 'Wirbelverteidigung'], _
 		[451, 'Melandrus_Resilience', 'Melandrus_Belastbarkeit'], _
 		[452, 'Dryders_Defenses', 'Dryders_Verteidigungen'], _
 		[453, 'Lightning_Reflexes', 'Blitzreflexe'], _
 		[454, 'Tigers_Fury', 'Wut_des_Tigers'], _
-		[455, 'Storm_Chaser', 'Sturmjäger'], _
+		[455, 'Storm_Chaser', 'SturmjÃ¤ger'], _
 		[456, 'Serpents_Quickness', 'Schlangen_Schnelligkeit'], _
 		[457, 'Dust_Trap', 'Staubfalle'], _
 		[458, 'Barbed_Trap', 'Stachelfalle'], _
@@ -446,43 +447,43 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[461, 'Spike_Trap', 'Dornenfalle'], _
 		[462, 'Winter', 'Winter'], _
 		[463, 'Winnowing', 'Trennung'], _
-		[464, 'Edge_of_Extinction', 'Rand_der_Auslöschung'], _
-		[465, 'Greater_Conflagration', 'Großflächenbrand'], _
+		[464, 'Edge_of_Extinction', 'Rand_der_AuslÃ¶schung'], _
+		[465, 'Greater_Conflagration', 'GroÃŸflÃ¤chenbrand'], _
 		[466, 'Conflagration', 'Feuersbrunst'], _
 		[467, 'Fertile_Season', 'Fruchtbare_Jahreszeit'], _
 		[468, 'Symbiosis', 'Symbiose'], _
 		[469, 'Primal_Echoes', 'Urechos'], _
 		[470, 'Predatory_Season', 'Jagdsaison'], _
 		[471, 'Frozen_Soil', 'Eisboden'], _
-		[472, 'Favorable_Winds', 'Günstige_Winde'], _
+		[472, 'Favorable_Winds', 'GÃ¼nstige_Winde'], _
 		[474, 'Energizing_Wind', 'Treibwind'], _
 		[475, 'Quickening_Zephyr', 'Beschleunigender_Zephyr'], _
 		[476, 'Natures_Renewal', 'Erneuerung_der_Natur'], _
 		[477, 'Muddy_Terrain', 'Schlammiges_Terrain'], _
 		[570, 'Mark_of_Insecurity', 'Zeichen_der_Unsicherheit'], _
 		[571, 'Disrupting_Dagger', 'Unterbrechender_Dolch'], _
-		[572, 'Deadly_Paradox', 'Tödliches_Paradoxon'], _
+		[572, 'Deadly_Paradox', 'TÃ¶dliches_Paradoxon'], _
 		[763, 'Jaundiced_Gaze', 'Neidvoller_Blick'], _
 		[764, 'Wail_of_Doom', 'Schicksalsklage'], _
-		[766, 'Gaze_of_Contempt', 'Verächtlicher_Blick'], _
+		[766, 'Gaze_of_Contempt', 'VerÃ¤chtlicher_Blick'], _
 		[769, 'Vipers_Defense', 'Verteidigung_der_Viper'], _
-		[770, 'Return', 'Rückkehr'], _
+		[770, 'Return', 'RÃ¼ckkehr'], _
 		[771, 'Aura_of_Displacement', 'Aura_der_Verschiebung'], _
-		[772, 'Generous_Was_Tsungrai', 'Großzügig_war_Tsungrai'], _
-		[773, 'Mighty_Was_Vorizun', 'Mächtig_war_Vorizun'], _
-		[775, 'Death_Blossom', 'Todesblüte'], _
-		[776, 'Twisting_Fangs', 'Schlangenzähne'], _
-		[777, 'Horns_of_the_Ox', 'Hörner_des_Ochsen'], _
+		[772, 'Generous_Was_Tsungrai', 'GroÃŸzÃ¼gig_war_Tsungrai'], _
+		[773, 'Mighty_Was_Vorizun', 'MÃ¤chtig_war_Vorizun'], _
+		[775, 'Death_Blossom', 'TodesblÃ¼te'], _
+		[776, 'Twisting_Fangs', 'SchlangenzÃ¤hne'], _
+		[777, 'Horns_of_the_Ox', 'HÃ¶rner_des_Ochsen'], _
 		[778, 'Falling_Spider', 'Fallende_Spinne'], _
-		[779, 'Black_Lotus_Strike', 'Schwarzer_Lotus_Stoß'], _
-		[780, 'Fox_Fangs', 'Reißzähne_des_Fuchses'], _
-		[781, 'Moebius_Strike', 'Möbiusstoß'], _
-		[782, 'Jagged_Strike', 'Gezackter_Stoß'], _
-		[783, 'Unsuspecting_Strike', 'Unvermuteter_Stoß'], _
+		[779, 'Black_Lotus_Strike', 'Schwarzer_Lotus_StoÃŸ'], _
+		[780, 'Fox_Fangs', 'ReiÃŸzÃ¤hne_des_Fuchses'], _
+		[781, 'Moebius_Strike', 'MÃ¶biusstoÃŸ'], _
+		[782, 'Jagged_Strike', 'Gezackter_StoÃŸ'], _
+		[783, 'Unsuspecting_Strike', 'Unvermuteter_StoÃŸ'], _
 		[784, 'Entangling_Asp', 'Schlingnatter'], _
 		[785, 'Mark_of_Death', 'Zeichen_des_Todes'], _
-		[786, 'Iron_Palm', 'Eiserne_Handfläche'], _
-		[787, 'Resilient_Weapon', 'Unverwüstliche_Waffe'], _
+		[786, 'Iron_Palm', 'Eiserne_HandflÃ¤che'], _
+		[787, 'Resilient_Weapon', 'UnverwÃ¼stliche_Waffe'], _
 		[788, 'Blind_Was_Mingson', 'Blind_war_Mingson'], _
 		[789, 'Grasping_Was_Kuurong', 'Erfassend_war_Kuurong'], _
 		[790, 'Vengeful_Was_Khanhei', 'Nachtragend_war_Khanhei'], _
@@ -491,17 +492,17 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[793, 'Weapon_of_Warding', 'Waffe_der_Abwehr'], _
 		[794, 'Wailing_Weapon', 'Klagende_Waffe'], _
 		[795, 'Nightmare_Weapon', 'Alptraumwaffe'], _
-		[799, 'Beguiling_Haze', 'Verführerischer_Dunst'], _
+		[799, 'Beguiling_Haze', 'VerfÃ¼hrerischer_Dunst'], _
 		[800, 'Enduring_Toxin', 'Dauerhaftes_Toxin'], _
 		[801, 'Shroud_of_Silence', 'Schleier_des_Schweigens'], _
 		[802, 'Expose_Defenses', 'Verteidigungen_aufdecken'], _
 		[803, 'Power_Leech', 'Kraftfresser'], _
-		[804, 'Arcane_Languor', 'Arkane_Schwäche'], _
+		[804, 'Arcane_Languor', 'Arkane_SchwÃ¤che'], _
 		[805, 'Animate_Vampiric_Horror', 'Vampirschreck_beleben'], _
 		[806, 'Cultists_Fervor', 'Eifer_des_Sektierers'], _
 		[808, 'Reapers_Mark', 'Zeichen_des_Schnitters'], _
-		[809, 'Shatterstone', 'Trümmerstein'], _
-		[810, 'Protectors_Defense', 'Verteidigung_des_Beschützers'], _
+		[809, 'Shatterstone', 'TrÃ¼mmerstein'], _
+		[810, 'Protectors_Defense', 'Verteidigung_des_BeschÃ¼tzers'], _
 		[811, 'Run_as_One', 'Gemeinsam_rennen'], _
 		[812, 'Defiant_Was_Xinrae', 'Trotzig_war_Xinrae'], _
 		[813, 'Lyssas_Aura', 'Lyssas_Aura'], _
@@ -509,7 +510,7 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[815, 'Scorpion_Wire', 'Skorpiondraht'], _
 		[816, 'Mirrored_Stance', 'Gespiegelte_Haltung'], _
 		[817, 'Discord', 'Zwietracht'], _
-		[818, 'Well_of_Weariness', 'Brunnen_der_Müdigkeit'], _
+		[818, 'Well_of_Weariness', 'Brunnen_der_MÃ¼digkeit'], _
 		[819, 'Vampiric_Spirit', 'Vampirgeist'], _
 		[820, 'Depravity', 'Verderbtheit'], _
 		[821, 'Icy_Veins', 'Eisadern'], _
@@ -523,18 +524,18 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[830, 'Ray_of_Judgment', 'Strahl_des_Urteils'], _
 		[831, 'Primal_Rage', 'Urzorn'], _
 		[832, 'Animate_Flesh_Golem', 'Fleischgolem_beleben'], _
-		[834, 'Reckless_Haste', 'Rücksichtslose_Hast'], _
+		[834, 'Reckless_Haste', 'RÃ¼cksichtslose_Hast'], _
 		[835, 'Blood_Bond', 'Blutsbande'], _
 		[836, 'Ride_the_Lightning', 'Den_Blitz_reiten'], _
 		[837, 'Energy_Boon', 'Energiesegen'], _
 		[838, 'Dwaynas_Sorrow', 'Dwaynas_Leid'], _
-		[839, 'Retreat', 'Rückzug'], _
+		[839, 'Retreat', 'RÃ¼ckzug'], _
 		[840, 'Poisoned_Heart', 'Vergiftetes_Herz'], _
 		[841, 'Fetid_Ground', 'Stinkender_Boden'], _
 		[842, 'Arc_Lightning', 'Blitzbogen'], _
-		[843, 'Gust', 'Böe'], _
+		[843, 'Gust', 'BÃ¶e'], _
 		[844, 'Churning_Earth', 'Aufgeworfene_Erde'], _
-		[845, 'Liquid_Flame', 'Flüssige_Flamme'], _
+		[845, 'Liquid_Flame', 'FlÃ¼ssige_Flamme'], _
 		[846, 'Steam', 'Dampf'], _
 		[847, 'Boon_Signet', 'Siegel_des_Segens'], _
 		[848, 'Reverse_Hex', 'Verhexung_umkehren'], _
@@ -545,10 +546,10 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[853, 'Melandrus_Shot', 'Melandrus_Schuss'], _
 		[854, 'Snare', 'Schlinge'], _
 		[858, 'Dancing_Daggers', 'Tanzende_Dolche'], _
-		[859, 'Conjure_Nightmare', 'Alptraum_beschwören'], _
+		[859, 'Conjure_Nightmare', 'Alptraum_beschwÃ¶ren'], _
 		[860, 'Signet_of_Disruption', 'Siegel_der_Unterbrechung'], _
-		[862, 'Ravenous_Gaze', 'Heißhungriger_Blick'], _
-		[863, 'Order_of_Apostasy', 'Orden_der_Abtrünnigkeit'], _
+		[862, 'Ravenous_Gaze', 'HeiÃŸhungriger_Blick'], _
+		[863, 'Order_of_Apostasy', 'Orden_der_AbtrÃ¼nnigkeit'], _
 		[864, 'Oppressive_Gaze', 'Repressiver_Blick'], _
 		[865, 'Lightning_Hammer', 'Blitzhammer'], _
 		[866, 'Vapor_Blade', 'Dunstklinge'], _
@@ -561,29 +562,29 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[878, 'Visions_of_Regret', 'Visionen_des_Bedauerns'], _
 		[879, 'Illusion_of_Pain', 'Illusion_der_Schmerzen'], _
 		[880, 'Stolen_Speed', 'Gestohlene_Eile'], _
-		[881, 'Ether_Signet', 'Äther_Siegel'], _
+		[881, 'Ether_Signet', 'Ã„ther_Siegel'], _
 		[882, 'Signet_of_Disenchantment', 'Siegel_der_Entzauberung'], _
 		[883, 'Vocal_Minority', 'Stimmminderheit'], _
 		[884, 'Searing_Flames', 'Versengende_Flammen'], _
-		[885, 'Shield_Guardian', 'Schildwächter'], _
+		[885, 'Shield_Guardian', 'SchildwÃ¤chter'], _
 		[886, 'Restful_Breeze', 'Beruhigender_Hauch'], _
-		[887, 'Signet_of_Rejuvenation', 'Siegel_der_Verjüngung'], _
+		[887, 'Signet_of_Rejuvenation', 'Siegel_der_VerjÃ¼ngung'], _
 		[888, 'Whirling_Axe', 'Wirbelnde_Axt'], _
 		[889, 'Forceful_Blow', 'Energischer_Schlag'], _
 		[891, 'None_Shall_Pass', 'Niemand_darf_vorbei'], _
 		[892, 'Quivering_Blade', 'Zitternde_Klinge'], _
 		[893, 'Seeking_Arrows', 'Suchende_Pfeile'], _
-		[898, 'Overload', 'Überlastung'], _
+		[898, 'Overload', 'Ãœberlastung'], _
 		[899, 'Images_of_Remorse', 'Bilder_der_Reue'], _
-		[900, 'Shared_Burden', 'Geteilte_Bürde'], _
+		[900, 'Shared_Burden', 'Geteilte_BÃ¼rde'], _
 		[901, 'Soul_Bind', 'Seelenfessel'], _
 		[902, 'Blood_of_the_Aggressor', 'Blut_des_Aggressoren'], _
 		[903, 'Icy_Prism', 'Eisprisma'], _
 		[904, 'Furious_Axe', 'Zornige_Axt'], _
-		[905, 'Auspicious_Blow', 'Günstiger_Schlag'], _
+		[905, 'Auspicious_Blow', 'GÃ¼nstiger_Schlag'], _
 		[906, 'On_Your_Knees', 'Auf_Eure_Knie'], _
 		[907, 'Dragon_Slash', 'Drachenhieb'], _
-		[908, 'Marauders_Shot', 'Plünderer_Schuss'], _
+		[908, 'Marauders_Shot', 'PlÃ¼nderer_Schuss'], _
 		[909, 'Focused_Shot', 'Scharfschuss'], _
 		[910, 'Spirit_Rift', 'Geisterriss'], _
 		[911, 'Union', 'Vereinigung'], _
@@ -591,136 +592,136 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[914, 'Consume_Soul', 'Seele_verzehren'], _
 		[915, 'Spirit_Light', 'Geisterlicht'], _
 		[916, 'Lamentation', 'Wehklage'], _
-		[917, 'Rupture_Soul', 'Seele_zerreißen'], _
+		[917, 'Rupture_Soul', 'Seele_zerreiÃŸen'], _
 		[918, 'Spirit_to_Flesh', 'Geist_zu_Fleisch'], _
 		[919, 'Spirit_Burn', 'Geisterbrand'], _
 		[920, 'Destruction', 'Vernichtung'], _
 		[921, 'Dissonance', 'Missklang'], _
 		[923, 'Disenchantment', 'Entzauberung'], _
-		[925, 'Recall', 'Rückruf'], _
+		[925, 'Recall', 'RÃ¼ckruf'], _
 		[926, 'Sharpen_Daggers', 'Dolche_wetzen'], _
-		[927, 'Shameful_Fear', 'Schändliche_Angst'], _
+		[927, 'Shameful_Fear', 'SchÃ¤ndliche_Angst'], _
 		[928, 'Shadow_Shroud', 'Schattenschleier'], _
 		[929, 'Shadow_of_Haste', 'Schatten_der_Eile'], _
-		[930, 'Auspicious_Incantation', 'Günstige_Beschwörung'], _
+		[930, 'Auspicious_Incantation', 'GÃ¼nstige_BeschwÃ¶rung'], _
 		[931, 'Power_Return', 'Kraftrevanche'], _
 		[932, 'Complicate', 'Erschweren'], _
 		[933, 'Shatter_Storm', 'Sturm_zerschlagen'], _
-		[934, 'Unnatural_Signet', 'Unnatürliches_Siegel'], _
+		[934, 'Unnatural_Signet', 'UnnatÃ¼rliches_Siegel'], _
 		[935, 'Rising_Bile', 'Hochkommende_Galle'], _
 		[936, 'Envenom_Enchantments', 'Verzauberungen_vergiften'], _
-		[937, 'Shockwave', 'Stoßwelle'], _
-		[938, 'Ward_of_Stability', 'Kreis_der_Stabilität'], _
+		[937, 'Shockwave', 'StoÃŸwelle'], _
+		[938, 'Ward_of_Stability', 'Kreis_der_StabilitÃ¤t'], _
 		[939, 'Icy_Shackles', 'Eisfesseln'], _
 		[941, 'Blessed_Light', 'Gesegnetes_Licht'], _
-		[942, 'Withdraw_Hexes', 'Verhexungen_zurücknehmen'], _
-		[943, 'Extinguish', 'Löschen'], _
-		[944, 'Signet_of_Strength', 'Siegel_der_Stärke'], _
+		[942, 'Withdraw_Hexes', 'Verhexungen_zurÃ¼cknehmen'], _
+		[943, 'Extinguish', 'LÃ¶schen'], _
+		[944, 'Signet_of_Strength', 'Siegel_der_StÃ¤rke'], _
 		[946, 'Trappers_Focus', 'Fokus_des_Fallenstellers'], _
 		[947, 'Brambles', 'Dornenranken'], _
-		[948, 'Desperate_Strike', 'Verzweifelter_Stoß'], _
+		[948, 'Desperate_Strike', 'Verzweifelter_StoÃŸ'], _
 		[949, 'Way_of_the_Fox', 'Weg_des_Fuchses'], _
-		[950, 'Shadowy_Burden', 'Schattenbürde'], _
+		[950, 'Shadowy_Burden', 'SchattenbÃ¼rde'], _
 		[951, 'Siphon_Speed', 'Geschwindigkeit_abzapfen'], _
 		[952, 'Deaths_Charge', 'Angriff_des_Todes'], _
 		[953, 'Power_Flux', 'Kraftfluss'], _
 		[954, 'Expel_Hexes', 'Verhexungen_vertreiben'], _
-		[955, 'Rip_Enchantment', 'Verzauberung_zerreißen'], _
+		[955, 'Rip_Enchantment', 'Verzauberung_zerreiÃŸen'], _
 		[957, 'Spell_Shield', 'Zauberschild'], _
-		[958, 'Healing_Whisper', 'Heilendes_Geflüster'], _
-		[959, 'Ethereal_Light', 'Ätherisches_Licht'], _
+		[958, 'Healing_Whisper', 'Heilendes_GeflÃ¼ster'], _
+		[959, 'Ethereal_Light', 'Ã„therisches_Licht'], _
 		[960, 'Release_Enchantments', 'Verzauberungen_freisetzen'], _
 		[961, 'Lacerate', 'Zerfetzen'], _
-		[962, 'Spirit_Transfer', 'Geistübertragung'], _
+		[962, 'Spirit_Transfer', 'GeistÃ¼bertragung'], _
 		[963, 'Restoration', 'Wiederherstellung'], _
-		[964, 'Vengeful_Weapon', 'Rachsüchtige_Waffe'], _
+		[964, 'Vengeful_Weapon', 'RachsÃ¼chtige_Waffe'], _
 		[973, 'Blinding_Powder', 'Blendpulver'], _
-		[974, 'Mantis_Touch', 'Berührung_der_Mantis'], _
-		[975, 'Exhausting_Assault', 'Ermüdender_Angriff'], _
+		[974, 'Mantis_Touch', 'BerÃ¼hrung_der_Mantis'], _
+		[975, 'Exhausting_Assault', 'ErmÃ¼dender_Angriff'], _
 		[976, 'Repeating_Strike', 'Wiederholender_Schlag'], _
 		[977, 'Way_of_the_Lotus', 'Weg_des_Lotus'], _
-		[978, 'Mark_of_Instability', 'Zeichen_der_Unbeständigkeit'], _
+		[978, 'Mark_of_Instability', 'Zeichen_der_UnbestÃ¤ndigkeit'], _
 		[979, 'Mistrust', 'Argwohn'], _
 		[980, 'Feast_of_Souls', 'Schmaus_der_Seelen'], _
 		[981, 'Recuperation', 'Erholung'], _
 		[982, 'Shelter', 'Unterschlupf'], _
 		[983, 'Weapon_of_Shadow', 'Schattenwaffe'], _
-		[985, 'Caltrops', 'Trittnägel'], _
-		[986, 'Nine_Tail_Strike', 'Neunschwänziger_Stoß'], _
-		[987, 'Way_of_the_Empty_Palm', 'Weg_der_leeren_Handfläche'], _
-		[988, 'Temple_Strike', 'Schläfenstoß'], _
-		[989, 'Golden_Phoenix_Strike', 'Goldener_Phönix_Stoß'], _
+		[985, 'Caltrops', 'TrittnÃ¤gel'], _
+		[986, 'Nine_Tail_Strike', 'NeunschwÃ¤nziger_StoÃŸ'], _
+		[987, 'Way_of_the_Empty_Palm', 'Weg_der_leeren_HandflÃ¤che'], _
+		[988, 'Temple_Strike', 'SchlÃ¤fenstoÃŸ'], _
+		[989, 'Golden_Phoenix_Strike', 'Goldener_PhÃ¶nix_StoÃŸ'], _
 		[990, 'Expunge_Enchantments', 'Verzauberungen_ausmerzen'], _
-		[991, 'Deny_Hexes', 'Verhexungen_zurückweisen'], _
+		[991, 'Deny_Hexes', 'Verhexungen_zurÃ¼ckweisen'], _
 		[992, 'Triple_Chop', 'Dreifachhieb'], _
-		[993, 'Enraged_Smash', 'Erzürnter_Schlag'], _
+		[993, 'Enraged_Smash', 'ErzÃ¼rnter_Schlag'], _
 		[994, 'Renewing_Smash', 'Erneuernder_Schlag'], _
 		[995, 'Tiger_Stance', 'Tigerhaltung'], _
 		[996, 'Standing_Slash', 'Stehender_Hieb'], _
 		[997, 'Famine', 'Hungersnot'], _
 		[1018, 'Critical_Eye', 'Kritisches_Auge'], _
-		[1019, 'Critical_Strike', 'Kritischer_Stoß'], _
+		[1019, 'Critical_Strike', 'Kritischer_StoÃŸ'], _
 		[1020, 'Blades_of_Steel', 'Stahlklingen'], _
 		[1021, 'Jungle_Strike', 'Dschungelschlag'], _
-		[1022, 'Wild_Strike', 'Wilder_Stoß'], _
+		[1022, 'Wild_Strike', 'Wilder_StoÃŸ'], _
 		[1023, 'Leaping_Mantis_Sting', 'Stich_der_springenden_Mantis'], _
-		[1024, 'Black_Mantis_Thrust', 'Stoß_der_schwarzen_Mantis'], _
-		[1025, 'Disrupting_Stab', 'Unterbrechender_Dolchstoß'], _
-		[1026, 'Golden_Lotus_Strike', 'Goldener_Lotus_Stoß'], _
+		[1024, 'Black_Mantis_Thrust', 'StoÃŸ_der_schwarzen_Mantis'], _
+		[1025, 'Disrupting_Stab', 'Unterbrechender_DolchstoÃŸ'], _
+		[1026, 'Golden_Lotus_Strike', 'Goldener_Lotus_StoÃŸ'], _
 		[1027, 'Critical_Defenses', 'Kritische_Verteidigungen'], _
 		[1028, 'Way_of_Perfection', 'Weg_der_Perfektion'], _
-		[1029, 'Dark_Apostasy', 'Dunkle_Abtrünnigkeit'], _
+		[1029, 'Dark_Apostasy', 'Dunkle_AbtrÃ¼nnigkeit'], _
 		[1030, 'Locusts_Fury', 'Wut_der_Heuschrecke'], _
 		[1031, 'Shroud_of_Distress', 'Schleier_des_Kummers'], _
 		[1032, 'Heart_of_Shadow', 'Herz_der_Schatten'], _
-		[1033, 'Impale', 'Aufspießen'], _
+		[1033, 'Impale', 'AufspieÃŸen'], _
 		[1034, 'Seeping_Wound', 'Eiternde_Wunde'], _
 		[1035, 'Assassins_Promise', 'Versprechen_des_Assassinen'], _
 		[1036, 'Signet_of_Malice', 'Siegel_der_Bosheit'], _
 		[1037, 'Dark_Escape', 'Dunkle_Flucht'], _
-		[1038, 'Crippling_Dagger', 'Verkrüppelnder_Dolch'], _
+		[1038, 'Crippling_Dagger', 'VerkrÃ¼ppelnder_Dolch'], _
 		[1040, 'Spirit_Walk', 'Geistermarsch'], _
 		[1041, 'Unseen_Fury', 'Unsichtbare_Wut'], _
 		[1042, 'Flashing_Blades', 'Blitzende_Klingen'], _
 		[1043, 'Dash', 'Preschen'], _
-		[1044, 'Dark_Prison', 'Dunkles_Gefängnis'], _
-		[1045, 'Palm_Strike', 'Handflächenschlag'], _
-		[1048, 'Revealed_Enchantment', 'Enthüllte_Verzauberung'], _
-		[1049, 'Revealed_Hex', 'Enthüllte_Verhexung'], _
-		[1052, 'Accumulated_Pain', 'Angehäufter_Schmerz'], _
-		[1053, 'Psychic_Distraction', 'Übernatürliche_Ablenkung'], _
+		[1044, 'Dark_Prison', 'Dunkles_GefÃ¤ngnis'], _
+		[1045, 'Palm_Strike', 'HandflÃ¤chenschlag'], _
+		[1048, 'Revealed_Enchantment', 'EnthÃ¼llte_Verzauberung'], _
+		[1049, 'Revealed_Hex', 'EnthÃ¼llte_Verhexung'], _
+		[1052, 'Accumulated_Pain', 'AngehÃ¤ufter_Schmerz'], _
+		[1053, 'Psychic_Distraction', 'ÃœbernatÃ¼rliche_Ablenkung'], _
 		[1054, 'Ancestors_Visage', 'Antlitz_des_Ahnen'], _
 		[1055, 'Recurring_Insecurity', 'Wiederkehrende_Unsicherheit'], _
-		[1056, 'Kitahs_Burden', 'Kitahs_Bürde'], _
-		[1057, 'Psychic_Instability', 'Übernatürliche_Labilität'], _
+		[1056, 'Kitahs_Burden', 'Kitahs_BÃ¼rde'], _
+		[1057, 'Psychic_Instability', 'ÃœbernatÃ¼rliche_LabilitÃ¤t'], _
 		[1059, 'Hex_Eater_Signet', 'Verhexungsfresser_Siegel'], _
 		[1061, 'Feedback', 'Reaktion'], _
 		[1062, 'Arcane_Larceny', 'Arkane_Entwendung'], _
-		[1066, 'Spoil_Victor', 'Sieger_plündern'], _
-		[1067, 'Lifebane_Strike', 'Lebensfluchstoß'], _
+		[1066, 'Spoil_Victor', 'Sieger_plÃ¼ndern'], _
+		[1067, 'Lifebane_Strike', 'LebensfluchstoÃŸ'], _
 		[1068, 'Bitter_Chill', 'Bitterkalt'], _
 		[1069, 'Taste_of_Pain', 'Geschmack_der_Schmerzen'], _
-		[1070, 'Defile_Enchantments', 'Verzauberungen_schänden'], _
+		[1070, 'Defile_Enchantments', 'Verzauberungen_schÃ¤nden'], _
 		[1071, 'Shivers_of_Dread', 'Angstschauer'], _
 		[1075, 'Vampiric_Swarm', 'Vampirschwarm'], _
 		[1076, 'Blood_Drinker', 'Bluttrinker'], _
 		[1077, 'Vampiric_Bite', 'Vampirbiss'], _
-		[1078, 'Wallows_Bite', 'Wälzerbiss'], _
-		[1079, 'Enfeebling_Touch', 'Schwächende_Berührung'], _
+		[1078, 'Wallows_Bite', 'WÃ¤lzerbiss'], _
+		[1079, 'Enfeebling_Touch', 'SchwÃ¤chende_BerÃ¼hrung'], _
 		[1081, 'Teinais_Wind', 'Teinais_Wind'], _
 		[1082, 'Shock_Arrow', 'Schockpfeil'], _
 		[1083, 'Unsteady_Ground', 'Schwankender_Boden'], _
-		[1084, 'Sliver_Armor', 'Splitter_Rüstung'], _
+		[1084, 'Sliver_Armor', 'Splitter_RÃ¼stung'], _
 		[1085, 'Ash_Blast', 'Aschenexplosion'], _
 		[1086, 'Dragon_s_Stomp', 'Drachenstampfer'], _
 		[1088, 'Second_Wind', 'Zweite_Chance'], _
-		[1090, 'Smoldering_Embers', 'Glühende_Kohle'], _
+		[1090, 'Smoldering_Embers', 'GlÃ¼hende_Kohle'], _
 		[1091, 'Double_Dragon', 'Doppeldrache'], _
 		[1093, 'Teinais_Heat', 'Teinais_Hitze'], _
 		[1094, 'Breath_of_Fire', 'Feueratem'], _
 		[1095, 'Star_Burst', 'Sternenexplosion'], _
 		[1096, 'Glyph_of_Essence', 'Glyphe_der_Essenz'], _
-		[1097, 'Teinais_Prison', 'Teinais_Gefängnis'], _
+		[1097, 'Teinais_Prison', 'Teinais_GefÃ¤ngnis'], _
 		[1098, 'Mirror_of_Ice', 'Eisspiegel'], _
 		[1099, 'Teinais_Crystals', 'Teinais_Kristalle'], _
 		[1113, 'Kirins_Wrath', 'Kirins_Zorn'], _
@@ -732,7 +733,7 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1120, 'Jameis_Gaze', 'Jameis_Starren'], _
 		[1121, 'Gift_of_Health', 'Geschenk_des_Lebens'], _
 		[1123, 'Life_Sheath', 'Lebensmantel'], _
-		[1126, 'Empathic_Removal', 'Ausdrückliche_Entfernung'], _
+		[1126, 'Empathic_Removal', 'AusdrÃ¼ckliche_Entfernung'], _
 		[1128, 'Resurrection_Chant', 'Gesang_der_Wiederbelebung'], _
 		[1129, 'Word_of_Censure', 'Wort_des_Tadels'], _
 		[1130, 'Spear_of_Light', 'Speer_des_Lichts'], _
@@ -743,8 +744,8 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1136, 'Penetrating_Chop', 'Durchdringender_Hieb'], _
 		[1137, 'Yeti_Smash', 'Yetischlag'], _
 		[1141, 'You_Will_Die', 'Ihr_werdet_sterben'], _
-		[1142, 'Auspicious_Parry', 'Günstige_Abwehr'], _
-		[1144, 'Silverwing_Slash', 'Silberflügel_Hieb'], _
+		[1142, 'Auspicious_Parry', 'GÃ¼nstige_Abwehr'], _
+		[1144, 'Silverwing_Slash', 'SilberflÃ¼gel_Hieb'], _
 		[1146, 'Shove', 'Schubs'], _
 		[1191, 'Sundering_Attack', 'Trennender_Angriff'], _
 		[1192, 'Zojuns_Shot', 'Zojuns_Schuss'], _
@@ -754,9 +755,9 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1197, 'Needling_Shot', 'Nadelschuss'], _
 		[1198, 'Broad_Head_Arrow', 'Stahlspitzenpfeil'], _
 		[1199, 'Glass_Arrows', 'Glaspfeile'], _
-		[1200, 'Archers_Signet', 'Siegel_des_Bogenschützen'], _
+		[1200, 'Archers_Signet', 'Siegel_des_BogenschÃ¼tzen'], _
 		[1201, 'Savage_Pounce', 'Wilder_Sprung'], _
-		[1202, 'Enraged_Lunge', 'Erzürnter_Ausfall'], _
+		[1202, 'Enraged_Lunge', 'ErzÃ¼rnter_Ausfall'], _
 		[1203, 'Bestial_Mauling', 'Bestienattacke'], _
 		[1205, 'Poisonous_Bite', 'Giftbiss'], _
 		[1206, 'Pounce', 'Sprung'], _
@@ -767,26 +768,26 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1215, 'Clamor_of_Souls', 'Gezeter_der_Seelen'], _
 		[1217, 'Ritual_Lord', 'Herr_der_Rituale'], _
 		[1218, 'Cruel_Was_Daoshen', 'Grausam_war_Daoshen'], _
-		[1219, 'Protective_Was_Kaolai', 'Schützend_war_Kaolai'], _
+		[1219, 'Protective_Was_Kaolai', 'SchÃ¼tzend_war_Kaolai'], _
 		[1220, 'Attuned_Was_Songkai', 'Eingestimmt_war_Songkai'], _
-		[1221, 'Resilient_Was_Xiko', 'Unverwüstlich_war_Xiko'], _
+		[1221, 'Resilient_Was_Xiko', 'UnverwÃ¼stlich_war_Xiko'], _
 		[1222, 'Lively_Was_Naomei', 'Lebhaft_war_Naomei'], _
-		[1223, 'Anguished_Was_Lingwah', 'Gequält_war_Lingwah'], _
+		[1223, 'Anguished_Was_Lingwah', 'GequÃ¤lt_war_Lingwah'], _
 		[1224, 'Draw_Spirit', 'Geist_entziehen'], _
 		[1225, 'Channeled_Strike', 'Gelenkter_Schlag'], _
-		[1226, 'Spirit_Boon_Strike', 'Geistersegenstoß'], _
+		[1226, 'Spirit_Boon_Strike', 'GeistersegenstoÃŸ'], _
 		[1227, 'Essence_Strike', 'Essenzschlag'], _
 		[1228, 'Spirit_Siphon', 'Geist_abzapfen'], _
 		[1229, 'Explosive_Growth', 'Explosives_Wachstum'], _
-		[1230, 'Boon_of_Creation', 'Segen_der_Schöpfung'], _
+		[1230, 'Boon_of_Creation', 'Segen_der_SchÃ¶pfung'], _
 		[1231, 'Spirit_Channeling', 'Geisterlenkung'], _
-		[1232, 'Armor_of_Unfeeling', 'Rüstung_der_Gefühllosigkeit'], _
+		[1232, 'Armor_of_Unfeeling', 'RÃ¼stung_der_GefÃ¼hllosigkeit'], _
 		[1233, 'Soothing_Memories', 'Beruhigende_Erinnerungen'], _
-		[1234, 'Mend_Body_and_Soul', 'Körper_und_Seele_heilen'], _
+		[1234, 'Mend_Body_and_Soul', 'KÃ¶rper_und_Seele_heilen'], _
 		[1235, 'Dulled_Weapon', 'Stumpfe_Waffe'], _
 		[1236, 'Binding_Chains', 'Fesselnde_Ketten'], _
 		[1237, 'Painful_Bond', 'Schmerzhafte_Bindung'], _
-		[1238, 'Signet_of_Creation', 'Siegel_der_Schöpfung'], _
+		[1238, 'Signet_of_Creation', 'Siegel_der_SchÃ¶pfung'], _
 		[1239, 'Signet_of_Spirits', 'Siegel_der_Geister'], _
 		[1240, 'Soul_Twisting', 'Seelenverflechtung'], _
 		[1244, 'Ghostly_Haste', 'Geisterhafte_Eile'], _
@@ -803,28 +804,28 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1258, 'Brutal_Weapon', 'Grausame_Waffe'], _
 		[1259, 'Guided_Weapon', 'Gelenkte_Waffe'], _
 		[1260, 'Meekness', 'Sanftmut'], _
-		[1261, 'Frigid_Armor', 'Kalte_Rüstung'], _
+		[1261, 'Frigid_Armor', 'Kalte_RÃ¼stung'], _
 		[1262, 'Healing_Ring', 'Heilring'], _
-		[1263, 'Renew_Life', 'Leben_verlängern'], _
+		[1263, 'Renew_Life', 'Leben_verlÃ¤ngern'], _
 		[1264, 'Doom', 'Untergang'], _
-		[1265, 'Wielders_Boon', 'Segen_des_Ausübers'], _
+		[1265, 'Wielders_Boon', 'Segen_des_AusÃ¼bers'], _
 		[1266, 'Soothing', 'Beruhigung'], _
 		[1267, 'Vital_Weapon', 'Wesentliche_Waffe'], _
 		[1268, 'Weapon_of_Quickening', 'Waffe_der_Beschleunigung'], _
 		[1269, 'Signet_of_Rage', 'Siegel_der_Wut'], _
-		[1333, 'Extend_Conditions', 'Zustände_ausweiten'], _
+		[1333, 'Extend_Conditions', 'ZustÃ¤nde_ausweiten'], _
 		[1334, 'Hypochondria', 'Hypochondrie'], _
 		[1335, 'Wastrels_Demise', 'Ableben_des_Verschwenders'], _
 		[1336, 'Spiritual_Pain', 'Geisterschmerz'], _
-		[1337, 'Drain_Delusions', 'Täuschungen_entziehen'], _
+		[1337, 'Drain_Delusions', 'TÃ¤uschungen_entziehen'], _
 		[1338, 'Persistence_of_Memory', 'Beharrliche_Erinnerungen'], _
 		[1339, 'Symbols_of_Inspiration', 'Symbole_der_Inspiration'], _
 		[1340, 'Symbolic_Celerity', 'Symbolische_Schnelligkeit'], _
 		[1341, 'Frustration', 'Frustration'], _
 		[1342, 'Tease', 'Reizen'], _
-		[1343, 'Ether_Phantom', 'Äther_Phantom'], _
-		[1344, 'Web_of_Disruption', 'Netz_der_Störung'], _
-		[1345, 'Enchanters_Conundrum', 'Rätsel_des_Verzauberers'], _
+		[1343, 'Ether_Phantom', 'Ã„ther_Phantom'], _
+		[1344, 'Web_of_Disruption', 'Netz_der_StÃ¶rung'], _
+		[1345, 'Enchanters_Conundrum', 'RÃ¤tsel_des_Verzauberers'], _
 		[1346, 'Signet_of_Illusions', 'Siegel_der_Illusionen'], _
 		[1347, 'Discharge_Enchantment', 'Verzauberung_entlassen'], _
 		[1348, 'Hex_Eater_Vortex', 'Verhexungsfresser_Strudel'], _
@@ -833,10 +834,10 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1351, 'Animate_Shambling_Horror', 'Schlurfschreck_beleben'], _
 		[1352, 'Order_of_Undeath', 'Orden_der_Untoten'], _
 		[1353, 'Putrid_Flesh', 'Verwesendes_Fleisch'], _
-		[1354, 'Feast_for_the_Dead', 'Fest_für_die_Toten'], _
+		[1354, 'Feast_for_the_Dead', 'Fest_fÃ¼r_die_Toten'], _
 		[1355, 'Jagged_Bones', 'Versplitterte_Knochen'], _
 		[1356, 'Contagion', 'Erkrankung'], _
-		[1358, 'Ulcerous_Lungs', 'Geschwürige_Lungen'], _
+		[1358, 'Ulcerous_Lungs', 'GeschwÃ¼rige_Lungen'], _
 		[1359, 'Pain_of_Disenchantment', 'Schmerz_der_Entzauberung'], _
 		[1360, 'Mark_of_Fury', 'Zeichen_der_Wut'], _
 		[1362, 'Corrupt_Enchantment', 'Verzauberung_verderben'], _
@@ -845,47 +846,47 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1365, 'Signet_of_Lost_Souls', 'Siegel_der_verlorenen_Seelen'], _
 		[1366, 'Well_of_Darkness', 'Brunnen_der_Dunkelheit'], _
 		[1367, 'Blinding_Surge', 'Blendende_Welle'], _
-		[1368, 'Chilling_Winds', 'Kühle_Winde'], _
+		[1368, 'Chilling_Winds', 'KÃ¼hle_Winde'], _
 		[1369, 'Lightning_Bolt', 'Blitzstrahl'], _
 		[1370, 'Storm_Djinns_Haste', 'Eile_des_Sturm_Dschinn'], _
-		[1371, 'Stone_Striker', 'Steinschläger'], _
+		[1371, 'Stone_Striker', 'SteinschlÃ¤ger'], _
 		[1372, 'Sandstorm', 'Sandsturm'], _
 		[1373, 'Stone_Sheath', 'Steinmantel'], _
 		[1374, 'Ebon_Hawk', 'Ebonfalke'], _
 		[1375, 'Stoneflesh_Aura', 'Steinfleisch_Aura'], _
 		[1376, 'Glyph_of_Restoration', 'Glyphe_der_Wiederherstellung'], _
-		[1377, 'Ether_Prism', 'Ätherprisma'], _
+		[1377, 'Ether_Prism', 'Ã„therprisma'], _
 		[1378, 'Master_of_Magic', 'Meister_der_Magie'], _
-		[1379, 'Glowing_Gaze', 'Glühender_Blick'], _
+		[1379, 'Glowing_Gaze', 'GlÃ¼hender_Blick'], _
 		[1380, 'Savannah_Heat', 'Hitze_der_Savanne'], _
 		[1381, 'Flame_Djinns_Haste', 'Eile_des_Flammen_Dschinn'], _
-		[1382, 'Freezing_Gust', 'Gefrierende_Böe'], _
+		[1382, 'Freezing_Gust', 'Gefrierende_BÃ¶e'], _
 		[1390, 'Judges_Intervention', 'Intervention_des_Richters'], _
-		[1391, 'Supportive_Spirit', 'Unterstützender_Geist'], _
+		[1391, 'Supportive_Spirit', 'UnterstÃ¼tzender_Geist'], _
 		[1392, 'Watchful_Healing', 'Wachsame_Heilung'], _
 		[1393, 'Healers_Boon', 'Segen_des_Heilers'], _
 		[1394, 'Healers_Covenant', 'Verpflichtung_des_Heilers'], _
 		[1395, 'Balthazars_Pendulum', 'Balthasars_Pendel'], _
-		[1396, 'Words_of_Comfort', 'Tröstende_Worte'], _
-		[1397, 'Light_of_Deliverance', 'Licht_der_Erlösung'], _
-		[1398, 'Scourge_Enchantment', 'Geißelverzauberung'], _
+		[1396, 'Words_of_Comfort', 'TrÃ¶stende_Worte'], _
+		[1397, 'Light_of_Deliverance', 'Licht_der_ErlÃ¶sung'], _
+		[1398, 'Scourge_Enchantment', 'GeiÃŸelverzauberung'], _
 		[1399, 'Shield_of_Absorption', 'Schild_der_Absorption'], _
 		[1400, 'Reversal_of_Damage', 'Umkehrung_des_Schadens'], _
-		[1401, 'Mending_Touch', 'Genesungsberührung'], _
+		[1401, 'Mending_Touch', 'GenesungsberÃ¼hrung'], _
 		[1402, 'Critical_Chop', 'Kritischer_Hieb'], _
 		[1403, 'Agonizing_Chop', 'Qualvoller_Hieb'], _
 		[1404, 'Flail', 'Dreschen'], _
 		[1405, 'Charging_Strike', 'Angreifender_Schlag'], _
-		[1406, 'Headbutt', 'Kopfstoß'], _
-		[1407, 'Lions_Comfort', 'Trost_des_Löwen'], _
+		[1406, 'Headbutt', 'KopfstoÃŸ'], _
+		[1407, 'Lions_Comfort', 'Trost_des_LÃ¶wen'], _
 		[1408, 'Rage_of_the_Ntouka', 'Wut_des_Ntouka'], _
 		[1409, 'Mokele_Smash', 'Mokele_Schlag'], _
-		[1410, 'Overbearing_Smash', 'Anmaßender_Schlag'], _
+		[1410, 'Overbearing_Smash', 'AnmaÃŸender_Schlag'], _
 		[1411, 'Signet_of_Stamina', 'Siegel_der_Ausdauer'], _
 		[1412, 'Youre_All_Alone', 'Ihr_seid_ganz_allein'], _
 		[1413, 'Burst_of_Aggression', 'Aggressiver_Ausbruch'], _
-		[1414, 'Enraging_Charge', 'Wütender_Angriff'], _
-		[1415, 'Crippling_Slash', 'Verkrüppelnder_Hieb'], _
+		[1414, 'Enraging_Charge', 'WÃ¼tender_Angriff'], _
+		[1415, 'Crippling_Slash', 'VerkrÃ¼ppelnder_Hieb'], _
 		[1416, 'Barbarous_Slice', 'Barbarischer_Schnitt'], _
 		[1465, 'Prepared_Shot', 'Vorbereiteter_Schuss'], _
 		[1466, 'Burning_Arrow', 'Brennender_Pfeil'], _
@@ -893,7 +894,7 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1468, 'Strike_as_One', 'Gemeinsam_zuschlagen'], _
 		[1469, 'Crossfire', 'Kreuzfeuer'], _
 		[1470, 'Barbed_Arrows', 'Stachelpfeile'], _
-		[1471, 'Scavengers_Focus', 'Fokus_des_Plünderers'], _
+		[1471, 'Scavengers_Focus', 'Fokus_des_PlÃ¼nderers'], _
 		[1472, 'Toxicity', 'Giftigkeit'], _
 		[1473, 'Quicksand', 'Treibsand'], _
 		[1474, 'Storms_Embrace', 'Umarmung_des_Sturms'], _
@@ -903,8 +904,8 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1479, 'Offering_of_Spirit', 'Opfer_des_Geistes'], _
 		[1480, 'Spirits_Gift', 'Geschenk_des_Geistes'], _
 		[1481, 'Death_Pact_Signet', 'Todespakt_Siegel'], _
-		[1482, 'Reclaim_Essence', 'Essenz_zurückfordern'], _
-		[1483, 'Banishing_Strike', 'Bannstoß'], _
+		[1482, 'Reclaim_Essence', 'Essenz_zurÃ¼ckfordern'], _
+		[1483, 'Banishing_Strike', 'BannstoÃŸ'], _
 		[1484, 'Mystic_Sweep', 'Mystischer_Schwung'], _
 		[1485, 'Eremites_Attack', 'Angriff_des_Eremiten'], _
 		[1486, 'Reap_Impurities', 'Unreinheiten_ausnutzen'], _
@@ -921,20 +922,20 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1499, 'Pious_Renewal', 'Fromme_Erneuerung'], _
 		[1500, 'Mirage_Cloak', 'Trugbild_Umhang'], _
 		[1502, 'Arcane_Zeal', 'Arkaner_Eifer'], _
-		[1503, 'Mystic_Vigor', 'Mystische_Vitalität'], _
+		[1503, 'Mystic_Vigor', 'Mystische_VitalitÃ¤t'], _
 		[1504, 'Watchful_Intervention', 'Wachsame_Intervention'], _
-		[1505, 'Vow_of_Piety', 'Gelübde_der_Frömmigkeit'], _
+		[1505, 'Vow_of_Piety', 'GelÃ¼bde_der_FrÃ¶mmigkeit'], _
 		[1506, 'Vital_Boon', 'Wesentliche_Wohltat'], _
 		[1507, 'Heart_of_Holy_Flame', 'Herz_der_heiligen_Flamme'], _
 		[1508, 'Extend_Enchantments', 'Verzauberungen_ausweiten'], _
 		[1509, 'Faithful_Intervention', 'Vertrauensvolle_Intervention'], _
 		[1510, 'Sand_Shards', 'Sandscherben'], _
 		[1512, 'Lyssas_Haste', 'Lyssas_Eile'], _
-		[1513, 'Guiding_Hands', 'Lenkende_Hände'], _
-		[1514, 'Fleeting_Stability', 'Flüchtige_Stabilität'], _
-		[1515, 'Armor_of_Sanctity', 'Rüstung_der_Heiligkeit'], _
+		[1513, 'Guiding_Hands', 'Lenkende_HÃ¤nde'], _
+		[1514, 'Fleeting_Stability', 'FlÃ¼chtige_StabilitÃ¤t'], _
+		[1515, 'Armor_of_Sanctity', 'RÃ¼stung_der_Heiligkeit'], _
 		[1516, 'Mystic_Regeneration', 'Mystische_Regeneration'], _
-		[1517, 'Vow_of_Silence', 'Schweigegelübde'], _
+		[1517, 'Vow_of_Silence', 'SchweigegelÃ¼bde'], _
 		[1518, 'Avatar_of_Balthazar', 'Balthasars_Avatar'], _
 		[1519, 'Avatar_of_Dwayna', 'Dwaynas_Avatar'], _
 		[1520, 'Avatar_of_Grenth', 'Grenths_Avatar'], _
@@ -942,36 +943,36 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1522, 'Avatar_of_Melandru', 'Melandrus_Avatar'], _
 		[1523, 'Meditation', 'Meditation'], _
 		[1524, 'Eremites_Zeal', 'Eifer_des_Eremiten'], _
-		[1525, 'Natural_Healing', 'Natürliche_Heilung'], _
+		[1525, 'Natural_Healing', 'NatÃ¼rliche_Heilung'], _
 		[1526, 'Imbue_Health', 'Mit_Leben_durchdringen'], _
 		[1527, 'Mystic_Healing', 'Mystische_Heilung'], _
-		[1528, 'Dwaynas_Touch', 'Dwaynas_Berührung'], _
+		[1528, 'Dwaynas_Touch', 'Dwaynas_BerÃ¼hrung'], _
 		[1529, 'Pious_Restoration', 'Fromme_Wiederherstellung'], _
 		[1530, 'Signet_of_Pious_Light', 'Siegel_des_frommen_Lichts'], _
-		[1531, 'Intimidating_Aura', 'Einschüchternde_Aura'], _
+		[1531, 'Intimidating_Aura', 'EinschÃ¼chternde_Aura'], _
 		[1532, 'Mystic_Sandstorm', 'Mystischer_Sandsturm'], _
 		[1533, 'Winds_of_Disenchantment', 'Wind_der_Entzauberung'], _
-		[1534, 'Rending_Touch', 'Zerreißende_Berührung'], _
-		[1535, 'Crippling_Sweep', 'Verkrüppelnder_Schwung'], _
+		[1534, 'Rending_Touch', 'ZerreiÃŸende_BerÃ¼hrung'], _
+		[1535, 'Crippling_Sweep', 'VerkrÃ¼ppelnder_Schwung'], _
 		[1536, 'Wounding_Strike', 'Verwundender_Schlag'], _
-		[1537, 'Wearying_Strike', 'Ermüdender_Schlag'], _
+		[1537, 'Wearying_Strike', 'ErmÃ¼dender_Schlag'], _
 		[1538, 'Lyssas_Assault', 'Lyssas_Angriff'], _
-		[1539, 'Chilling_Victory', 'Kühler_Sieg'], _
-		[1540, 'Conviction', 'Überzeugung'], _
+		[1539, 'Chilling_Victory', 'KÃ¼hler_Sieg'], _
+		[1540, 'Conviction', 'Ãœberzeugung'], _
 		[1541, 'Enchanted_Haste', 'Verzauberte_Eile'], _
 		[1542, 'Pious_Concentration', 'Fromme_Konzentration'], _
 		[1543, 'Pious_Haste', 'Fromme_Eile'], _
 		[1544, 'Whirling_Charge', 'Wirbelangriff'], _
-		[1545, 'Test_of_Faith', 'Glaubensprüfung'], _
+		[1545, 'Test_of_Faith', 'GlaubensprÃ¼fung'], _
 		[1546, 'Blazing_Spear', 'Lodernder_Speer'], _
-		[1547, 'Mighty_Throw', 'Mächtiger_Wurf'], _
+		[1547, 'Mighty_Throw', 'MÃ¤chtiger_Wurf'], _
 		[1548, 'Cruel_Spear', 'Grausamer_Speer'], _
-		[1549, 'Harriers_Toss', 'Wurf_des_Läufers'], _
+		[1549, 'Harriers_Toss', 'Wurf_des_LÃ¤ufers'], _
 		[1550, 'Unblockable_Throw', 'Unblockbarer_Wurf'], _
 		[1551, 'Spear_of_Lightning', 'Speer_des_Blitzes'], _
-		[1552, 'Wearying_Spear', 'Ermüdender_Speer'], _
+		[1552, 'Wearying_Spear', 'ErmÃ¼dender_Speer'], _
 		[1553, 'Anthem_of_Fury', 'Hymne_der_Wut'], _
-		[1554, 'Crippling_Anthem', 'Verkrüppelungs_Hymne'], _
+		[1554, 'Crippling_Anthem', 'VerkrÃ¼ppelungs_Hymne'], _
 		[1555, 'Defensive_Anthem', 'Verteidigungshymne'], _
 		[1556, 'Godspeed', 'Gute_Reise'], _
 		[1557, 'Anthem_of_Flame', 'Hymne_der_Flamme'], _
@@ -985,9 +986,9 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1565, 'Chorus_of_Restoration', 'Chor_der_Wiederherstellung'], _
 		[1566, 'Aria_of_Restoration', 'Arie_der_Wiederherstellung'], _
 		[1567, 'Song_of_Concentration', 'Lied_der_Konzentration'], _
-		[1568, 'Anthem_of_Guidance', 'Hymne_der_Führung'], _
+		[1568, 'Anthem_of_Guidance', 'Hymne_der_FÃ¼hrung'], _
 		[1569, 'Energizing_Chorus', 'Energie_bringender_Chor'], _
-		[1570, 'Song_of_Purification', 'Lied_der_Läuterung'], _
+		[1570, 'Song_of_Purification', 'Lied_der_LÃ¤uterung'], _
 		[1571, 'Hexbreaker_Aria', 'Verhexungsbrech_Arie'], _
 		[1572, 'Brace_Yourself', 'Seid_vorbereitet'], _
 		[1573, 'Awe', 'Ehrfurcht'], _
@@ -998,63 +999,63 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1578, 'Mending_Refrain', 'Genesungsrefrain'], _
 		[1579, 'Purifying_Finale', 'Reinigendes_Finale'], _
 		[1580, 'Bladeturn_Refrain', 'Klingenumkehr_Refrain'], _
-		[1581, 'Glowing_Signet', 'Glühendes_Siegel'], _
-		[1583, 'Leaders_Zeal', 'Eifer_des_Anführers'], _
-		[1584, 'Leaders_Comfort', 'Trost_des_Anführers'], _
+		[1581, 'Glowing_Signet', 'GlÃ¼hendes_Siegel'], _
+		[1583, 'Leaders_Zeal', 'Eifer_des_AnfÃ¼hrers'], _
+		[1584, 'Leaders_Comfort', 'Trost_des_AnfÃ¼hrers'], _
 		[1585, 'Signet_of_Synergy', 'Siegel_der_Synergie'], _
 		[1586, 'Angelic_Protection', 'Engelsschutz'], _
 		[1587, 'Angelic_Bond', 'Engelsbindung'], _
-		[1588, 'Cautery_Signet', 'Siegel_der_Verätzung'], _
+		[1588, 'Cautery_Signet', 'Siegel_der_VerÃ¤tzung'], _
 		[1589, 'Stand_Your_Ground', 'Haltet_Eure_Stellung'], _
 		[1590, 'Lead_the_Way', 'Geht_voran'], _
 		[1591, 'Make_Haste', 'Beeilt_Euch'], _
 		[1592, 'We_Shall_Return', 'Wir_werden_wiederkommen'], _
 		[1593, 'Never_Give_Up', 'Gebt_nicht_auf'], _
 		[1594, 'Help_Me', 'Helft_mir'], _
-		[1595, 'Fall_Back', 'Zieht_Euch_zurück'], _
+		[1595, 'Fall_Back', 'Zieht_Euch_zurÃ¼ck'], _
 		[1596, 'Incoming', 'Schon_unterwegs'], _
 		[1597, 'Theyre_on_Fire', 'Sie_brennen'], _
 		[1598, 'Never_Surrender', 'Ergebt_Euch_nicht'], _
 		[1599, 'Its_Just_a_Flesh_Wound', 'Es_ist_nur_eine_Fleischwunde'], _
 		[1600, 'Barbed_Spear', 'Stachelspeer'], _
-		[1601, 'Vicious_Attack', 'Bösartiger_Angriff'], _
-		[1602, 'Stunning_Strike', 'Betäubender_Schlag'], _
+		[1601, 'Vicious_Attack', 'BÃ¶sartiger_Angriff'], _
+		[1602, 'Stunning_Strike', 'BetÃ¤ubender_Schlag'], _
 		[1603, 'Merciless_Spear', 'Unbarmherziger_Speer'], _
 		[1604, 'Disrupting_Throw', 'Unterbrechender_Wurf'], _
 		[1605, 'Wild_Throw', 'Wilder_Wurf'], _
-		[1633, 'Malicious_Strike', 'Böswilliger_Stoß'], _
+		[1633, 'Malicious_Strike', 'BÃ¶swilliger_StoÃŸ'], _
 		[1634, 'Shattering_Assault', 'Vernichtender_Angriff'], _
-		[1635, 'Golden_Skull_Strike', 'Goldener_Schädel_Stoß'], _
-		[1636, 'Black_Spider_Strike', 'Schwarzer_Spinnen_Stoß'], _
-		[1637, 'Golden_Fox_Strike', 'Goldener_Fuchs_Stoß'], _
-		[1638, 'Deadly_Haste', 'Tödliche_Eile'], _
+		[1635, 'Golden_Skull_Strike', 'Goldener_SchÃ¤del_StoÃŸ'], _
+		[1636, 'Black_Spider_Strike', 'Schwarzer_Spinnen_StoÃŸ'], _
+		[1637, 'Golden_Fox_Strike', 'Goldener_Fuchs_StoÃŸ'], _
+		[1638, 'Deadly_Haste', 'TÃ¶dliche_Eile'], _
 		[1639, 'Assassins_Remedy', 'Mittel_des_Assassinen'], _
 		[1640, 'Foxs_Promise', 'Versprechen_des_Fuchses'], _
-		[1641, 'Feigned_Neutrality', 'Vorgetäuschte_Neutralität'], _
-		[1642, 'Hidden_Caltrops', 'Versteckte_Trittnägel'], _
+		[1641, 'Feigned_Neutrality', 'VorgetÃ¤uschte_NeutralitÃ¤t'], _
+		[1642, 'Hidden_Caltrops', 'Versteckte_TrittnÃ¤gel'], _
 		[1643, 'Assault_Enchantments', 'Verzauberungen_angreifen'], _
 		[1644, 'Wastrels_Collapse', 'Verfall_des_Verschwenders'], _
-		[1645, 'Lift_Enchantment', 'Verzauberung_lösen'], _
+		[1645, 'Lift_Enchantment', 'Verzauberung_lÃ¶sen'], _
 		[1646, 'Augury_of_Death', 'Todesomen'], _
 		[1647, 'Signet_of_Toxic_Shock', 'Siegel_des_toxischen_Schocks'], _
 		[1648, 'Signet_of_Twilight', 'Siegel_des_Zwielichts'], _
 		[1649, 'Way_of_the_Assassin', 'Weg_des_Assassinen'], _
 		[1650, 'Shadow_Walk', 'Schattenmarsch'], _
-		[1651, 'Deaths_Retreat', 'Rückzug_des_Todes'], _
-		[1652, 'Shadow_Prison', 'Schattengefängnis'], _
+		[1651, 'Deaths_Retreat', 'RÃ¼ckzug_des_Todes'], _
+		[1652, 'Shadow_Prison', 'SchattengefÃ¤ngnis'], _
 		[1653, 'Swap', 'Tauschen'], _
 		[1654, 'Shadow_Meld', 'Schattenverschmelzung'], _
 		[1655, 'Price_of_Pride', 'Preis_des_Stolzes'], _
 		[1656, 'Air_of_Disenchantment', 'Flair_der_Entzauberung'], _
 		[1657, 'Signet_of_Clumsiness', 'Siegel_der_Unbeholfenheit'], _
 		[1658, 'Symbolic_Posture', 'Symbolische_Haltung'], _
-		[1659, 'Toxic_Chill', 'Toxische_Kälte'], _
+		[1659, 'Toxic_Chill', 'Toxische_KÃ¤lte'], _
 		[1660, 'Well_of_Silence', 'Brunnen_der_Stille'], _
 		[1661, 'Glowstone', 'Leuchtstein'], _
 		[1662, 'Mind_Blast', 'Geistige_Explosion'], _
 		[1663, 'Elemental_Flame', 'Elementare_Flamme'], _
 		[1664, 'Invoke_Lightning', 'Blitz_herbeirufen'], _
-		[1683, 'Pensive_Guardian', 'Nachdenklicher_Wächter'], _
+		[1683, 'Pensive_Guardian', 'Nachdenklicher_WÃ¤chter'], _
 		[1684, 'Scribes_Insight', 'Einblick_des_Schreibers'], _
 		[1685, 'Holy_Haste', 'Heilige_Eile'], _
 		[1686, 'Glimmer_of_Light', 'Lichtschimmer'], _
@@ -1066,14 +1067,14 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1692, 'Divert_Hexes', 'Verhexungen_umleiten'], _
 		[1693, 'Counterattack', 'Gegenangriff'], _
 		[1694, 'Magehunter_Strike', 'Magierschlag'], _
-		[1695, 'Soldiers_Strike', 'Soldatenstoß'], _
-		[1696, 'Decapitate', 'Köpfen'], _
-		[1697, 'Magehunters_Smash', 'Magiejägerschmetterer'], _
+		[1695, 'Soldiers_Strike', 'SoldatenstoÃŸ'], _
+		[1696, 'Decapitate', 'KÃ¶pfen'], _
+		[1697, 'Magehunters_Smash', 'MagiejÃ¤gerschmetterer'], _
 		[1698, 'Soldiers_Stance', 'Soldaten_Haltung'], _
 		[1699, 'Soldiers_Defense', 'Soldaten_Verteidigung'], _
 		[1700, 'Frenzied_Defense', 'Fieberhafte_Verteidigung'], _
 		[1701, 'Steady_Stance', 'Ruhige_Haltung'], _
-		[1702, 'Steelfang_Slash', 'Hieb_des_stählernen_Fangzahns'], _
+		[1702, 'Steelfang_Slash', 'Hieb_des_stÃ¤hlernen_Fangzahns'], _
 		[1719, 'Screaming_Shot', 'Schreischuss'], _
 		[1720, 'Keen_Arrow', 'Scharfer_Pfeil'], _
 		[1721, 'Rampage_as_One', 'Gemeinsam_toben'], _
@@ -1082,50 +1083,50 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1724, 'Experts_Dexterity', 'Gewandtheit_des_Profis'], _
 		[1725, 'Roaring_Winds', 'Tosender_Wind'], _
 		[1726, 'Magebane_Shot', 'Verderben_des_Magiers_Schuss'], _
-		[1727, 'Natural_Stride', 'Natürlicher_Schwung'], _
+		[1727, 'Natural_Stride', 'NatÃ¼rlicher_Schwung'], _
 		[1728, 'Hekets_Rampage', 'Heket_Toben'], _
 		[1729, 'Smoke_Trap', 'Rauchfalle'], _
 		[1730, 'Infuriating_Heat', 'Irritierende_Hitze'], _
 		[1731, 'Vocal_Was_Sogolon', 'Lautstark_war_Sogolon'], _
 		[1732, 'Destructive_Was_Glaive', 'Vernichtend_war_Glaive'], _
-		[1733, 'Wielders_Strike', 'Stoß_des_Ausübers'], _
-		[1734, 'Gaze_of_Fury', 'Wütendes_Starren'], _
-		[1736, 'Spirits_Strength', 'Geistesstärke'], _
-		[1737, 'Wielders_Zeal', 'Eifer_des_Ausübers'], _
+		[1733, 'Wielders_Strike', 'StoÃŸ_des_AusÃ¼bers'], _
+		[1734, 'Gaze_of_Fury', 'WÃ¼tendes_Starren'], _
+		[1736, 'Spirits_Strength', 'GeistesstÃ¤rke'], _
+		[1737, 'Wielders_Zeal', 'Eifer_des_AusÃ¼bers'], _
 		[1738, 'Sight_Beyond_Sight', 'Sicht_jenseits_der_Sicht'], _
 		[1739, 'Renewing_Memories', 'Erneuernde_Erinnerungen'], _
-		[1740, 'Wielders_Remedy', 'Mittel_des_Ausübers'], _
+		[1740, 'Wielders_Remedy', 'Mittel_des_AusÃ¼bers'], _
 		[1741, 'Ghostmirror_Light', 'Geisterspiegel_Licht'], _
 		[1742, 'Signet_of_Ghostly_Might', 'Siegel_der_Macht_der_Geister'], _
 		[1743, 'Signet_of_Binding', 'Siegel_der_Bindung'], _
 		[1744, 'Caretakers_Charge', 'Angriff_des_Verwalters'], _
 		[1745, 'Anguish', 'Qual'], _
-		[1747, 'Empowerment', 'Ermächtigung'], _
+		[1747, 'Empowerment', 'ErmÃ¤chtigung'], _
 		[1748, 'Recovery', 'Gesundung'], _
 		[1749, 'Weapon_of_Fury', 'Waffe_der_Wut'], _
 		[1750, 'Xinraes_Weapon', 'Xinraes_Waffe'], _
 		[1751, 'Warmongers_Weapon', 'Waffe_des_Kriegshetzers'], _
 		[1752, 'Weapon_of_Remedy', 'Waffe_der_Behebung'], _
-		[1753, 'Rending_Sweep', 'Zerreißender_Schwung'], _
+		[1753, 'Rending_Sweep', 'ZerreiÃŸender_Schwung'], _
 		[1754, 'Onslaught', 'Attacke'], _
 		[1755, 'Mystic_Corruption', 'Mystische_Verdorbenheit'], _
 		[1756, 'Grenths_Grasp', 'Grenths_Griff'], _
 		[1757, 'Veil_of_Thorns', 'Dornenschleier'], _
-		[1758, 'Harriers_Grasp', 'Griff_des_Läufers'], _
-		[1759, 'Vow_of_Strength', 'Gelübde_der_Stärke'], _
+		[1758, 'Harriers_Grasp', 'Griff_des_LÃ¤ufers'], _
+		[1759, 'Vow_of_Strength', 'GelÃ¼bde_der_StÃ¤rke'], _
 		[1760, 'Ebon_Dust_Aura', 'Ebon_Staubaura'], _
-		[1761, 'Zealous_Vow', 'Eifriges_Gelübde'], _
+		[1761, 'Zealous_Vow', 'Eifriges_GelÃ¼bde'], _
 		[1762, 'Heart_of_Fury', 'Herz_der_Wut'], _
 		[1763, 'Zealous_Renewal', 'Eifrige_Erneuerung'], _
 		[1764, 'Attackers_Insight', 'Einblick_des_Angreifers'], _
-		[1765, 'Rending_Aura', 'Zerreißende_Aura'], _
-		[1766, 'Featherfoot_Grace', 'Anmut_des_Federfußes'], _
+		[1765, 'Rending_Aura', 'ZerreiÃŸende_Aura'], _
+		[1766, 'Featherfoot_Grace', 'Anmut_des_FederfuÃŸes'], _
 		[1767, 'Reapers_Sweep', 'Schwung_des_Schnitters'], _
-		[1768, 'Harriers_Haste', 'Eile_des_Läufers'], _
+		[1768, 'Harriers_Haste', 'Eile_des_LÃ¤ufers'], _
 		[1769, 'Focused_Anger', 'Konzentrierter_Zorn'], _
-		[1770, 'Natural_Temper', 'Natürliche_Laune'], _
+		[1770, 'Natural_Temper', 'NatÃ¼rliche_Laune'], _
 		[1771, 'Song_of_Restoration', 'Gesang_der_Wiederherstellung'], _
-		[1772, 'Lyric_of_Purification', 'Lyrik_der_Läuterung'], _
+		[1772, 'Lyric_of_Purification', 'Lyrik_der_LÃ¤uterung'], _
 		[1773, 'Soldiers_Fury', 'Wut_des_Soldaten'], _
 		[1774, 'Aggressive_Refrain', 'Aggressiver_Refrain'], _
 		[1775, 'Energizing_Finale', 'Energie_bringendes_Finale'], _
@@ -1136,13 +1137,13 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1780, 'Cant_Touch_This', 'Cant_touch_this'], _
 		[1781, 'Find_Their_Weakness', 'Findet_ihren_Schwachpunkt'], _
 		[1782, 'The_Power_Is_Yours', 'Die_Macht_ist_Euer'], _
-		[1783, 'Slayers_Spear', 'Speer_des_Würgers'], _
+		[1783, 'Slayers_Spear', 'Speer_des_WÃ¼rgers'], _
 		[1784, 'Swift_Javelin', 'Schneller_Speer'], _
 		[1814, 'Lightbringers_Gaze', 'Blick_des_Lichtbringers'], _
 		[1815, 'Lightbringer_Signet', 'Lichtbringer_Siegel'], _
 		[1816, 'Sunspear_Rebirth_Signet', 'Sonnenspeer_Wiedergeburtssiegel'], _
 		[1948, 'Shadow_Sanctuary_Luxon', 'Schattenzuflucht_Luxon'], _
-		[1949, 'Ether_Nightmare_Luxon', 'Äther_Alptraum_Luxon'], _
+		[1949, 'Ether_Nightmare_Luxon', 'Ã„ther_Alptraum_Luxon'], _
 		[1950, 'Signet_of_Corruption_Luxon', 'Siegel_der_Verdorbenheit_Luxon'], _
 		[1951, 'Elemental_Lord_Luxon', 'Elementarlord_Luxon'], _
 		[1952, 'Selfless_Spirit_Luxon', 'Selbstloser_Geist_Luxon'], _
@@ -1151,25 +1152,25 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[1955, 'Aura_of_Holy_Might_Luxon', 'Aura_der_Heiligen_Macht_Luxon'], _
 		[1957, 'Spear_of_Fury_Luxon', 'Speer_der_Wut_Luxon'], _
 		[1986, 'Vampiric_Assault', 'Vampirangriff'], _
-		[1987, 'Lotus_Strike', 'Lotus_Stoß'], _
-		[1988, 'Golden_Fang_Strike', 'Goldfangstoß'], _
-		[1990, 'Falling_Lotus_Strike', 'Fallender_Lotus_Stoß'], _
+		[1987, 'Lotus_Strike', 'Lotus_StoÃŸ'], _
+		[1988, 'Golden_Fang_Strike', 'GoldfangstoÃŸ'], _
+		[1990, 'Falling_Lotus_Strike', 'Fallender_Lotus_StoÃŸ'], _
 		[1991, 'Sadists_Signet', 'Siegel_des_Sadisten'], _
 		[1992, 'Signet_of_Distraction', 'Siegel_der_Ablenkung'], _
-		[1993, 'Signet_of_Recall', 'Siegel_der_Zurückrufung'], _
+		[1993, 'Signet_of_Recall', 'Siegel_der_ZurÃ¼ckrufung'], _
 		[1994, 'Power_Lock', 'Kraftsperre'], _
 		[1995, 'Waste_Not', 'Spare_in_der_Zeit_'], _
-		[1996, 'Sum_of_All_Fears', 'Summe_aller_Ängste'], _
-		[1997, 'Withering_Aura', 'Verkümmernde_Aura'], _
+		[1996, 'Sum_of_All_Fears', 'Summe_aller_Ã„ngste'], _
+		[1997, 'Withering_Aura', 'VerkÃ¼mmernde_Aura'], _
 		[1998, 'Cacophony', 'Kakophonie'], _
 		[1999, 'Winters_Embrace', 'Umarmung_des_Winters'], _
 		[2000, 'Earthen_Shackles', 'Irdene_Fesseln'], _
-		[2001, 'Ward_of_Weakness', 'Kreis_der_Schwäche'], _
+		[2001, 'Ward_of_Weakness', 'Kreis_der_SchwÃ¤che'], _
 		[2002, 'Glyph_of_Swiftness', 'Glyphe_der_Schnelligkeit'], _
 		[2003, 'Cure_Hex', 'Verhexung_heilen'], _
 		[2004, 'Smite_Condition', 'Zustand_zerschlagen'], _
 		[2005, 'Smiters_Boon', 'Segen_des_Peinigers'], _
-		[2006, 'Castigation_Signet', 'Geißelungs_Siegel'], _
+		[2006, 'Castigation_Signet', 'GeiÃŸelungs_Siegel'], _
 		[2007, 'Purifying_Veil', 'Reinigender_Schleier'], _
 		[2008, 'Pulverizing_Smash', 'Zermalmender_Schlag'], _
 		[2009, 'Keen_Chop', 'Verwegener_Hieb'], _
@@ -1177,15 +1178,15 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[2011, 'Grapple', 'Raufen'], _
 		[2012, 'Radiant_Scythe', 'Strahlende_Sense'], _
 		[2013, 'Grenths_Aura', 'Grenths_Aura'], _
-		[2014, 'Signet_of_Pious_Restraint', 'Siegel_der_frommen_Zurückhaltung'], _
+		[2014, 'Signet_of_Pious_Restraint', 'Siegel_der_frommen_ZurÃ¼ckhaltung'], _
 		[2015, 'Farmers_Scythe', 'Sense_des_Bauern'], _
 		[2016, 'Energetic_Was_Lee_Sa', 'Energisch_war_Lee_Sa'], _
-		[2017, 'Anthem_of_Weariness', 'Hymne_der_Müdigkeit'], _
-		[2018, 'Anthem_of_Disruption', 'Hymne_der_Störung'], _
+		[2017, 'Anthem_of_Weariness', 'Hymne_der_MÃ¼digkeit'], _
+		[2018, 'Anthem_of_Disruption', 'Hymne_der_StÃ¶rung'], _
 		[2051, 'Summon_Spirits_Luxon', 'Geister_herbeirufen_Luxon'], _
 		[2052, 'Shadow_Fang', 'Schattenfangzahn'], _
 		[2053, 'Calculated_Risk', 'Kalkuliertes_Risiko'], _
-		[2054, 'Shrinking_Armor', 'Schrumpfende_Rüstung'], _
+		[2054, 'Shrinking_Armor', 'Schrumpfende_RÃ¼stung'], _
 		[2055, 'Aneurysm', 'Aneurysma'], _
 		[2056, 'Wandering_Eye', 'Wanderndes_Auge'], _
 		[2057, 'Foul_Feast', 'Widerliches_Gelage'], _
@@ -1194,13 +1195,13 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[2060, 'Glyph_of_Immolation', 'Glyphe_der_Aufopferung'], _
 		[2061, 'Patient_Spirit', 'Geduldiger_Geist'], _
 		[2062, 'Healing_Ribbon', 'Heilendes_Band'], _
-		[2063, 'Aura_of_Stability', 'Aura_der_Stabilität'], _
+		[2063, 'Aura_of_Stability', 'Aura_der_StabilitÃ¤t'], _
 		[2064, 'Spotless_Mind', 'Makelloser_Verstand'], _
 		[2065, 'Spotless_Soul', 'Makellose_Seele'], _
 		[2066, 'Disarm', 'Entwaffnen'], _
 		[2067, 'I_Meant_to_Do_That', 'Das_war_Absicht'], _
 		[2068, 'Rapid_Fire', 'Schnellfeuer'], _
-		[2069, 'Sloth_Hunters_Shot', 'Schuss_des_Faultierjägers'], _
+		[2069, 'Sloth_Hunters_Shot', 'Schuss_des_FaultierjÃ¤gers'], _
 		[2070, 'Aura_Slicer', 'Auraschneider'], _
 		[2071, 'Zealous_Sweep', 'Eifriger_Schwung'], _
 		[2072, 'Pure_Was_Li_Ming', 'Rein_war_Li_Ming'], _
@@ -1208,7 +1209,7 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[2074, 'Chest_Thumper', 'Brusttrommler'], _
 		[2075, 'Hasty_Refrain', 'Hastiger_Refrain'], _
 		[2091, 'Shadow_Sanctuary_Kurzick', 'Schattenzuflucht_Kurzick'], _
-		[2092, 'Ether_Nightmare_Kurzick', 'Äther_Alptraum_Kurzick'], _
+		[2092, 'Ether_Nightmare_Kurzick', 'Ã„ther_Alptraum_Kurzick'], _
 		[2093, 'Signet_of_Corruption_Kurzick', 'Siegel_der_Verdorbenheit_Kurzick'], _
 		[2094, 'Elemental_Lord_Kurzick', 'Elementarlord_Kurzick'], _
 		[2095, 'Selfless_Spirit_Kurzick', 'Selbstloser_Geist_Kurzick'], _
@@ -1220,14 +1221,14 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[2101, 'Critical_Agility', 'Kritische_Beweglichkeit'], _
 		[2102, 'Cry_of_Pain', 'Schmerzensschrei'], _
 		[2103, 'Necrosis', 'Nekrose'], _
-		[2104, 'Intensity', 'Intensität'], _
+		[2104, 'Intensity', 'IntensitÃ¤t'], _
 		[2105, 'Seed_of_Life', 'Lebenssaat'], _
 		[2107, 'Whirlwind_Attack', 'Wirbelsturmangriff'], _
 		[2108, 'Never_Rampage_Alone', 'Tobt_niemals_allein'], _
 		[2109, 'Eternal_Aura', 'Ewige_Aura'], _
 		[2110, 'Vampirism', 'Vampirismus'], _
-		[2112, 'Theres_Nothing_to_Fear', 'Es_gibt_nichts_zu_befürchten'], _
-		[2116, 'Sneak_Attack', 'Überraschungsangriff'], _
+		[2112, 'Theres_Nothing_to_Fear', 'Es_gibt_nichts_zu_befÃ¼rchten'], _
+		[2116, 'Sneak_Attack', 'Ãœberraschungsangriff'], _
 		[2135, 'Trampling_Ox', 'Trampelnder_Ochse'], _
 		[2136, 'Smoke_Powder_Defense', 'Rauchpulver_Verteidigung'], _
 		[2137, 'Confusing_Images', 'Verwirrende_Bilder'], _
@@ -1240,11 +1241,11 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[2144, 'Volley', 'Salve'], _
 		[2145, 'Expert_Focus', 'Expertenfokus'], _
 		[2146, 'Pious_Fury', 'Frommer_Zorn'], _
-		[2147, 'Crippling_Victory', 'Verkrüppelnder_Sieg'], _
+		[2147, 'Crippling_Victory', 'VerkrÃ¼ppelnder_Sieg'], _
 		[2148, 'Sundering_Weapon', 'Trennende_Waffe'], _
 		[2149, 'Weapon_of_Renewal', 'Waffe_der_Erneuerung'], _
-		[2150, 'Maiming_Spear', 'Verkrüppelungs_Speer'], _
-		[2186, 'Signet_of_Deadly_Corruption', 'Siegel_der_tödlichen_Verdorbenheit'], _
+		[2150, 'Maiming_Spear', 'VerkrÃ¼ppelungs_Speer'], _
+		[2186, 'Signet_of_Deadly_Corruption', 'Siegel_der_tÃ¶dlichen_Verdorbenheit'], _
 		[2187, 'Way_of_the_Master', 'Weg_des_Meisters'], _
 		[2188, 'Defile_Defenses', 'Verteidigung_entweihen'], _
 		[2189, 'Angorodons_Gaze', 'Angorodons_Starren'], _
@@ -1252,34 +1253,34 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[2191, 'Slippery_Ground', 'Rutschiger_Boden'], _
 		[2192, 'Glowing_Ice', 'Leuchtendes_Eis'], _
 		[2193, 'Energy_Blast', 'Energieexplosion'], _
-		[2194, 'Distracting_Strike', 'Ablenkender_Stoß'], _
+		[2194, 'Distracting_Strike', 'Ablenkender_StoÃŸ'], _
 		[2195, 'Symbolic_Strike', 'Symbolischer_Schlag'], _
 		[2196, 'Soldiers_Speed', 'Geschwindigkeit_des_Soldaten'], _
-		[2197, 'Body_Blow', 'Körperschlag'], _
-		[2198, 'Body_Shot', 'Körperschuss'], _
+		[2197, 'Body_Blow', 'KÃ¶rperschlag'], _
+		[2198, 'Body_Shot', 'KÃ¶rperschuss'], _
 		[2199, 'Poison_Tip_Signet', 'Giftspitzen_Siegel'], _
 		[2200, 'Signet_of_Mystic_Speed', 'Siegel_der_mystischen_Geschwindigkeit'], _
 		[2201, 'Shield_of_Force', 'Kraftschild'], _
 		[2202, 'Mending_Grip', 'Genesungsgriff'], _
 		[2203, 'Spiritleech_Aura', 'Geistsauger_Aura'], _
-		[2204, 'Rejuvenation', 'Verjüngung'], _
+		[2204, 'Rejuvenation', 'VerjÃ¼ngung'], _
 		[2205, 'Agony', 'Todesqual'], _
 		[2206, 'Ghostly_Weapon', 'Geisterwaffe'], _
 		[2207, 'Inspirational_Speech', 'Inspirative_Rede'], _
 		[2208, 'Burning_Shield', 'Brennender_Schild'], _
 		[2209, 'Holy_Spear', 'Heiliger_Speer'], _
 		[2210, 'Spear_Swipe', 'Speerschlag'], _
-		[2211, 'Alkars_Alchemical_Acid', 'Alkars_Alchemiesäure'], _
+		[2211, 'Alkars_Alchemical_Acid', 'Alkars_AlchemiesÃ¤ure'], _
 		[2212, 'Light_of_Deldrimor', 'Licht_von_Deldrimor'], _
 		[2213, 'Ear_Bite', 'Ohrenbiss'], _
-		[2214, 'Low_Blow', 'Unter_der_Gürtellinie'], _
-		[2215, 'Brawling_Headbutt', 'Rauf_Kopfstoß'], _
+		[2214, 'Low_Blow', 'Unter_der_GÃ¼rtellinie'], _
+		[2215, 'Brawling_Headbutt', 'Rauf_KopfstoÃŸ'], _
 		[2216, 'Dont_Trip', 'Stolpert_nicht'], _
 		[2217, 'By_Urals_Hammer', 'Bei_Urals_Hammer'], _
 		[2218, 'Drunken_Master', 'Betrunkener_Meister'], _
-		[2219, 'Great_Dwarf_Weapon', 'Waffe_des_Großen_Zwergs'], _
-		[2220, 'Great_Dwarf_Armor', 'Rüstung_des_Großen_Zwergs'], _
-		[2221, 'Breath_of_the_Great_Dwarf', 'Atem_des_Großen_Zwergs'], _
+		[2219, 'Great_Dwarf_Weapon', 'Waffe_des_GroÃŸen_Zwergs'], _
+		[2220, 'Great_Dwarf_Armor', 'RÃ¼stung_des_GroÃŸen_Zwergs'], _
+		[2221, 'Breath_of_the_Great_Dwarf', 'Atem_des_GroÃŸen_Zwergs'], _
 		[2222, 'Snow_Storm', 'Schneesturm'], _
 		[2223, 'Black_Powder_Mine', 'Schwarzpulvermine'], _
 		[2224, 'Summon_Mursaat', 'Mursaat_herbeirufen'], _
@@ -1292,21 +1293,21 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[2231, 'Ebon_Battle_Standard_of_Courage', 'Ebon_Kampfstandarte_des_Mutes'], _
 		[2232, 'Ebon_Battle_Standard_of_Wisdom', 'Ebon_Kampfstandarte_der_Weisheit'], _
 		[2233, 'Ebon_Battle_Standard_of_Honor', 'Ebon_Kampfstandarte_der_Ehre'], _
-		[2234, 'Ebon_Vanguard_Sniper_Support', 'Ebon_Vorhut_Heckenschützen_Unterstützung'], _
-		[2235, 'Ebon_Vanguard_Assassin_Support', 'Ebon_Vorhut_Assassinen_Unterstützung'], _
+		[2234, 'Ebon_Vanguard_Sniper_Support', 'Ebon_Vorhut_HeckenschÃ¼tzen_UnterstÃ¼tzung'], _
+		[2235, 'Ebon_Vanguard_Assassin_Support', 'Ebon_Vorhut_Assassinen_UnterstÃ¼tzung'], _
 		[2236, 'Well_of_Ruin', 'Brunnen_des_Ruins'], _
 		[2237, 'Atrophy', 'Schwund'], _
-		[2238, 'Spear_of_Redemption', 'Speer_der_Erlösung'], _
+		[2238, 'Spear_of_Redemption', 'Speer_der_ErlÃ¶sung'], _
 		[2353, 'Finish_Him', 'Erledigt_ihn'], _
 		[2354, 'Dodge_This', 'Weicht_aus'], _
-		[2355, 'I_Am_the_Strongest', 'Ich_bin_am_stärksten'], _
+		[2355, 'I_Am_the_Strongest', 'Ich_bin_am_stÃ¤rksten'], _
 		[2356, 'I_Am_Unstoppable', 'Ich_bin_unaufhaltbar'], _
 		[2357, 'A_Touch_of_Guile', 'Ein_Funken_Arglist'], _
 		[2358, 'You_Move_Like_a_Dwarf', 'Ihr_bewegt_Euch_wie_ein_Zwerg'], _
-		[2359, 'You_Are_All_Weaklings', 'Ihr_seid_alle_Schwächlinge'], _
-		[2360, 'Feel_No_Pain', 'Den_Schmerz_nicht_spüren'], _
-		[2361, 'Club_of_a_Thousand_Bears', 'Tausend_Bären_Prügel'], _
-		[2374, 'Ursan_Blessing', 'Segen_der_Bärin'], _
+		[2359, 'You_Are_All_Weaklings', 'Ihr_seid_alle_SchwÃ¤chlinge'], _
+		[2360, 'Feel_No_Pain', 'Den_Schmerz_nicht_spÃ¼ren'], _
+		[2361, 'Club_of_a_Thousand_Bears', 'Tausend_BÃ¤ren_PrÃ¼gel'], _
+		[2374, 'Ursan_Blessing', 'Segen_der_BÃ¤rin'], _
 		[2379, 'Volfen_Blessing', 'Segen_des_Wolfes'], _
 		[2384, 'Raven_Blessing', 'Segen_des_Raben'], _
 		[2411, 'Mindbender', 'Geistbrecher'], _
@@ -1314,11 +1315,11 @@ Global $aArray_Of_Skill_Names[3000][3] = [ _
 		[2413, 'Technobabble', 'Technobabbel'], _
 		[2414, 'Radiation_Field', 'Strahlungsfeld'], _
 		[2415, 'Asuran_Scan', 'Asurischer_Scan'], _
-		[2416, 'Air_of_Superiority', 'Hochnäsigkeit'], _
+		[2416, 'Air_of_Superiority', 'HochnÃ¤sigkeit'], _
 		[2417, 'Mental_Block', 'Geistige_Sperre'], _
 		[2418, 'Pain_Inverter', 'Schmerztauscher'], _
 		[2420, 'Ebon_Escape', 'Ebon_Flucht'], _
-		[2421, 'Weakness_Trap', 'Schwäche_Falle'], _
+		[2421, 'Weakness_Trap', 'SchwÃ¤che_Falle'], _
 		[2422, 'Winds', 'Winde'], _
-		[2423, 'Dwarven_Stability', 'Zwergenstabilität'], _
+		[2423, 'Dwarven_Stability', 'ZwergenstabilitÃ¤t'], _
 		[2551, 'Veteran Norn Hunting Party', 'none']]

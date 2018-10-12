@@ -1,8 +1,9 @@
+
 #include-once
 
 #Region ChatControl
 ;~ Description: Write a message in chat (can only be seen by botter).
-Func WriteChat($aMessage, $aSender = 'GWA²')
+Func WriteChat($aMessage, $aSender = 'GWAÂ²')
    Local $lMessage, $lSender
    Local $lAddress = 256 * $mQueueCounter + $mQueueBase
    If $mQueueCounter = $mQueueSize Then

@@ -1,3 +1,4 @@
+
 #include-once
 
 #Region Move
@@ -340,11 +341,11 @@ EndFunc   ;==>MoveIfHurt
 ;~ Description: Run to or follow a player.
 Func GoPlayer($aAgent)
    If IsPtr($aAgent) <> 0 Then
-	  Return SendPacket(0x8, 0x2D, MemoryRead($aAgent + 44, 'long'))
+	  Return SendPacket(0x8, $CtoGS_MSG_GoPlayer, MemoryRead($aAgent + 44, 'long'))  ;~ old -> 	  Return SendPacket(0x8, 0x2D, MemoryRead($aAgent + 44, 'long'))
    ElseIf IsDllStruct($aAgent) <> 0 Then
-	  Return SendPacket(0x8, 0x2D, DllStructGetData($aAgent, 'ID'))
+	  Return SendPacket(0x8, $CtoGS_MSG_GoPlayer, DllStructGetData($aAgent, 'ID'))  ;~ old -> 	  Return SendPacket(0x8, 0x2D, DllStructGetData($aAgent, 'ID'))
    Else
-	  Return SendPacket(0x8, 0x2D, ConvertID($aAgent))
+	  Return SendPacket(0x8, $CtoGS_MSG_GoPlayer, ConvertID($aAgent))  ;~ old -> 	  Return SendPacket(0x8, 0x2D, ConvertID($aAgent))
    EndIf
 EndFunc   ;==>GoPlayer
 
@@ -358,7 +359,7 @@ Func GoNPC($aAgent)
 	  Local $lAgentID = ConvertID($aAgent)
    EndIf
    ChangeTarget($lAgentID)
-   Return SendPacket(0xC, 0x33, $lAgentID)
+   Return SendPacket(0xC, $CtoGS_MSG_GoNPC, $lAgentID)
 EndFunc   ;==>GoNPC
 
 ;~ Description: Go and talk to NPC.
@@ -505,11 +506,11 @@ EndFunc   ;==>GoToNPC
 ;~ Description: Run to a signpost.
 Func GoSignpost($aAgent)
    If IsPtr($aAgent) <> 0 Then
-	  Return SendPacket(0xC, 0x4B, MemoryRead($aAgent + 44, 'long'), 0)
+	  Return SendPacket(0xC, $CtoGS_MSG_GoGadget, MemoryRead($aAgent + 44, 'long'), 0)  ;~ old -> 	  Return SendPacket(0xC, 0x4B, MemoryRead($aAgent + 44, 'long'), 0)
    ElseIf IsDllStruct($aAgent) <> 0 Then
-	  Return SendPacket(0xC, 0x4B, DllStructGetData($aAgent, 'ID'), 0)
+	  Return SendPacket(0xC, $CtoGS_MSG_GoGadget, DllStructGetData($aAgent, 'ID'), 0)  ;~ old -> 	  Return SendPacket(0xC, 0x4B, DllStructGetData($aAgent, 'ID'), 0)
    Else
-	  Return SendPacket(0xC, 0x4B, ConvertID($aAgent), 0)
+	  Return SendPacket(0xC, $CtoGS_MSG_GoGadget, ConvertID($aAgent), 0)  ;~ old -> 	  Return SendPacket(0xC, 0x4B, ConvertID($aAgent), 0)
    EndIf
 EndFunc   ;==>GoSignpost
 

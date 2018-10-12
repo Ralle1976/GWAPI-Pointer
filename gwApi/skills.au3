@@ -1,15 +1,16 @@
+
 #include-once
 
 #Region Skillbar
 ;~ Description: Change a skill on the skillbar.
 Func SetSkillbarSkill($aSlot, $aSkillID, $aHeroNumber = 0, $aHeroID = GetHeroID($aHeroNumber))
-   Return SendPacket(0x14, 0x55, $aHeroID, $aSlot - 1, $aSkillID, 0)
+   Return SendPacket(0x14, $CtoGS_MSG_SetSkillbarSkill, $aHeroID, $aSlot - 1, $aSkillID, 0)
 EndFunc   ;==>SetSkillbarSkill
 
 ;~ Description: Load all skills onto a skillbar simultaneously.
 ;~    $aSkillArray[0] -> Skill 1 etc
 Func LoadSkillBar(ByRef $aSkillArray, $aHeroNumber = 0, $aHeroID = GetHeroID($aHeroNumber))
-   Return SendPacket(0x2C, 0x56, $aHeroID, 8, $aSkillArray[0], $aSkillArray[1], $aSkillArray[2], $aSkillArray[3], $aSkillArray[4], $aSkillArray[5], $aSkillArray[6], $aSkillArray[7])
+   Return SendPacket(0x2C, $CtoGS_MSG_LoadSkillbar, $aHeroID, 8, $aSkillArray[0], $aSkillArray[1], $aSkillArray[2], $aSkillArray[3], $aSkillArray[4], $aSkillArray[5], $aSkillArray[6], $aSkillArray[7])
 EndFunc   ;==>LoadSkillBar
 
 ;~ Description: Returns the recharge time remaining of an equipped skill in milliseconds. GetSkillTimer() works not while rendering disabled !
@@ -1323,9 +1324,9 @@ EndFunc   ;==>UseSkillByID
 ;~ TargetType -> 0 = friendly (self, ally, npc), everything else = enemy
 Func UseSkillBySkillID($aSkillID, $aTargetType = 0, $aAgentID = -2)
    If $aTargetType = 0 Then
-	  Return SendPacket(0x14, 0x40, $aSkillID, 0, ConvertID($aAgentID), 0)
+	  Return SendPacket(0x14, $CtoGS_MSG_UseSkill, $aSkillID, 0, ConvertID($aAgentID), 0)  ;~ old -> 	  Return SendPacket(0x14, 0x40, $aSkillID, 0, ConvertID($aAgentID), 0)
    Else
-	  Return SendPacket(0x14, 0x21, $aSkillID, 0, ConvertID($aAgentID), 0)
+	  Return SendPacket(0x14, $CtoGS_MSG_UseSkill, $aSkillID, 0, ConvertID($aAgentID), 0)  ;~ old -> 	  Return SendPacket(0x14, 0x21, $aSkillID, 0, ConvertID($aAgentID), 0)
    EndIf
 EndFunc   ;==>UseSkillBySkillID
 #EndRegion
@@ -1393,7 +1394,7 @@ Func DropBuff($aSkillID, $aAgentID, $aHeroNumber = 0, $aHeroID = GetHeroID($aHer
    $aAgentID = ConvertID($aAgentID)
    For $i = 1 To $lBuffs[0]
 	  If MemoryRead($lBuffs[$i], 'long') = $aSkillID And MemoryRead($lBuffs[$i] + 12, 'long') = $aAgentID Then
-		 Return SendPacket(0x8, 0x23, MemoryRead($lBuffs[$i] + 8, 'long'))
+		 Return SendPacket(0x8, $CtoGS_MSG_DropBuff, MemoryRead($lBuffs[$i] + 8, 'long'))
 	  EndIf
    Next
 EndFunc   ;==>DropBuff
@@ -1406,7 +1407,7 @@ Func DropAllBonds($aHeroNumber = 0, $aHeroID = GetHeroID($aHeroNumber))
    For $i = 1 To $lBuffs[0]
 	  $lSkillID = MemoryRead($lBuffs[$i], 'long')
 	  If $lSkillID = 263 Or $lSkillID = 244 Or $lSkillID = 242 Then ; $SKILLID_Protective_Bond, $SKILLID_Life_Attunement, $SKILLID_Balthazars_Spirit
-		 SendPacket(0x8, 0x23, MemoryRead($lBuffs[$i] + 8, 'long'))
+		 SendPacket(0x8, $CtoGS_MSG_DropBuff, MemoryRead($lBuffs[$i] + 8, 'long'))
 		 Sleep(50)
 	  EndIf
    Next
@@ -1418,7 +1419,7 @@ Func DropAllBuffs($aHeroNumber = 0, $aHeroID = GetHeroID($aHeroNumber))
    If $lBuffs = 0 Then Return -1 ; no buffs being maintained
    Local $lDroppedBuff = False
    For $i = 1 To $lBuffs[0]
-	  SendPacket(0x8, 0x23, MemoryRead($lBuffs[$i] + 8, 'long'))
+	  SendPacket(0x8, $CtoGS_MSG_DropBuff, MemoryRead($lBuffs[$i] + 8, 'long'))
 	  Sleep(50)
 	  $lDroppedBuff = True
    Next
@@ -1524,6 +1525,6 @@ EndFunc   ;==>GetEffectTimeRemaining
 #Region Misc
 ;~ Description: Change your secondary profession.
 Func ChangeSecondProfession($aProfession, $aHeroNumber = 0, $aHeroID = GetHeroID($aHeroNumber))
-   Return SendPacket(0xC, 0x3B, $aHeroID, $aProfession)
+   Return SendPacket(0xC, $CtoGS_MSG_ChangeSecondary, $aHeroID, $aProfession)
 EndFunc   ;==>ChangeSecondProfession
 #EndRegion
