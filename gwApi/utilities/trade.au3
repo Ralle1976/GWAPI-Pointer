@@ -1,3 +1,4 @@
+52
 #include-once
 
 ;~ Description: Open trade window.
@@ -45,8 +46,8 @@ Func OfferItem($aItemID, $aQuantity = 1)
 	  Local $lQuantity = MemoryRead(GetItemPtr($aItemID) + 75, 'byte')
    EndIf
    If $aQuantity > $lQuantity Then
-	  Return SendPacket(0xC, 0xAF, $lItemID, $lQuantity)
+	  Return SendPacket(0xC, 0xB5, $lItemID, $lQuantity)  ;~ old -> 	  Return SendPacket(0xC, 0xAF, $lItemID, $lQuantity)
    Else
-	  Return SendPacket(0xC, 0xAF, $lItemID, $aQuantity)
+	  Return SendPacket(0xC, 0xB5, $lItemID, $aQuantity)  ;~ old -> 	  Return SendPacket(0xC, 0xAF, $lItemID, $aQuantity)
    EndIf
 EndFunc   ;==>OfferItem

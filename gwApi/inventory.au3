@@ -1,5 +1,4 @@
 
-
 #Region Variables
 Global $mEmptyBag = 8
 Global $mEmptySlot = 0
@@ -432,7 +431,7 @@ Func SalvageBags()
 				  $lValue = MemoryRead($lExpertKit + 36, 'short')
 				  StartSalvage($lItem, $lExpertKitID)
 				  Sleep(100)
-				  If Not SendPacket(0x8, 0x75, $lMod) Then ExitLoop 2
+				  If Not SendPacket(0x8, $CtoGS_MSG_SalvageMod, $lMod) Then ExitLoop 2  ;~ old -> 				  If Not SendPacket(0x8, 0x75, $lMod) Then ExitLoop 2
 				  ;Local $lDeadlock = TimerInit()
 				  Do
 					 Sleep(50)
@@ -457,7 +456,7 @@ Func SalvageBags()
 				  $lValue = MemoryRead($lExpertKit + 36, 'short')
 				  StartSalvage($lItem, $lExpertKitID)
 				  Sleep(100)
-				  If Not SendPacket(0x8, 0x75, $lMod) Then ExitLoop 2
+				  If Not SendPacket(0x8, $CtoGS_MSG_SalvageMod, $lMod) Then ExitLoop 2  ;~ old -> 				  If Not SendPacket(0x8, 0x75, $lMod) Then ExitLoop 2
 				  ;Local $lDeadlock = TimerInit()
 				  Do
 					 Sleep(50)
@@ -481,7 +480,7 @@ Func SalvageBags()
 			   Update("Salvage (Materials): " & $bag & ", " & $slot)
 			   StartSalvage($lItem, $lCheapKitID)
 			   Sleep(1000 + GetPing())
-			   If Not SendPacket(0x4, 0x74) Then ExitLoop
+			   If Not SendPacket(0x4, $CtoGS_MSG_SalvageMaterials) Then ExitLoop  ;~ old -> 			   If Not SendPacket(0x4, 0x74) Then ExitLoop
 			   ;Local $lDeadlock = TimerInit()
 			   Do
 				  Sleep(20)
@@ -805,7 +804,7 @@ Local $lType = MemoryRead($aItemPtr + 32, 'byte')
 For $i = 0 To (UBound($Upgrades) -1)
 	If (($Upgrades[$i][13] = True) And (StringInStr($lMod, $Upgrades[$i][0], 1) <> 0) And ($lType = $Upgrades[$i][10])) Then
 		Local $_array = StringRegExp($lModStruct, '(.{2})(.{2})' & $lMod, $Upgrades[$i][1], 3)
-		_ArrayDisplay($_array, "StringRegExp from WeaponMods ! ")
+		;_ArrayDisplay($_array, "StringRegExp from WeaponMods ! ")
 		If (($Upgrades[$i][11] = 4) And ($_array[0] = $Upgrades[$i][8]) Or ($Upgrades[$i][12] = 2)  And _
 		($_array[1] = $Upgrades[$i][9])) Then Return $Upgrades[$i][4];mod Pos
 	EndIf

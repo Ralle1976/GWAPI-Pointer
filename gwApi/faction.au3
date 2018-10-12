@@ -1,12 +1,13 @@
+
 #include-once
 
 #Region Donate
 ;~ Description: Donate Kurzick or Luxon faction.
 Func DonateFaction($aFaction)
    If StringLeft($aFaction, 1) = 'k' Then
-	  Return SendPacket(0x10, 0x2F, 0, 0, 5000)
+	  Return SendPacket(0x10, $CtoGS_MSG_DonateFaction, 0, 0, 5000)  ;~ old -> 	  Return SendPacket(0x10, 0x2F, 0, 0, 5000)
    Else
-	  Return SendPacket(0x10, 0x2F, 0, 1, 5000)
+	  Return SendPacket(0x10, $CtoGS_MSG_DonateFaction, 0, 1, 5000)  ;~ old -> 	  Return SendPacket(0x10, 0x2F, 0, 1, 5000)
    EndIf
 EndFunc   ;==>DonateFaction
 #EndRegion

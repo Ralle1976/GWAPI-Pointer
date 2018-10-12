@@ -1,3 +1,4 @@
+
 #Region Variables
 Global $mEmptyBag = 8
 Global $mEmptySlot = 0
@@ -18,7 +19,7 @@ Func MinMaxGold()
    Local $lGoldCharacter = GetGoldCharacter()
    Local $lGoldStorage = GetGoldStorage()
    Local $lGold = $lGoldCharacter + $lGoldStorage
-   OpenStorageWindow()
+   ;OpenStorageWindow()
    If $lGoldCharacter < 10000 And $lGoldStorage > 10000 Then
 	  WithdrawGold(10000 - $lGoldCharacter)
 	  Return 10000
@@ -436,7 +437,7 @@ Func StoreItems()
    Update("Empty Spot: " & $mEmptyBag & ", " & $mEmptySlot)
    OUT("Empty Spot: " & $mEmptyBag & ", " & $mEmptySlot)
    If $mEmptySlot = 0 Then Return ; no more empty slots found
-   OpenStorageWindow()
+;~    OpenStorageWindow()
    For $bag = 1 To 4 ; inventory only
 	  $lBagPtr = GetBagPtr($bag)
 	  If $lBagPtr = 0 Then ContinueLoop ; empty bag slot
@@ -580,7 +581,7 @@ Local $BagPtrArray = GetAvaibleBagPtr()
 For $bag = 1 To $BagPtrArray[0][0]
 	$lItemArrayPtr = MemoryRead($BagPtrArray[$bag][0] + 24, 'ptr')
 	$MaxSolts = MemoryRead($BagPtrArray[$bag][0] + 32, 'long')
-	If OpenBackpackSlot() = 0 And Not TempStorage() Then  ContinueLoop
+	If Not IsArray(OpenBackpackSlot()) And Not TempStorage() Then  ContinueLoop
 
 	For $slot = 1 To $MaxSolts
 
@@ -606,6 +607,7 @@ For $bag = 1 To $BagPtrArray[0][0]
 		If DisconnectCheck()  Then
 			GoToMerchant(GetMerchant(GetMapID()))
 ;~ 			If $globaldebug Then ConsoleWrite("Disconnect in Slot Loop !" & @CRLF)
+			$slot -=1
 			ContinueLoop
 		EndIf
 
@@ -619,7 +621,7 @@ For $bag = 1 To $BagPtrArray[0][0]
 			EndIf
 			Update("Identify: " & $BagPtrArray[$bag][1] & ", " & $slot)
 			IdentifyItem($lItem, $lIDKitID)
-			Sleep(500 + GetPing())
+			Sleep(1000 + GetPing())
 			$lDeadlock = TimerInit()
 			Do;
 				If TimerDiff($lDeadlock) > 5000 Then ContinueLoop 2 ; ident didnt work
@@ -636,14 +638,21 @@ For $bag = 1 To $BagPtrArray[0][0]
 						$lCheapKitID = MemoryRead($lCheapKit, 'long')
 					EndIf
 					$lQuantityOld = $lQuantity
-					Update("Start Salvage (white): " & $BagPtrArray[$bag][1] & ", " & $slot & " -> " & StartSalvage($lItem, $lCheapKitID))
-					If Not CheckFuncStateAfterTrySalvage(SalvageHelperFunc1()) Then Return False
+					Update("Start Salvage  (white): " & $BagPtrArray[$bag][1] & ", " & $slot & " -> " & StartSalvage($lItem, $lCheapKitID))
+;~ 					Update("Start Salvage (white): " & $BagPtrArray[$bag][1] & ", " & $slot & " -> " & StartSalvageWithPacket($lItem, $lCheapKitID))
+;~ 					SalvageMaterials()
+					Local $returnstate = CheckFuncStateAfterTrySalvage(SalvageHelperFunc1())
+					IF $returnstate = -3 Then
+						$i -= 1
+						ContinueLoop
+					EndIf
+					IF $returnstate = 0 Then Return False
 				Next
 
 ;~ 			; salvage non-whites
 			Case 2623 , 2626 , 2624  ; blue or purple or gold
 				If GetIsUpgraded($lItem) Then
-					If OpenBackpackSlot() = 0 And Not TempStorage() Then  ContinueLoop
+					If Not IsArray(OpenBackpackSlot()) And Not TempStorage() Then  ContinueLoop
 					If Not SlavageOutModsRuneInsignia($lExpertKit, $lExpertKitID, $slot, $bag, $lItem, $MaxStorageOrBag) Then ContinueLoop
 				Else
 					; salvage materials if item not destroyed
@@ -657,7 +666,12 @@ For $bag = 1 To $BagPtrArray[0][0]
 						If $ItemRarity <> 2623 And MemoryRead($lItem + 12, 'ptr') <> 0 Then
 							Update("Salvage (Materials): " & $BagPtrArray[$bag][1] & ", " & $slot & " -> " & SalvageMaterials())
 
-							If Not CheckFuncStateAfterTrySalvage(SalvageHelperFunc1()) Then Return False
+							Local $returnstate = CheckFuncStateAfterTrySalvage(SalvageHelperFunc1())
+							IF $returnstate = -3 Then
+								$i -= 1
+								ContinueLoop
+							EndIf
+							IF $returnstate = 0 Then Return False
 							If MemoryRead($lItem + 12, 'ptr') = 0 Then ContinueLoop
 						EndIf
 					EndIf
@@ -666,6 +680,7 @@ For $bag = 1 To $BagPtrArray[0][0]
 		EndSwitch
 	Next
 Next
+IF $mTempStorage[0][0] > 0 Then RestoreStorage()
 Return True
 EndFunc   ;==>SalvageBags
 
@@ -674,16 +689,17 @@ Local Static $String_Array = [4, " ",   "Deadlock trigger !", "by salvage i had 
 	Switch($state)
 		Case 3
 			Out($String_Array[$state]  & @CRLF)
-			GoToMerchant(GetMerchant(GetMapID()))
+
+			GoToMerchant(GetMerchant())
 			$SalvageState = False
-			Return False
+			Return -3
 		Case 2;, 1
 			Out($String_Array[$state]  & @CRLF)
 			$SalvageState = False
-			Return False
+			Return 0
 		Case 4
 			Out($String_Array[$state]  & @CRLF)
-			Return True
+			Return 1
 	EndSwitch
 EndFunc
 
@@ -692,7 +708,7 @@ Local $lDeadlock = TimerInit()
 Do;
 	Sleep(500 + GetPing())
 	If DisconnectCheck() Then Return 3
-	If TimerDiff($lDeadlock) >= 8000 Then Return 2
+	If TimerDiff($lDeadlock) >= 12000 Then Return 2
 Until $SalvageState
 If $SalvageState Then $SalvageState = False
 
@@ -703,7 +719,7 @@ EndFunc
 Func SlavageOutModsRuneInsignia(ByRef $lExpertKit, ByRef $lExpertKitID, $slot, $bag, $lItem, $MaxStorageOrBag)
 Static $___From_Armor = "Armor Mod"
 Static $___From_Weapon = "Weapon"
-Local  $___Out_Data = "", $Sleep = False, $____Mod
+Local  $___Out_Data = "", $ExtraSleep = False, $____Mod
 Switch(MemoryRead($lItem + 32, 'byte'))
 	Case 0
 			$____Mod = Upgrades($lItem)
@@ -712,12 +728,12 @@ Switch(MemoryRead($lItem + 32, 'byte'))
 	Case 2,5,12,15,22,24,26,27,32,35,36
 			$____Mod = WeaponMods($lItem)
 			$___Out_Data = $___From_Weapon
-			$Sleep = True
+			$ExtraSleep = True
 Endswitch
 IF $____Mod[0][0] = 0 Then Return False
-;~ _ArrayDisplay($____Mod , $___Out_Data)
+; _ArrayDisplay($____Mod , $___Out_Data)
 For $___ModX = 1 To $____Mod[0][0]
-	If OpenBackpackSlot() = 0 And Not TempStorage() Then  Return False
+	If Not IsArray(OpenBackpackSlot()) And Not TempStorage() Then  Return False
 	If MemoryRead($lExpertKit + 12, 'ptr') = 0 Then
 		If Not SalvageKitAction($lExpertKit, $MaxStorageOrBag, True, False, True) Then Return False
 		$lExpertKitID = MemoryRead($lExpertKit, 'long')
@@ -726,11 +742,16 @@ For $___ModX = 1 To $____Mod[0][0]
 
 	If Not $state_Of_StartSalvage Then ContinueLoop
 	Update("Start Salvage " & $___Out_Data & " : " & $bag & ", " & $slot & " ==> " & $state_Of_StartSalvage)
-	If $Sleep Then Sleep(1250 + GetPing())
+	Local $Sleepdummy = (($ExtraSleep = True) ? (Sleep(1250 + GetPing())) : (Sleep(250 + GetPing())))
 	SalvageMod($____Mod[$___ModX][0])
 	Update("Salvage (" & $____Mod[$___ModX][0] & "): " & $____Mod[$___ModX][1] & " ==> " & $bag & ", " & $slot)
-	If Not CheckFuncStateAfterTrySalvage(SalvageHelperFunc1()) Then Return False
-	Sleep(250 + GetPing())
+	Local $returnstate = CheckFuncStateAfterTrySalvage(SalvageHelperFunc1())
+	IF $returnstate = -3 Then
+		$___ModX -= 1
+		ContinueLoop
+	EndIf
+	IF $returnstate = 0 Then Return False
+	 Sleep(750 + GetPing())
 	If MemoryRead($lItem + 12, 'ptr') = 0 Then ExitLoop
 Next
 Return True
@@ -763,11 +784,7 @@ Func WeaponMods($aItemPtr)
    Static $numEnd = (UBound($Weapon_Mods) -1)
    For $i = 0 To $numEnd
 	   If ($Weapon_Mods[$i][13] And (StringInStr($lMod, $Weapon_Mods[$i][0], 1) <> 0)) Then ;And ($lType = $Weapon_Mods[$i][10]))
-
-		;works but not needed atm while searching with the max Value of Upgrade
-;~ 		Local $_array = StringRegExp($lMod, '(.{2})(.{2})' & $Upgrades[$i][1], 3)
 ;~ 		_ArrayDisplay($_array, "StringRegExp from WeaponMods ! ")
-
 		$TemReturn[0][0] += 1
 		$TemReturn[0][1] = True
 		ReDim $TemReturn[$TemReturn[0][0] +1][2]
@@ -791,12 +808,17 @@ Func SalvageBagsExplorable()
    If $lSalvKit = 0 Then Return
    $lSalvKitMID = @extended
    For $bag = 1 To 4 ; inventory only
-	  If DisconnectCheck() Then ExitLoop
 	  $lBagPtr = GetBagPtr($bag)
 	  If $lBagPtr = 0 Then ContinueLoop
 	  $lItemArrayPtr = MemoryRead($lBagPtr + 24, 'ptr')
 	  For $slot = 0 To MemoryRead($lBagPtr + 32, 'long') - 1
-		 If DisconnectCheck() Then ExitLoop
+
+		 If DisconnectCheck() Then
+			 $slot = 0
+			 ContinueLoop
+		 EndIf
+
+		If Not IsArray(OpenBackpackSlot()) And Not TempStorage() Then  ContinueLoop
 		 $lItem = MemoryRead($lItemArrayPtr + 4 * ($slot), 'ptr')
 		 If IgnoreItem($lItem) Then ContinueLoop
 		 If MemoryRead($lItem + 32, 'byte') = 31 Then ContinueLoop ; scrolls
@@ -854,7 +876,23 @@ Func SalvageBagsExplorable()
 			   EndIf
 			EndIf
 		 EndIf
-		 Sleep(250)
+
+		Sleep(250)
+		IF  $mTempStorage[0][1] And $mTempStorage[0][0] = 0  Then
+			 If IsArray(OpenBackpackSlot()) Then
+				 Local $_Item_Agent_Ptr = GetNearestItemPtrTo()
+				 If IsPtr($_Item_Agent_Ptr) Then
+					Local $lAgentID = MemoryRead($_Item_Agent_Ptr + 44, 'long')
+					If $lAgentID > 0 Then
+						Local $lMeX, $lMeY, $lAgentX, $lAgentY
+						UpdateAgentPosByPtr($MyPtr, $lMeX, $lMeY)
+						UpdateAgentPosByPtr($_Item_Agent_Ptr, $lAgentX, $lAgentY)
+						$lDistance = Sqrt(($lMeX - $lAgentX) ^ 2 + ($lMeY - $lAgentY) ^ 2)
+						PickUpItems($_Item_Agent_Ptr, $lAgentID, $lAgentX, $lAgentY, $lDistance, $MyPtr)
+					EndIf
+				 EndIf
+			 EndIf
+		EndIf
 	  Next
    Next
    Return True
@@ -987,17 +1025,82 @@ Func SellScrolls()
 	  Next
    Next
 EndFunc   ;==>SellScrolls
+;Dye =1
+;Scroll = 2
+;Upgrades  =3
+;Materials Normal = 4
+;Materials Rare= 5
+Func Check_If_ItemType_is_Given($_Check_Wich = 0)
+		If $_Check_Wich = 0 Then Return False
+		Local $lBagPtr, $lItemArrayPtr, $lItemPtr
+		Local $lItemMID, $lItemExtraID
+		For $bag = 1 to 4 ; inventory only
+		  $lBagPtr = GetBagPtr($bag)
+		  If $lBagPtr = 0 Then ContinueLoop
+		  $lItemArrayPtr = MemoryRead($lBagPtr + 24, 'ptr')
+			For $slot = 0 To MemoryRead($lBagPtr + 32, 'long') - 1
+			 $lItemPtr = MemoryRead($lItemArrayPtr + 4 * ($slot), 'ptr')
+			 If $lItemPtr = 0 Then ContinueLoop
+			 $lItemMID = MemoryRead($lItemPtr + 44, 'long')
+				Switch $_Check_Wich
+					 Case 1
+						;Dye
+						If $lItemMID <> 146 Then ContinueLoop ; not a dye
+						If $mBlackWhite Then
+							$lItemExtraID = MemoryRead($lItemPtr + 34, 'short')
+							If $lItemExtraID = 10 Or $lItemExtraID = 12 Then ContinueLoop ; black or white
+						EndIf
+						Return True
+					 Case 2
+						;Scroll
+						If MemoryRead($lItemPtr + 32, 'byte') <> 31 Then ContinueLoop ; not a scroll
+						If GetRarity($lItemPtr) <> 2624 Then ContinueLoop ; not a scrolltrader scroll
+						Return True
+					 Case 3
+						;Upgrades
+						If MemoryRead($lItemPtr + 32, 'byte') <> 8 Then ContinueLoop ; not an upgrade
+						If IsRuneOrInsignia(MemoryRead($lItemPtr + 44, 'long')) = 0 Then ContinueLoop ; neither rune, nor insignia
+						Return True
+					 Case 4
+						;Materials Normal
+						If CheckMaterial($lItemMID) = 1 Then Return True
+					 Case 5
+						;Materials Rare
+						If CheckMaterial($lItemMID) = 2 Then Return True
+				Endswitch
+			Next
+		Next
+	Return False
+EndFunc   ;==>SellDyes
 
 ;~ Description: Tries to make room by selling in different order and selling stuff that wasnt expressly forbidden / defined in Junk().
 Func ClearInventorySpace($aMapID, $aMyID = GetMyID(), $aMe = GetAgentPtr($aMyID))
+
    ; first stage: sell dyes, runes, rare mats, mats, scrolls to try to make room
-   If GoToMerchant(GetDyeTrader($aMapID), $aMyID, $aMe) <> 0 Then SellDyes()
-   If GoToMerchant(GetRuneTrader($aMapID), $aMyID, $aMe) <> 0 Then SellUpgrades()
-   If GoToMerchant(GetMaterialTrader($aMapID), $aMyID, $aMe) <> 0 Then SellMaterials()
-   If GoToMerchant(GetScrollTrader($aMapID), $aMyID, $aMe) <> 0 Then SellScrolls()
-   If GoToMerchant(GetRareMaterialTrader($aMapID), $aMyID, $aMe) <> 0 Then SellMaterials(True)
+
+	IF Check_If_ItemType_is_Given(1) Then
+		If GoToMerchant(GetDyeTrader($aMapID), $aMyID, $aMe) <> 0 Then SellDyes()
+	EndIf
+
+	IF Check_If_ItemType_is_Given(2) Then
+		If GoToMerchant(GetScrollTrader($aMapID), $aMyID, $aMe) <> 0 Then SellScrolls()
+	EndIf
+
+	IF Check_If_ItemType_is_Given(3) Then
+		If GoToMerchant(GetRuneTrader($aMapID), $aMyID, $aMe) <> 0 Then SellUpgrades()
+	EndIf
+
+	IF Check_If_ItemType_is_Given(4) Then
+		If GoToMerchant(GetMaterialTrader($aMapID), $aMyID, $aMe) <> 0 Then SellMaterials()
+	EndIf
+
+	IF Check_If_ItemType_is_Given(5) Then
+		If GoToMerchant(GetRareMaterialTrader($aMapID), $aMyID, $aMe) <> 0 Then SellMaterials(True)
+	EndIf
+
+
    Local $lSlots = CountSlots()
-   If $lSlots > 3 Then Return True ; enough room to proceed as planned
+;   If $lSlots > 3 Then Return True ; enough room to proceed as planned
    ; second stage: try selling identified purple and gold and everything else thats not expressly forbidden
    GoToMerchant(GetMerchant($aMapID), $aMyID, $aMe)
    Local $lBagPtr, $lItemArrayPtr, $lItemPtr
@@ -1020,7 +1123,7 @@ Func ClearInventorySpace($aMapID, $aMyID = GetMyID(), $aMe = GetAgentPtr($aMyID)
 			SellItem($lItemPtr)
 			Sleep(500)
 			$lSlots += 1
-			If $lSlots > 3 Then Return True
+;			If $lSlots > 3 Then Return True
 			ContinueLoop
 		 EndIf
 		 If Keepers($lItemMID) Then ContinueLoop
@@ -1102,7 +1205,7 @@ Func ClearInventorySpace($aMapID, $aMyID = GetMyID(), $aMe = GetAgentPtr($aMyID)
 		 SellItem($lItemPtr)
 		 Sleep(500)
 		 $lSlots += 1
-		 If $lSlots > 3 Then Return True
+;		 If $lSlots > 3 Then Return True
 	  Next
    Next
    Return $lSlots > 3
@@ -1201,7 +1304,7 @@ Func MoveItemFromStorageByModelID($aModelID, $aAmount = 250)
 EndFunc   ;==>MoveItemFromStorageByModelID
 
 ;~ Description: Stacks items in specified bags to make room.
-Func CleanUpStacks($aFirst = 1, $aEnd = 4, $aIncludeMatStorage = False)
+Func CleanUpStacks($aFirst = 1, $aEnd = 4, $aIncludeMatStorage = True)
    Local $lBagPtr, $lItemPtr, $lItemArrayPtr, $lEndThis
    Local $lModelID, $lQuantity, $a, $b, $lToMove
    ; create bagptr array with slots to reduce memoryreads
@@ -1229,7 +1332,11 @@ Func CleanUpStacks($aFirst = 1, $aEnd = 4, $aIncludeMatStorage = False)
 	  $lBagPtr = $lBagPtrArray[$i][0]
 	  If $lBagPtr = 0 Then ContinueLoop
 	  Local $lItemArrayPtr = MemoryRead($lBagPtr + 24, 'ptr')
+
 	  For $j = 0 To $lBagPtrArray[$i][1] - 1
+
+		IF CheckIf_mTempStorage($i, $j) Then ContinueLoop
+
 		 $lItemPtr = MemoryRead($lItemArrayPtr + 4 * $j, 'ptr')
 		 If $lItemPtr = 0 Then ContinueLoop
 		 $lModelID = MemoryRead($lItemPtr + 44, 'long')
@@ -1258,6 +1365,7 @@ Func CleanUpStacks($aFirst = 1, $aEnd = 4, $aIncludeMatStorage = False)
 			   $lTempCount += 1
 			EndIf
 		 EndIf
+
 	  Next
    Next
    $lArray[0][0] = $lCount
@@ -1627,7 +1735,7 @@ Func GoToMerchant($aPlayernumber, $aMyID = GetMyID(), $aMe = GetAgentPtr($aMyID)
 EndFunc   ;==>GoToMerchant
 
 ;~ Description: Return merchant depending on MapID.
-Func GetMerchant($aMapID)
+Func GetMerchant($aMapID = GetMapID())
    Switch $aMapID
 	  Case 4, 5, 6, 52, 176, 177, 178, 179 ; proph gh
 		 Return 209
