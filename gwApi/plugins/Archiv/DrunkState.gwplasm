@@ -1,0 +1,27 @@
+[CreateData]
+Data=DrunkState/4
+
+[CreateASM]
+ASM=DrunkStateHookProc:
+ASM=mov dword[DrunkState],ecx
+ASM=mov ebp,esp
+ASM=sub esp,10
+ASM=ljmp DrunkStateHookReturn
+
+[CreateScans]
+ScanDrunkStateFunction=DF6DF88955F06A008D55F0
+
+[CreateDetours]
+DrunkStateHookStart=DrunkStateHookProc
+
+[SetValues]
+Name=DrunkStateHookStart
+Scan=ScanDrunkStateFunction
+Offset=-14
+MemRead=0
+Add=0
+Name=DrunkStateHookReturn
+Scan=ScanDrunkStateFunction
+Offset=-14
+MemRead=0
+Add=5

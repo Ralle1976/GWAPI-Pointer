@@ -1,3 +1,4 @@
+
 #include-once
 
 #Region Ptr
@@ -24,17 +25,17 @@ EndFunc   ;==>GetQuestPtrByLogNumber
 #Region Dialogs
 ;~ Description: Accept a quest from an NPC.
 Func AcceptQuest($aQuestID)
-   Return SendPacket(0x8, 0x35, '0x008' & Hex($aQuestID, 3) & '01')
+   Return SendPacket(0x8, $CtoGS_MSG_AbandonQuest, '0x008' & Hex($aQuestID, 3) & '01')
 EndFunc   ;==>AcceptQuest
 
 ;~ Description: Accept the reward for a quest.
 Func QuestReward($aQuestID)
-   Return SendPacket(0x8, 0x35, '0x008' & Hex($aQuestID, 3) & '07')
+   Return SendPacket(0x8, $CtoGS_MSG_AbandonQuest, '0x008' & Hex($aQuestID, 3) & '07')
 EndFunc   ;==>QuestReward
 
 ;~ Description: Abandon a quest.
 Func AbandonQuest($aQuestID)
-   Return SendPacket(0x8, 0xA, $aQuestID)
+   Return SendPacket(0x8, $CtoGS_MSG_AbandonQuest, $aQuestID)
 EndFunc   ;==>AbandonQuest
 #EndRegion
 

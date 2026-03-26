@@ -1,3 +1,4 @@
+
 #include-once
 
 #Region Titles
@@ -157,9 +158,9 @@ EndFunc   ;==>GetWisdomTitle
 ;~ Norn 			= 0x29
 Func SetDisplayedTitle($aTitle = 0)
    If $aTitle Then
-	  Return SendPacket(0x8, 0x51, $aTitle)
+	  Return SendPacket(0x8, $CtoGS_MSG_SetDisplayedTitle, $aTitle)  ;~ old -> 	  Return SendPacket(0x8, 0x51, $aTitle)
    Else
-	  Return SendPacket(0x4, 0x52)
+	  Return SendPacket(0x4, $CtoGS_MSG_RemoveDisplayedTitle)  ;~ old -> 	  Return SendPacket(0x4, 0x52)
    EndIf
 EndFunc   ;==>SetDisplayedTitle
 #EndRegion

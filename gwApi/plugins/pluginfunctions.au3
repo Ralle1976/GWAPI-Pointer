@@ -4,23 +4,7 @@
    Functions for asm plugins.
    SetPluginVariables() at end of file.
 #ce
-;Global $mLastPacket
-;Global $mLastPacketSize
-;_('LastPacketSent/' & 512 * GetValue('PacketLogSize'))
-;_('LastPacketSize/4')
-;_('LastPacketBase/4')
-#CS
-Case 'push edi'
-	$lOpCode = '57';<---
-Case 'mov ebp,esp'
-	$lOpCode = '8BEC';<---
-Case 'mov edi,dword[ecx]';<-------
-	$lOpCode = '368B39'
-Case 'mov dword[eax],edi';<------
-	$lOpCode = '368938'
-Case 'cmp ecx,ebp'
-	$lOpCode = '39E9';<----
-#CE
+
 
 
 #Region DialogLogEx

@@ -1,3 +1,4 @@
+
 #include-once
 
 #Region MapLoad
@@ -79,12 +80,12 @@ EndFunc   ;==>TravelTo
 
 ;~ Description: Internal use for map travel.
 Func MoveMap($aMapID, $aRegion, $aDistrict, $aLanguage)
-   Return SendPacket(0x18, 0xAB, $aMapID, $aRegion, $aDistrict, $aLanguage, False)
+   Return SendPacket(0x18, $CtoGS_MSG_TravelTo, $aMapID, $aRegion, $aDistrict, $aLanguage, False)
 EndFunc   ;==>MoveMap
 
 ;~ Description: Returns to outpost after resigning/failure.
 Func ReturnToOutpost()
-   Return SendPacket(0x4, 0xA1)
+   Return SendPacket(0x4, $CtoGS_MSG_ReturnToOutpost)
 EndFunc   ;==>ReturnToOutpost
 
 ;~ Description: Switch district to on randomly chosen.
@@ -121,12 +122,12 @@ EndFunc   ;==>DistrictChange
 #Region EnterChallenge
 ;~ Description: Enter a challenge mission/pvp.
 Func EnterChallenge()
-   Return SendPacket(0x8, 0x9F, 1)
+   Return SendPacket(0x8, $CtoGS_MSG_EnterChallenge, 1)
 EndFunc   ;==>EnterChallenge
 
 ;~ Description: Enter a foreign challenge mission/pvp.
 Func EnterChallengeForeign()
-   Return SendPacket(0x8, 0x9F, 0)
+   Return SendPacket(0x8, $CtoGS_MSG_EnterChallenge, 0)
 EndFunc   ;==>EnterChallengeForeign
 
 ;~ Description: Enters challenge mission/pvp and waits for end of loading screen.
@@ -168,7 +169,7 @@ Func TravelGH()
 	  $lGHPtr = MemoryReadPtrChain($mBasePointer, $lOffset, 'ptr')
    EndIf
    MemoryReadToStruct($lGHPtr + 0x64, $GHPassKeyBuffer)
-   SendPacket(0x18, 0xAA, DllStructGetData($GHPassKeyBuffer, 1), DllStructGetData($GHPassKeyBuffer, 2), DllStructGetData($GHPassKeyBuffer, 3), DllStructGetData($GHPassKeyBuffer, 4), 1)
+   SendPacket(0x18, $CtoGS_MSG_TravelGH, DllStructGetData($GHPassKeyBuffer, 1), DllStructGetData($GHPassKeyBuffer, 2), DllStructGetData($GHPassKeyBuffer, 3), DllStructGetData($GHPassKeyBuffer, 4), 1)
    Return WaitMapLoading()
 EndFunc   ;==>TravelGH
 
@@ -179,9 +180,9 @@ Local $lResult = 0
 If $aPass1 = 0 Then
 	Static Local $lGHPtr = 0
 	MemoryReadToStruct((($lGHPtr = 0) ?  ($lGHPtr = MemoryReadPtrChain($mBasePointer, $lOffset, 'ptr')) : ($lGHPtr)) + 0x64, $GHPassKeyBuffer)
-	$lResult = SendPacket(0x18, 0xAA, DllStructGetData($GHPassKeyBuffer, 1), DllStructGetData($GHPassKeyBuffer, 2), DllStructGetData($GHPassKeyBuffer, 3), DllStructGetData($GHPassKeyBuffer, 4), 1)
+	$lResult = SendPacket(0x18, $CtoGS_MSG_TravelGH, DllStructGetData($GHPassKeyBuffer, 1), DllStructGetData($GHPassKeyBuffer, 2), DllStructGetData($GHPassKeyBuffer, 3), DllStructGetData($GHPassKeyBuffer, 4), 1)  ;~ old -> 	$lResult = SendPacket(0x18, 0xAA, DllStructGetData($GHPassKeyBuffer, 1), DllStructGetData($GHPassKeyBuffer, 2), DllStructGetData($GHPassKeyBuffer, 3), DllStructGetData($GHPassKeyBuffer, 4), 1)
 Else
-	$lResult = SendPacket(0x18, 0xAA, $aPass1, $aPass2, $aPass3, $aPass4, 1)
+	$lResult = SendPacket(0x18, $CtoGS_MSG_TravelGH, $aPass1, $aPass2, $aPass3, $aPass4, 1)  ;~ old -> 	$lResult = SendPacket(0x18, 0xAA, $aPass1, $aPass2, $aPass3, $aPass4, 1)
 EndIf
 If $lResult then Return WaitMapLoading()
 EndFunc
@@ -190,7 +191,7 @@ EndFunc
 Func LeaveGH()
    Local $lLastMapID = MemoryRead($mLastMapID)
    If CheckGuildHallMapID($lLastMapID) Then Return ;$lLastMapID = 0
-   SendPacket(0x8, 0xAC, 0x1)
+   SendPacket(0x8, $CtoGS_MSG_LeaveGH, 0x1)
    Return WaitMapLoading($lLastMapID)
 EndFunc   ;==>LeaveGH
 #EndRegion Guildhall

@@ -1,3 +1,4 @@
+
 #include-once
 #RequireAdmin
 
@@ -186,7 +187,7 @@ Func PickUpItem_($aItem)
 	Else
 		$lAgentID = DllStructGetData($aItem, 'ID')
 	EndIf
-	Return SendPacket(0xC, 0x39, $lAgentID, 0)
+	Return SendPacket(0xC, 0x3A, $lAgentID, 0)
 EndFunc   ;==>PickUpItem
 
 ;~ Description: Returns item by slot.
@@ -947,10 +948,10 @@ Func GetBuffByIndex($aBuffNumber, $aHeroNumber = 0)
 	$lOffset[0] = 0
 	$lOffset[1] = 0x18
 	$lOffset[2] = 0x2C
-	$lOffset[3] = 0x4AC
+	$lOffset[3] = 0x510
 	Local $lCount = MemoryReadPtr($mBasePointer, $lOffset)
 	ReDim $lOffset[5]
-	$lOffset[3] = 0x4A4
+	$lOffset[3] = 0x508
 	Local $lBuffer
 	For $i = 0 To $lCount[1] - 1
 		$lOffset[4] = 0x24 * $i
@@ -974,7 +975,7 @@ Func GetSkillbar($aHeroNumber = 0)
 	$lOffset[0] = 0
 	$lOffset[1] = 0x18
 	$lOffset[2] = 0x2C
-	$lOffset[3] = 0x68C
+	$lOffset[3] = 0x6F0
 	For $i = 0 To GetHeroCount()
 		$lOffset[4] = $i * 0xBC
 		Local $lSkillbarStructAddress = MemoryReadPtr($mBasePointer, $lOffset)
@@ -1000,10 +1001,10 @@ Func GetEffect($aSkillID = 0, $aHeroNumber = 0)
 	$lOffset[0] = 0
 	$lOffset[1] = 0x18
 	$lOffset[2] = 0x2C
-	$lOffset[3] = 0x4AC
+	$lOffset[3] = 0x510
 	Local $lCount = MemoryReadPtr($mBasePointer, $lOffset)
 	ReDim $lOffset[5]
-	$lOffset[3] = 0x4A4
+	$lOffset[3] = 0x508
 	Local $lBuffer
 
 	For $i = 0 To $lCount[1] - 1
@@ -1045,21 +1046,21 @@ EndFunc   ;==>GetEffect
 Func GetQuestByID($aQuestID = 0)
 	Local $lQuestStruct = DllStructCreate('long id;long LogState;byte unknown1[12];long MapFrom;float X;float Y;byte unknown2[8];long MapTo')
 	Local $lQuestPtr, $lQuestLogSize, $lQuestID
-	Local $lOffset[4] = [0, 0x18, 0x2C, 0x4D0]
+	Local $lOffset[4] = [0, 0x18, 0x2C, 0x534]
 
 	$lQuestLogSize = MemoryReadPtr($mBasePointer, $lOffset)
 
 	If $aQuestID = 0 Then
 		$lOffset[1] = 0x18
 		$lOffset[2] = 0x2C
-		$lOffset[3] = 0x4C4
+		$lOffset[3] = 0x528
 		$lQuestID = MemoryReadPtr($mBasePointer, $lOffset)
 		$lQuestID = $lQuestID[1]
 	Else
 		$lQuestID = $aQuestID
 	EndIf
 
-	Local $lOffset[5] = [0, 0x18, 0x2C, 0x4C8, 0]
+	Local $lOffset[5] = [0, 0x18, 0x2C, 0x52C, 0]
 	For $i = 0 To $lQuestLogSize[1]
 		$lOffset[4] = 0x34 * $i
 		$lQuestPtr = MemoryReadPtr($mBasePointer, $lOffset)

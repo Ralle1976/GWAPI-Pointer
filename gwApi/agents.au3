@@ -1,3 +1,4 @@
+
 #include-once
 
 #Region Ptr
@@ -349,7 +350,7 @@ Func Attack($aAgent, $aCallTarget = False)
    Else
 	  Local $lAgentID = ConvertID($aAgent)
    EndIf
-   Return SendPacket(0xC, 0x20, $lAgentID, $aCallTarget)
+   Return SendPacket(0xC, $CtoGS_MSG_Attack, $lAgentID, $aCallTarget)
 EndFunc   ;==>Attack
 
 ;~ Description: Use switch/boss lock/etc, waits till in range.
@@ -423,7 +424,7 @@ EndFunc   ;==>ReverseDirection
 
 ;~ Description: Cancel current action.
 Func CancelAction()
-   Return SendPacket(0x4, 0x22)
+   Return SendPacket(0x4, $CtoGS_MSG_CancelAction)
 EndFunc   ;==>CancelAction
 
 ;~ Description: Same as hitting spacebar.
@@ -452,7 +453,7 @@ EndFunc   ;==>SuppressAction
 
 ;~ Description: Open a chest.
 Func OpenChest()
-   Return SendPacket(0x8, 0x4D, 2)
+   Return SendPacket(0x8, $CtoGS_MSG_OpenChest, 2)
 EndFunc   ;==>OpenChest
 
 ;~ Description: Change weapon sets.
@@ -462,7 +463,7 @@ EndFunc   ;==>ChangeWeaponSet
 
 ;~ Description: Open a dialog.
 Func Dialog($aDialogID)
-   Return SendPacket(0x8, 0x35, $aDialogID)
+   Return SendPacket(0x8, $CtoGS_MSG_Dialog, $aDialogID)
 EndFunc   ;==>Dialog
 #EndRegion
 
@@ -502,7 +503,7 @@ Func CallTarget($aTarget)
    Else
 	  Local $lTargetID = ConvertID($aTarget)
    EndIf
-   Return SendPacket(0xC, 0x1C, 0xA, $lTargetID)
+   Return SendPacket(0xC, $CtoGS_MSG_CallTarget, 0xA, $lTargetID)
 EndFunc   ;==>CallTarget
 
 ;~ Description: Clear current target.

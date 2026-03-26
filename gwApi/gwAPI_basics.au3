@@ -1,77 +1,85 @@
+
 #include-once
 
 #Region CommandStructs
 ; Commands
-Local $mPacket = DllStructCreate('ptr;dword;dword;dword;dword;dword;dword;dword;dword;dword;dword;dword;dword')
-Local $mPacketPtr = DllStructGetPtr($mPacket)
+Global $mPacket = DllStructCreate('ptr;dword;dword;dword;dword;dword;dword;dword;dword;dword;dword;dword;dword')
+Global $mPacketPtr = DllStructGetPtr($mPacket)
 
-Local $mAction = DllStructCreate('ptr;dword;dword')
-Local $mActionPtr = DllStructGetPtr($mAction)
+Global $mAction = DllStructCreate('ptr;dword;dword')
+Global $mActionPtr = DllStructGetPtr($mAction)
 
-Local $mUseSkill = DllStructCreate('ptr;dword;dword;dword')
-Local $mUseSkillPtr = DllStructGetPtr($mUseSkill)
+Global $mUseSkill = DllStructCreate('ptr;dword;dword;dword')
+Global $mUseSkillPtr = DllStructGetPtr($mUseSkill)
 
-Local $mMove = DllStructCreate('ptr;float;float;float')
-Local $mMovePtr = DllStructGetPtr($mMove)
+Global $mMove = DllStructCreate('ptr;float;float;float')
+Global $mMovePtr = DllStructGetPtr($mMove)
 
-Local $mChangeTarget = DllStructCreate('ptr;dword')
-Local $mChangeTargetPtr = DllStructGetPtr($mChangeTarget)
+Global $mChangeTarget = DllStructCreate('ptr;dword')
+Global $mChangeTargetPtr = DllStructGetPtr($mChangeTarget)
 
-Local $mToggleLanguage = DllStructCreate('ptr;dword')
-Local $mToggleLanguagePtr = DllStructGetPtr($mToggleLanguage)
+Global $mToggleLanguage = DllStructCreate('ptr;dword')
+Global $mToggleLanguagePtr = DllStructGetPtr($mToggleLanguage)
 
-Local $mUseHeroSkill = DllStructCreate('ptr;dword;dword;dword')
-Local $mUseHeroSkillPtr = DllStructGetPtr($mUseHeroSkill)
+Global $mUseHeroSkill = DllStructCreate('ptr;dword;dword;dword')
+Global $mUseHeroSkillPtr = DllStructGetPtr($mUseHeroSkill)
 
-Local $mUpdateAgentPos = DllStructCreate('ptr;dword;dword;dword;dword;dword;dword')
-Local $mUpdateAgentPosPtr = DllStructGetPtr($mUpdateAgentPos)
+Global $mUpdateAgentPos = DllStructCreate('ptr;dword;dword;dword;dword;dword;dword')
+Global $mUpdateAgentPosPtr = DllStructGetPtr($mUpdateAgentPos)
+
+Global $mOpenStorage = DllStructCreate('ptr;dword;dword;dword')
+Global $mOpenStoragePtr = DllStructGetPtr($mOpenStorage)
+
+
+
+Local $mOpenMerchant = DllStructCreate('ptr;dword;dword;dword;dword')
+Local $mOpenMerchantPtr = DllStructGetPtr($mOpenMerchant)
 
 ; Items
-Local $mBuyItem = DllStructCreate('ptr;dword;dword;dword')
-Local $mBuyItemPtr = DllStructGetPtr($mBuyItem)
+Global $mBuyItem = DllStructCreate('ptr;dword;dword;dword')
+Global $mBuyItemPtr = DllStructGetPtr($mBuyItem)
 
-Local $mSellItem = DllStructCreate('ptr;dword;dword')
-Local $mSellItemPtr = DllStructGetPtr($mSellItem)
+Global $mSellItem = DllStructCreate('ptr;dword;dword')
+Global $mSellItemPtr = DllStructGetPtr($mSellItem)
 
-Local $mSalvage = DllStructCreate('ptr;dword;dword;dword')
-Local $mSalvagePtr = DllStructGetPtr($mSalvage)
+Global $mSalvage = DllStructCreate('ptr;dword;dword;dword')
+Global $mSalvagePtr = DllStructGetPtr($mSalvage)
 
-Local $mOpenStorage = DllStructCreate('ptr;dword;dword;dword;dword')
-Local $mOpenStoragePtr = DllStructGetPtr($mOpenStorage)
 
-Local $mGoNpc = DllStructCreate('ptr;dword;dword')
-Local $mGoNpcPtr = DllStructGetPtr($mGoNpc)
+
+Global $mGoNpc = DllStructCreate('ptr;dword;dword')
+Global $mGoNpcPtr = DllStructGetPtr($mGoNpc)
 
 ; Trader
-Local $mTraderBuy = DllStructCreate('ptr')
-Local $mTraderBuyPtr = DllStructGetPtr($mTraderBuy)
+Global $mTraderBuy = DllStructCreate('ptr')
+Global $mTraderBuyPtr = DllStructGetPtr($mTraderBuy)
 
-Local $mTraderSell = DllStructCreate('ptr')
-Local $mTraderSellPtr = DllStructGetPtr($mTraderSell)
+Global $mTraderSell = DllStructCreate('ptr')
+Global $mTraderSellPtr = DllStructGetPtr($mTraderSell)
 
-Local $mRequestQuote = DllStructCreate('ptr;dword')
-Local $mRequestQuotePtr = DllStructGetPtr($mRequestQuote)
+Global $mRequestQuote = DllStructCreate('ptr;dword')
+Global $mRequestQuotePtr = DllStructGetPtr($mRequestQuote)
 
-Local $mRequestQuoteSell = DllStructCreate('ptr;dword')
-Local $mRequestQuoteSellPtr = DllStructGetPtr($mRequestQuoteSell)
+Global $mRequestQuoteSell = DllStructCreate('ptr;dword')
+Global $mRequestQuoteSellPtr = DllStructGetPtr($mRequestQuoteSell)
 
 ; Chat
-Local $mSendChat = DllStructCreate('ptr;dword')
-Local $mSendChatPtr = DllStructGetPtr($mSendChat)
+Global $mSendChat = DllStructCreate('ptr;dword')
+Global $mSendChatPtr = DllStructGetPtr($mSendChat)
 
-Local $mWriteChat = DllStructCreate('ptr')
-Local $mWriteChatPtr = DllStructGetPtr($mWriteChat)
+Global $mWriteChat = DllStructCreate('ptr')
+Global $mWriteChatPtr = DllStructGetPtr($mWriteChat)
 
 ; Attributes
-Local $mSetAttributes = DllStructCreate("ptr;dword;dword;dword;dword;dword[16];dword;dword[16]")
-Local $mSetAttributesPtr = DllStructGetPtr($mSetAttributes)
+Global $mSetAttributes = DllStructCreate("ptr;dword;dword;dword;dword;dword[16];dword;dword[16]")
+Global $mSetAttributesPtr = DllStructGetPtr($mSetAttributes)
 
 ; Log
-Local $mSkillLogStruct = DllStructCreate('dword;dword;dword;float')
-Local $mSkillLogStructPtr = DllStructGetPtr($mSkillLogStruct)
+Global $mSkillLogStruct = DllStructCreate('dword;dword;dword;float')
+Global $mSkillLogStructPtr = DllStructGetPtr($mSkillLogStruct)
 
-Local $mChatLogStruct = DllStructCreate('dword;wchar[256]')
-Local $mChatLogStructPtr = DllStructGetPtr($mChatLogStruct)
+Global $mChatLogStruct = DllStructCreate('dword;wchar[256]')
+Global $mChatLogStructPtr = DllStructGetPtr($mChatLogStruct)
 #EndRegion CommandStructs
 
 #Region Memory
@@ -302,7 +310,9 @@ Func InitClient($aCharname = '')
    If $mLabelDict = 0 Then CreateLabelDict()
    $mGWTitleOld = WinGetTitle($mGWHwnd)
    If $mUsePlugins Then InitPlugins()
+
    Scan()
+
    $mBasePointer = MemoryRead(GetScannedAddress('ScanBasePointer', -3))
    SetValue('BasePointer', $mBasePointer)
    $mAgentBase = MemoryRead(GetScannedAddress('ScanAgentBase', 13))
@@ -314,7 +324,9 @@ Func InitClient($aCharname = '')
    $mMapLoading = $mAgentBase - 240
    $mCurrentTarget = $mAgentBase - 1280
    SetValue('PacketLocation', MemoryRead(GetScannedAddress('ScanBaseOffset', -3)))
-   SetValue('StorageFunction', GetScannedAddress('ScanStorage', -7))
+
+
+
    $mPing = MemoryRead(GetScannedAddress('ScanPing', -8))
    $mMapID = MemoryRead(GetScannedAddress('ScanMapID', 71))
    $mLastMapID = MemoryRead(GetScannedAddress('ScanLastMapID', 0x1A))
@@ -324,55 +336,92 @@ Func InitClient($aCharname = '')
    $mLanguage = MemoryRead(GetScannedAddress('ScanLanguage', 8)) + 12
    $mSkillBase = MemoryRead(GetScannedAddress('ScanSkillBase', 9))
    $mSkillTimer = MemoryRead(GetScannedAddress('ScanSkillTimer', -3))
-   $mBuildNumber = MemoryRead(GetScannedAddress('ScanBuildNumber', 0x54))
-   $mZoomStill = GetScannedAddress("ScanZoomStill", -1)
-   $mZoomMoving = GetScannedAddress("ScanZoomMoving", 5)
-   $mStorageSessionBase = MemoryRead(GetScannedAddress("ScanStorageSessionIDBase", - 3))
+
+
+   $mZoomStill = GetScannedAddress("ScanZoomStill", 0x24);>=== Edit
+   $mZoomMoving = GetScannedAddress("ScanZoomMoving", 0x21);>=== Edit
+
+
+
+
    $mDialogOwnerID = MemoryRead(GetScannedAddress('ScanDialogOwnerID', -0x14))
+
+
    Local $lTemp
+   $lTemp = GetScannedAddress('ScanBuildNumber', 0x2C); >=== Edit
+   $mBuildNumber = MemoryRead($lTemp + MemoryRead($lTemp) +5); >=== Edit
+
+;dont work atm
+   $lTemp = MemoryRead(GetScannedAddress("ScanStorageSessionIDBase", - 3)); >=== Edit
+   $mStorageSessionBase = MemoryRead($lTemp)
+
+   $mStorageFunction = GetScannedAddress('ScanStorage', -30)
+   ConsoleWrite(@CRLF & @CRLF & @CRLF & "StorageFunction = " & $mStorageFunction & @CRLF & @CRLF & @CRLF & @CRLF)
+   $mStorageFunction = $mStorageFunction + 2
+   ConsoleWrite(@CRLF & @CRLF & @CRLF & "StorageFunction = " & $mStorageFunction & @CRLF & @CRLF & @CRLF & @CRLF)
+   SetValue('StorageFunction', $mStorageFunction)
+
+   $mMerchantWindow = GetScannedAddress('ScanMerchantWindow', 1)
+   ConsoleWrite(@CRLF & @CRLF & @CRLF & "MerchantWindow = " & $mMerchantWindow & @CRLF & @CRLF & @CRLF & @CRLF)
+   SetValue('MerchantWindow', $mMerchantWindow)
+; and also dont need it
+
    $lTemp = GetScannedAddress('ScanEngine', -16)
    SetValue('MainStart', $lTemp)
    SetValue('MainReturn', $lTemp + 5)
+
    ;; Rendering Mod ;;
    SetValue('RenderingMod', $lTemp + 116)
    SetValue('RenderingModReturn', $lTemp + 132 + 6)
+
    ;; TargetLog ;;
-   $lTemp = GetScannedAddress('ScanTargetLog', 1)
+   $lTemp = GetScannedAddress('ScanTargetLog', -0x1F)
    SetValue('TargetLogStart', $lTemp)
    SetValue('TargetLogReturn', $lTemp + 5)
    ;; SkillLog ;;
    $lTemp = GetScannedAddress('ScanSkillLog', 1)
    SetValue('SkillLogStart', $lTemp)
    SetValue('SkillLogReturn', $lTemp + 5)
+
    $lTemp = GetScannedAddress('ScanSkillCompleteLog', -4)
    SetValue('SkillCompleteLogStart', $lTemp)
    SetValue('SkillCompleteLogReturn', $lTemp + 5)
+
    $lTemp = GetScannedAddress('ScanSkillCancelLog', 5)
    SetValue('SkillCancelLogStart', $lTemp)
    SetValue('SkillCancelLogReturn', $lTemp + 6)
+
    ;; ChatLog ;;
    $lTemp = GetScannedAddress('ScanChatLog', 18)
    SetValue('ChatLogStart', $lTemp)
    SetValue('ChatLogReturn', $lTemp + 6)
+
    ;; TraderHook ;;
    $lTemp = GetScannedAddress('ScanTraderHook', -7)
    SetValue('TraderHookStart', $lTemp)
    SetValue('TraderHookReturn', $lTemp + 5)
+
    ;; StringLog ;;
-   $lTemp = GetScannedAddress('ScanStringFilter1', -2)
+   $lTemp = GetScannedAddress('ScanStringFilter1', -2);>=== Edit
    SetValue('StringFilter1Start', $lTemp)
    SetValue('StringFilter1Return', $lTemp + 5)
-   $lTemp = GetScannedAddress('ScanStringFilter2', -2)
+
+   $lTemp = GetScannedAddress('ScanStringFilter2', 0x61);>=== Edit
    SetValue('StringFilter2Start', $lTemp)
    SetValue('StringFilter2Return', $lTemp + 5)
    SetValue('StringLogStart', GetScannedAddress('ScanStringLog', 35))
+
    ;; LoadFinished ;;
-   SetValue('LoadFinishedStart', GetScannedAddress('ScanLoadFinished', 1))
-   SetValue('LoadFinishedReturn', GetScannedAddress('ScanLoadFinished', 6))
+   $lTemp = GetScannedAddress('ScanLoadFinished', -0x48)
+   SetValue('LoadFinishedStart', $lTemp)
+   SetValue('LoadFinishedReturn', $lTemp + 5)
+
+
    ;; ObstructedHook ;;
    $lTemp = GetScannedAddress('ScanObstructedText', -0x1B)
    SetValue('ObstructedHookStart', $lTemp)
    SetValue('ObstructedHookReturn', $lTemp + 5)
+
    ;; Misc ;;
    SetValue('PostMessage', MemoryRead(GetScannedAddress('ScanPostMessage', 11)))
    SetValue('Sleep', MemoryRead(MemoryRead(GetValue('ScanSleep') + 8) + 3))
@@ -381,19 +430,26 @@ Func InitClient($aCharname = '')
    SetValue('MoveFunction', GetScannedAddress('ScanMoveFunction', 1))
    SetValue('UseSkillFunction', GetScannedAddress('ScanUseSkillFunction', 1))
    SetValue('ChangeTargetFunction', GetScannedAddress('ScanChangeTargetFunction', -119))
+
    SetValue('WriteChatFunction', GetScannedAddress('ScanWriteChatFunction', 1))
+
    SetValue('SellItemFunction', GetScannedAddress('ScanSellItemFunction', -85))
    SetValue('PacketSendFunction', GetScannedAddress('ScanPacketSendFunction', 1))
+
+
    SetValue('ActionBase', MemoryRead(GetScannedAddress('ScanActionBase', -9)))
    SetValue('ActionFunction', GetScannedAddress('ScanActionFunction', -5))
-   SetValue('UseHeroSkillFunction', GetScannedAddress('ScanUseHeroSkillFunction', 0x7E7))
+   SetValue('UseHeroSkillFunction', GetScannedAddress('ScanUseHeroSkillFunction', 0xA1))
    SetValue('BuyItemFunction', GetScannedAddress('ScanBuyItemFunction', 1))
    SetValue('RequestQuoteFunction', GetScannedAddress('ScanRequestQuoteFunction', -2))
    SetValue('TraderFunction', GetScannedAddress('ScanTraderFunction', -71))
-   SetValue('ClickToMoveFix', GetScannedAddress("ScanClickToMoveFix", 1))
+
+   SetValue('ClickToMoveFix', GetScannedAddress("ScanClickToMoveFix", -0x1E));>==== Editg
+
    SetValue('UpdateAgentPositionFunction', GetScannedAddress('ScanUpdatePositionFunction', -0x95))
    SetValue('GoNpcFunction', GetScannedAddress('ScanGoNpcFunction', -0x9F))
    If $mUsePlugins Then AddPluginSetValues()
+
    ;; Size ;;
    SetValue('QueueSize', '0x00000010')
    SetValue('SkillLogSize', '0x00000010')
@@ -401,7 +457,9 @@ Func InitClient($aCharname = '')
    SetValue('TargetLogSize', '0x00000200')
    SetValue('StringLogSize', '0x00000200')
    SetValue('CallbackEvent', '0x00000501')
+
    ModifyMemory()
+
    ;; Set global variables ;;
    $mQueueCounter = MemoryRead(GetValue('QueueCounter'))
    $mQueueSize = GetValue('QueueSize') - 1
@@ -417,27 +475,15 @@ Func InitClient($aCharname = '')
    $mAgentMovement = GetAgentMovementPtr()
    $mObstructed = GetValue('ObstructedState')
    $mCinematic = MemoryRead(GetScannedAddress('ScanCinematic', 0x23))
-
-;~    Local $lTemp[4] = [0, 0x18, 0x2C, 0]
-;~    $mBasePtr182C = MemoryReadPtrChain($mBasePointer, $lTemp, 'ptr')
-;~    Local $lTemp[4] = [0, 0x18, 0x40, 0]
-;~    $mBasePtr1840 = MemoryReadPtrChain($mBasePointer, $lTemp, 'ptr')
-;~    Local $lTemp[4] = [0, 0x18, 0x4C, 0]
-;~    $mBasePtr184C = MemoryReadPtrChain($mBasePointer, $lTemp, 'ptr')
-;~    Local $lTemp = 0
-
+   $g_mMapNameIds = ScanForPtr("568BF183FE067211", +032, 8) + 0x00EC
+   ConsoleWrite("$g_mMapNameIds = " & $g_mMapNameIds & @CRLF)
 
    Local $lContextOffsets[3] = [0, 0x18, 0]
-   Global $mContextPtr = MemoryReadPtrChain($mBasePointer, $lContextOffsets, 'ptr')
+   $mContextPtr = MemoryReadPtrChain($mBasePointer, $lContextOffsets, 'ptr')
 
    $mBasePtr182C = MemoryRead($mContextPtr + 0x2C,'ptr')
    $mBasePtr1840 = MemoryRead($mContextPtr + 0x40,'ptr')
    $mBasePtr184C = MemoryRead($mContextPtr + 0x4C,'ptr')
-
-
-
-
-
 
 
    If $mUseEventSystem Then MemoryWrite(GetValue('CallbackHandle'), $mGUI)
@@ -445,16 +491,20 @@ Func InitClient($aCharname = '')
    DllStructSetData($mPacket, 1, GetValue('CommandPacketSend'))
    DllStructSetData($mUseSkill, 1, GetValue('CommandUseSkill'))
    DllStructSetData($mMove, 1, GetValue('CommandMove'))
+
    DllStructSetData($mChangeTarget, 1, GetValue('CommandChangeTarget'))
    DllStructSetData($mToggleLanguage, 1, GetValue('CommandToggleLanguage'))
    DllStructSetData($mUseHeroSkill, 1, GetValue('CommandUseHeroSkill'))
    DllStructSetData($mUpdateAgentPos, 1, Getvalue('CommandUpdateAgentPos'))
+
    ;; Items ;;
    DllStructSetData($mBuyItem, 1, GetValue('CommandBuyItem'))
    DllStructSetData($mSellItem, 1, GetValue('CommandSellItem'))
    DllStructSetData($mSalvage, 1, GetValue('CommandSalvage'))
    DllStructSetData($mAction, 1, GetValue('CommandAction'))
+
    DllStructSetData($mOpenStorage, 1, GetValue('CommandOpenStorage'))
+
    ;; Trader ;;
    DllStructSetData($mTraderBuy, 1, GetValue('CommandTraderBuy'))
    DllStructSetData($mTraderSell, 1, GetValue('CommandTraderSell'))
@@ -465,10 +515,12 @@ Func InitClient($aCharname = '')
    DllStructSetData($mSendChat, 1, GetValue('CommandSendChat'))
    DllStructSetData($mSendChat, 2, 0x5E)
    DllStructSetData($mWriteChat, 1, GetValue('CommandWriteChat'))
+
    ;; Attributes ;;
    DllStructSetData($mSetAttributes, 1, GetValue('CommandPacketSend'))
    DllStructSetData($mSetAttributes, 2, 0x90)
    DllStructSetData($mSetAttributes, 3, 9)
+
    If $mUsePlugins Then SetPluginVariables()
    If $mChangeTitle Then
 	  If $aCharname = '' Then
@@ -495,6 +547,7 @@ EndFunc   ;==>GetValue
 ;~ Description: Add Key and Value to $mLabelDict.
 Func SetValue($aKey, $aValue)
    $mLabelDict($aKey) = Ptr($aValue)
+   ConsoleWrite($aKey & " = " &  Ptr($aValue) & @CRLF)
 EndFunc   ;==>SetValue
 
 ;~ Description: Creates dictionary object and sets keys to case insensitive.
@@ -514,6 +567,7 @@ Func Scan()
    $mASMSize = 0
    $mASMCodeOffset = 0
    $mASMString = ''
+
    ;; Scan patterns ;;
    _('MainModPtr/4')
    _('ScanBasePointer:')
@@ -523,11 +577,11 @@ Func Scan()
    _('ScanEngine:')
    AddPattern('5356DFE0F6C441')
    _('ScanLoadFinished:')
-   AddPattern('8B561C8BCF52E8')
+   AddPattern('90558BEC83EC1053578BD9')
    _('ScanPostMessage:')
    AddPattern('6A00680080000051FF15')
    _('ScanTargetLog:')
-   AddPattern('5356578BFA894DF4E8')
+   AddPattern('F1894DF0763A8B43')
    _('ScanChangeTargetFunction:')
    AddPattern('33C03BDA0F95C033')
    _('ScanMoveFunction:')
@@ -544,8 +598,6 @@ Func Scan()
    AddPattern('C38B75FC8B04B5')
    _('ScanUseSkillFunction:')
    AddPattern('558BEC83EC1053568BD9578BF2895DF0')
-   _('ScanChangeTargetFunction:')
-   AddPattern('33C03BDA0F95C033')
    _('ScanPacketSendFunction:')
    AddPattern('558BEC83EC2C5356578BF985')
    _('ScanBaseOffset:')
@@ -559,7 +611,7 @@ Func Scan()
    _('ScanSkillCancelLog:')
    AddPattern('85C0741D6A006A42')
    _('ScanChatLog:')
-   AddPattern('8B45F48B138B4DEC50')
+   AddPattern('8B45F48B138B4DEC50');<----- Chat Log (orginal8B45F48B138B4DEC50)AddPattern('8B56148B4E0CE8')
    _('ScanSellItemFunction:')
    AddPattern('8B4D2085C90F858E')
    _('ScanStringLog:')
@@ -567,7 +619,7 @@ Func Scan()
    _('ScanStringFilter1:')
    AddPattern('51568B7508578BF9833E00')
    _('ScanStringFilter2:')
-   AddPattern('515356578BF933D28B4F2C')
+   AddPattern('D85DF85F5E5BDFE0F6C441')
    _('ScanActionFunction:')
    AddPattern('8B7D0883FF098BF175116876010000')
    _('ScanActionBase:')
@@ -575,7 +627,7 @@ Func Scan()
    _('ScanSkillBase:')
    AddPattern('8D04B65EC1E00505')
    _('ScanUseHeroSkillFunction:')
-   AddPattern('8B782C8B333BB7')
+   AddPattern('8D0C765F5E8B');change made
    _('ScanBuyItemFunction:')
    AddPattern('558BEC81ECC000000053568B75085783FE108BFA8BD97614')
    _('ScanRequestQuoteFunction:')
@@ -591,19 +643,20 @@ Func Scan()
    _('ScanSalvageGlobal:')
    AddPattern('8B018B4904A3')
    _('ScanSkillTimer:')
-   AddPattern('85c974158bd62bd183fa64')
+   AddPattern('85C974158BD62BD183FA64')
+
    _('ScanClickToMoveFix:')
-   AddPattern('3DD301000074')
+   AddPattern('568BF1578B460883F80F');>==== Edit
+
    _('ScanZoomStill:')
-   AddPattern('3B448BCB')
+   AddPattern('89470CEBD1');>==== Edit
+
    _('ScanZoomMoving:')
-   AddPattern('50EB116800803B448BCE')
+   AddPattern('EB358B4304');>==== Edit
+
    _('ScanBuildNumber:')
-   AddPattern('8D8500FCFFFF8D')
-   _('ScanStorageSessionIDBase:')
-   AddPattern('8D14768D14908B4208A80175418B4A0885C9')
-   _('ScanStorage:')
-   AddPattern('6A00BA12000000E87CCDFFFFBA120000008BCE')
+   AddPattern('558BEC83EC4053568BD9')
+
    _('ScanUpdatePositionFunction:')
    AddPattern('8B46043B875401')
    _('ScanObstructedText:')
@@ -616,6 +669,19 @@ Func Scan()
    AddPattern('7409578D4DAC')
    _('ScanDialogOwnerID:')
    AddPattern('75146A006A018BD38BCF')
+
+   _('ScanMerchantWindow:')
+	AddPattern('558BEC81ECF8000000535657')
+
+   _('ScanStorage:');from gwax
+   AddPattern('8BD183E10283E20189')
+
+   _('ScanStorageSessionIDBase:')
+   AddPattern('8D14768D14908B4208A80175418B4A0885C9')
+
+;~    _('ScanStorage:')
+;~    AddPattern('6A00BA12000000E87CCDFFFFBA120000008BCE')
+
    If $mUsePlugins Then AddPluginScans()
    ;; Scan engine ;;
    _('ScanProc:')
@@ -862,6 +928,8 @@ Func Event($hwnd, $msg, $wparam, $lparam)
 	  Case 0x4
 		 DllCall($mKernelHandle, 'int', 'ReadProcessMemory', 'int', $mGWProcHandle, 'int', $wparam, 'ptr', $mChatLogStructPtr, 'int', 512, 'int', '')
 		 Local $lMessage = DllStructGetData($mChatLogStruct, 2)
+		 ;ConsoleWrite($lMessage & " " & DllStructGetData($mChatLogStruct, 1) & @CRLF)
+
 		 Local $lChannel
 		 Local $lSender
 		 Switch DllStructGetData($mChatLogStruct, 1)
@@ -920,6 +988,7 @@ Func ModifyMemory()
    $mASMSize = 0
    $mASMCodeOffset = 0
    $mASMString = ''
+
    CreateData()
    CreateMain()
    CreateTargetLog()
@@ -935,6 +1004,7 @@ Func ModifyMemory()
    CreateRenderingMod()
    CreateObstructedHook()
    CreateCommands()
+
    If $mUsePlugins Then AddPluginASM()
    Local $lModMemory = MemoryRead(MemoryRead($mBase), 'ptr')
    If $lModMemory = 0 Then
@@ -946,6 +1016,7 @@ Func ModifyMemory()
 	  $mMemory = $lModMemory
    EndIf
    CompleteASMCode()
+
    If $lModMemory = 0 Then
 	  WriteBinary($mASMString, $mMemory + $mASMCodeOffset)
 	  WriteBinary("83F8009090", GetValue('ClickToMoveFix'))
@@ -983,6 +1054,7 @@ Func AddRestoreDict($aKey, $aItem)
    If $aItem == '' Then Return
    If $mRestoreDict = 0 Then CreateRestoreDict()
    $mRestoreDict($aKey) = $aItem
+
 EndFunc
 
 ;~ Description: Restore data saved in $mRestoreDict.
@@ -990,9 +1062,10 @@ Func RestoreDetour()
    While GetMapLoading() = 2
 	  Sleep(1000)
    WEnd
+   Local $lStr = ""
    If $mRestoreDict.Item($mBase) = "0x00000000" Then
 	  Local $lItem, $lSize, $lTemp
-	  Local $lStr = "Restoring data: " & @CRLF
+	  $lStr = "Restoring data: " & @CRLF
 	  For $i In $mRestoreDict.Keys
 		 $lItem = $mRestoreDict.Item($i)
 		 If StringLeft($lItem, 2) == '0x' Then $lItem = StringTrimLeft($lItem, 2)
@@ -1246,7 +1319,7 @@ EndFunc   ;==>CreateSkillCompleteLog
 Func CreateChatLog()
    _('ChatLogProc:')
    _('pushad')
-   _('mov ecx,dword[esp+1F4]')
+   _('mov ecx,dword[ebx]')
    _('mov ebx,eax')
    _('mov eax,dword[ChatLogCounter]')
    _('push eax')
@@ -1344,7 +1417,6 @@ Func CreateLoadFinished()
    _('ljmp LoadFinishedReturn')
 EndFunc   ;==>CreateLoadFinished
 
-;~ Description: ASM function. Internal use only.
 Func CreateStringLog()
    _('StringLogProc:')
    _('pushad')
@@ -1448,6 +1520,7 @@ EndFunc   ;==>CreateRenderingMod
 
 ;~ Description: ASM functions as strings, each line calls conversion function _(). Internal use only.
 Func CreateCommands()
+
    #Region Commands
    ; PacketSend ;
    _('CommandPacketSend:')
@@ -1553,6 +1626,7 @@ Func CreateCommands()
    _('mov edx,dword[eax+4]')
    _('call BuyItemFunction')
    _('ljmp CommandReturn')
+
    ; Sell ;
    _('CommandSellItem:')
    _('push 0')
@@ -1567,6 +1641,19 @@ Func CreateCommands()
    _('xor edx,edx')
    _('call SellItemFunction')
    _('ljmp CommandReturn')
+
+
+   ; OpenStorage ;
+   _('CommandOpenStorage:')
+   _('pushad')
+   _('add eax,4')
+   _('mov ecx,dword[eax]')
+   _('add eax,4')
+   _('mov edx,eax')
+   _('call StorageFunction')
+   _('popad')
+
+
    ; Salvage ;
    _('CommandSalvage:')
    _('mov ebx,SalvageGlobal')
@@ -1580,15 +1667,8 @@ Func CreateCommands()
    _('mov dword[ebx],ecx')
    _('call SalvageFunction')
    _('ljmp CommandReturn')
-   ; OpenStorage ;
-   _('CommandOpenStorage:')
-   _('pushad')
-   _('add eax,4')
-   _('mov ecx,dword[eax]')
-   _('add eax,4')
-   _('mov edx,eax')
-   _('call StorageFunction')
-   _('popad')
+
+
    #EndRegion Items
 
    #Region Trader
@@ -1674,10 +1754,12 @@ Func CreateCommands()
    _('call WriteChatFunction')
    _('ljmp CommandReturn')
    #EndRegion Chat
+
 EndFunc   ;==>CreateCommands
 #EndRegion Modification
 
 #Region Assembler
+
 ;~ Description: Converts ASM commands to opcodes and updates global variables.
 Func _($aASM)
    ;quick and dirty x86assembler unit:
@@ -2022,6 +2104,19 @@ Func _($aASM)
 			   $lOpCode = '668B12'
 			Case $aASM = 'mov word[eax],dx'
 			   $lOpCode = '668910'
+			Case $aASM = 'mov dword[eax],edi';<------
+				$lOpCode = '368938'
+			Case $aASM = 'mov edi,dword[ecx]';<-------
+				$lOpCode = '368B39'
+			Case $aASM = 'mov ebp,esp'
+				$lOpCode = '8BEC';<---
+			;from gwax ported / atm not work
+			Case $aASM = 'mov dword[eax+4],0' ;<----- OpenStorage change
+				$lOpCode = 'C7400400000000' ;<----- OpenStorage change
+			Case $aASM = 'mov dword[eax+8],0' ;<----- OpenStorage change
+				$lOpCode = 'C7400800000000' ;<----- OpenStorage change
+			Case $aASM = 'mov dword[eax+C],3' ;<----- OpenStorage change
+				$lOpCode = 'C7800000000003' ;<----- OpenStorage change
 			Case Else
 			   MsgBox(0, 'ASM', 'Could not assemble: ' & $aASM)
 			   Exit
@@ -2214,6 +2309,8 @@ Func _($aASM)
 			   $lOpCode = '3C0F'
 			Case $aASM = 'cmp cl,byte[esi+1B1]'
 			   $lOpCode = '3A8EB1010000'
+			Case $aASM = 'cmp ecx,ebp'
+				$lOpCode = '39E9';<----
 			Case Else
 			   MsgBox(0, 'ASM', 'Could not assemble: ' & $aASM)
 			   Exit
@@ -2249,6 +2346,10 @@ Func _($aASM)
 			   $lOpCode = '8D3C1A'
 			Case $aASM = 'lea edi,dword[edx+8]'
 			   $lOpCode = '8D7A08'
+			Case $aASM = 'lea ecx,[eax+4]' ;<----- OpenStorage change lea ecx,[eax+0x4]
+			   $lOpCode = '8D4804'
+
+
 			Case Else
 			   MsgBox(0, 'ASM', 'Could not assemble: ' & $aASM)
 			   Exit
@@ -2320,6 +2421,7 @@ Func _($aASM)
 		 EndIf
 	  Case $lMnemonic = "push" ; push
 		 Select
+
 			; push dword[EnsureEnglish]
 			Case StringRegExp($aASM, 'push dword[[][a-z,A-Z]{4,}[]]')
 			   $mASMSize += 6
@@ -2338,6 +2440,7 @@ Func _($aASM)
 				  $mASMSize += 5
 				  $mASMString &= '68' & $lBuffer
 			   EndIf
+
 			; hardcoded
 			Case $aASM = 'push eax'
 			   $lOpCode = '50'
@@ -2356,9 +2459,15 @@ Func _($aASM)
 			Case $aASM = 'push dword[eax+4]'
 			   $lOpCode = 'FF7004'
 			Case $aASM = 'push dword[eax+8]'
-				  $lOpCode = 'FF7008'
+			   $lOpCode = 'FF7008'
 			Case $aASM = 'push dword[eax+c]'
-			   $lOpCode = 'FF700C'
+		       $lOpCode = 'FF700C'
+			Case $aASM = 'push dword[eax+10]'
+			   $lOpCode = 'FF7010'
+			Case $aASM = 'push dword[eax+14]'
+	          $lOpCode = 'FF7014'
+			Case $aASM = 'push dword[eax+18]'
+	          $lOpCode = 'FF7018'
 			Case Else
 			   MsgBox(0, 'ASM', 'Could not assemble: ' & $aASM)
 			   Exit
@@ -2597,6 +2706,7 @@ Func ASMOperand($aSearchString, $aOpcodeString, $aESP = False, $aEBP = 0)
 		 Return Hex(Dec($aOpcodeString) + 7, 2)
    EndSwitch
 EndFunc
+
 #EndRegion Assembler
 
 #Region Conversion
@@ -2695,23 +2805,25 @@ Func ComputePseudoDistance($aX1, $aY1, $aX2, $aY2)
    Return ($aX1 - $aX2) ^ 2 + ($aY1 - $aY2) ^ 2
 EndFunc   ;==>ComputeDistance
 
+;dont use it it crash your gw
 ;~ Description: Opens storage window, only in outpost its possible to change content of chest.
 Func OpenStorageWindow()
-   Local $lID = StorageSessionID()
-   DllStructSetData($mOpenStorage, 2, $lID)
+   Local $ID = StorageSessionID()
+   DllStructSetData($mOpenStorage, 2, $ID)
    DllStructSetData($mOpenStorage, 3, 0)
    DllStructSetData($mOpenStorage, 4, 1)
-   DllStructSetData($mOpenStorage, 5, 2)
-   Return Enqueue($mOpenStoragePtr, 20)
+   Enqueue($mOpenStoragePtr, 16)
 EndFunc   ;==>OpenStorageWindow
 
 ;~ Description: Gets current storage session ID.
 Func StorageSessionID()
-   Local $lOffset[5] = [0, 0x118, 0x10, 0, 0x14]
-   Local $lReturn = MemoryReadPtr($mStorageSessionBase, $lOffset)
-   Return $lReturn[1]
+   Local $lOffset[3] = [0x118, 0x10, 0]
+   $lReturn = MemoryReadPtr($mStorageSessionBase, $lOffset)
+   Return MemoryRead($lReturn[1] + 0x14)
 EndFunc   ;==>StorageSessionID
 
+
+;~ Descripion
 ;~ Description: Checks if game client got disconnected and attempts to reconnect.
 Func Disconnected()
    If MemoryRead($MyPtr + 44, 'long') <> $MyID Then
@@ -2791,3 +2903,7 @@ Func ResetPointers()
    $BuffBasePtr = 0
 EndFunc
 #EndRegion
+
+
+
+

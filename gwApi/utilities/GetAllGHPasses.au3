@@ -1,3 +1,4 @@
+148
 ;~ #include "gwapi.au3"
 
 Global $GHPassKeyBuffer = DllStructCreate('dword;dword;dword;dword')
@@ -35,9 +36,9 @@ Func TravelGHEx($aPass1 = 0, $aPass2 = 0, $aPass3 = 0, $aPass4 = 0)
 	  EndIf
 	  Local $lBuffer = DllStructCreate('dword;dword;dword;dword')
 	  MemoryReadToStruct($lGHPtr + 0x64, $lBuffer)
-	  $lResult = SendPacket(0x18, 0xAA, DllStructGetData($lBuffer, 1), DllStructGetData($lBuffer, 2), DllStructGetData($lBuffer, 3), DllStructGetData($lBuffer, 4), 1)
+	  $lResult = SendPacket(0x18, 0xB0, DllStructGetData($lBuffer, 1), DllStructGetData($lBuffer, 2), DllStructGetData($lBuffer, 3), DllStructGetData($lBuffer, 4), 1)  ;~ old -> 	  $lResult = SendPacket(0x18, 0xAA, DllStructGetData($lBuffer, 1), DllStructGetData($lBuffer, 2), DllStructGetData($lBuffer, 3), DllStructGetData($lBuffer, 4), 1)
    Else
-	  $lResult = SendPacket(0x18, 0xAA, $aPass1, $aPass2, $aPass3, $aPass4, 1)
+	  $lResult = SendPacket(0x18, 0xB0, $aPass1, $aPass2, $aPass3, $aPass4, 1)  ;~ old -> 	  $lResult = SendPacket(0x18, 0xAA, $aPass1, $aPass2, $aPass3, $aPass4, 1)
    EndIf
    If $lResult then Return WaitMapLoading()
 EndFunc

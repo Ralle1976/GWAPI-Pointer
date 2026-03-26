@@ -1,3 +1,4 @@
+
 #include-once
 
 #Region Party Window
@@ -7,9 +8,22 @@ Func InvitePlayer($aPlayerName)
    SendChat('invite ' & $aPlayerName, '/')
 EndFunc   ;==>InvitePlayer
 
+;~ Func InvitePlayer($aPlayerName)
+;~ Static $mInvitePlayer = DllStructCreate('ptr;dword;dword;wchar[20]')
+;~ Static $mInvitePlayerPtr = Null
+
+;~ If ($mInvitePlayerPtr = Null) then
+;~ 	DllStructSetData($mInvitePlayer,1,GetValue('CommandPacketSend'))
+;~ 	DllStructSetData($mInvitePlayer,2,0x2C)
+;~ 	DllStructSetData($mInvitePlayer,3,0x9B)
+;~ EndIf
+
+;~ 	DllStructSetData($mInvitePlayer,4,$aPlayerName)
+;~ EndFunc   ;==>InvitePlayer
+
 ;~ Description: Invites player by playernumber.
 Func InvitePlayerByPlayerNumber($lPlayerNumber)
-   Return SendPacket(0x8, 0x9A, $lPlayerNumber)
+   Return SendPacket(0x8, $CtoGS_MSG_InvitePlayer, $lPlayerNumber)
 EndFunc   ;==>InvitePlayerByPlayerNumber
 
 ;~ Description: Invites player by AgentID.
@@ -21,33 +35,33 @@ Func InvitePlayerByID($aAgentID)
    Else
 	  Local $lAgentPlayerNumber = MemoryRead(GetAgentPtr($aAgentID) + 244, 'word')
    EndIf
-   If $lAgentPlayerNumber <> 0 Then Return SendPacket(0x8, 0x9A, $lAgentPlayerNumber)
+   If $lAgentPlayerNumber <> 0 Then Return SendPacket(0x8, $CtoGS_MSG_InvitePlayer, $lAgentPlayerNumber)
 EndFunc   ;==>InvitePlayerByID
 
 ;~ Description: Invite current target.
 Func InviteTarget()
    Local $lpNUM = MemoryRead(GetAgentPtr(-1) + 244, 'word')
-   Return SendPacket(0x8, 0x9A, $lpNUM)
+   Return SendPacket(0x8, $CtoGS_MSG_InvitePlayer, $lpNUM)
 EndFunc   ;==>InviteTarget
 
 ;~ Description: Accepts pending invite.
 Func AcceptInvite()
-   Return SendPacket(0x8, 0x96)
+   Return SendPacket(0x8, $CtoGS_MSG_AcceptPartyRequest)
 EndFunc   ;==>AcceptInvite
 #EndRegion
 
 #Region Leave/Kick
 ;~ Description: Leave your party.
 Func LeaveGroup($aKickHeroes = True)
-   If $aKickHeroes Then SendPacket(0x8, 0x18, 0x26)
-   Return SendPacket(0x4, 0x9C)
+   If $aKickHeroes Then SendPacket(0x8, 0x1E, 0x26)  ;~ old ->    If $aKickHeroes Then SendPacket(0x8, 0x18, 0x26)
+   Return SendPacket(0x4, $CtoGS_MSG_LeaveParty)  ;~ old ->    Return SendPacket(0x4, 0x9C)
 EndFunc   ;==>LeaveGroup
 #EndRegion
 
 #Region Misc
 ;~ Description: Switches to/from Hard Mode.
 Func SwitchMode($aMode)
-   Return SendPacket(0x8, 0x95, $aMode)
+   Return SendPacket(0x8, $CtoGS_MSG_SwitchMode, $aMode)
 EndFunc   ;==>SwitchMode
 #EndRegion
 #EndRegion

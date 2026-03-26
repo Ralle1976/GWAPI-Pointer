@@ -1,3 +1,4 @@
+
 #include-once
 
 #Region InitializePlugins
@@ -80,7 +81,7 @@ EndFunc   ;==>PluginArrayCombine
 Func AddPluginASM()
    For $i = 1 To $mAsmArray[0][0]
 	  _($mAsmArray[$i][1])
-;~ 	  ConsoleWrite("('" & $mAsmArray[$i][1] & "')" & @CRLF)
+ 	  ConsoleWrite("('" & $mAsmArray[$i][1] & "')" & @CRLF)
    Next
 EndFunc
 
@@ -88,14 +89,14 @@ EndFunc
 Func AddPluginData()
    For $i = 1 To $mDataArray[0][0]
 	  _($mDataArray[$i][1])
-;~ 	  ConsoleWrite("('" & $mDataArray[$i][1] & "')" & @CRLF)
+ 	  ConsoleWrite("('" & $mDataArray[$i][1] & "')" & @CRLF)
    Next
 EndFunc
 
 ;~ Description: Adds Detours to InitClient.
 Func AddPluginDetours()
    For $i = 1 To $mDetoursArray[0][0]
-;~ 	  ConsoleWrite("WriteDetour('" & $mDetoursArray[$i][0] & "', '" & $mDetoursArray[$i][1] & "')" & @CRLF)
+ 	  ConsoleWrite("WriteDetour('" & $mDetoursArray[$i][0] & "', '" & $mDetoursArray[$i][1] & "')" & @CRLF)
 	  WriteDetour($mDetoursArray[$i][0], $mDetoursArray[$i][1])
    Next
 EndFunc
@@ -103,9 +104,9 @@ EndFunc
 ;~ Description: Adds Scans to ScanEngine.
 Func AddPluginScans()
    For $i = 1 To $mScansArray[0][0]
-;~ 	  ConsoleWrite("_('" & $mScansArray[$i][0] & ':' & "')" & @CRLF)
+ 	  ConsoleWrite("_('" & $mScansArray[$i][0] & ':' & "')" & @CRLF)
 	  _($mScansArray[$i][0] & ':')
-;~ 	  ConsoleWrite("AddPattern('" & $mScansArray[$i][1] & "')" & @CRLF)
+ 	  ConsoleWrite("AddPattern('" & $mScansArray[$i][1] & "')" & @CRLF)
 	  AddPattern($mScansArray[$i][1])
    Next
 EndFunc
@@ -131,17 +132,17 @@ Func AddPluginSetValues()
 			$lOffsetString = StringTrimLeft($lOffsetString, 1)
 		 EndIf
 		 $lScannedAddress = GetScannedAddress($lOldScan, $lSign & Number($lOffsetString))
-;~ 		 ConsoleWrite("GetScannedAddress('" & $lOldScan & "', " & $lSign & Number($lOffsetString) & ")" & @CRLF)
+ 		 ConsoleWrite("GetScannedAddress('" & $lOldScan & "', " & $lSign & Number($lOffsetString) & ")" & @CRLF)
 		 $lCount += 1
 		 If Number($mSetValuesArray[$lCount][1]) <> 0 Then
-;~ 			ConsoleWrite("MemoryRead(" & $lScannedAddress & ")" & @CRLF)
+ 			ConsoleWrite("MemoryRead(" & $lScannedAddress & ")" & @CRLF)
 			$lScannedAddress = MemoryRead($lScannedAddress)
 		 EndIf
 	  Else
 		 $lCount += 2
 	  EndIf
 	  $lCount += 1
-;~ 	  ConsoleWrite("SetValue('" & $lName & "', " & Ptr($lScannedAddress + Number($mSetValuesArray[$lCount][1])) & ")" & @CRLF)
+ 	  ConsoleWrite("SetValue('" & $lName & "', " & Ptr($lScannedAddress + Number($mSetValuesArray[$lCount][1])) & ")" & @CRLF)
 	  SetValue($lName, Ptr($lScannedAddress + Number($mSetValuesArray[$lCount][1])))
    Until $lCount >= $mSetValuesArray[0][0]
 EndFunc

@@ -1,0 +1,20 @@
+[CreateData]
+
+[CreateASM]
+ASM=CommandUpgrade:
+ASM=add eax,4
+ASM=mov ecx,eax
+ASM=call UpgradeWindow
+ASM=ljmp CommandReturn
+
+[CreateScans]
+ScanUpgradeWindow=568B71088B4904
+
+[CreateDetours]
+
+[SetValues]
+Name=UpgradeWindow
+Scan=ScanUpgradeWindow
+Offset=-2
+MemRead=0
+Add=0

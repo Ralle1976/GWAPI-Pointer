@@ -1,0 +1,77 @@
+[CreateData]
+Data=LastDialogSender/4
+Data=LastDialogButtonsSize/4
+Data=LastDialogButtons/256
+Data=LastDialogID/4
+
+[CreateASM]
+ASM=DialogButtonHookProc:
+ASM=push ebp
+ASM=mov ebp,esp
+ASM=pushad
+ASM=mov eax,dword[LastDialogButtonsSize]
+ASM=lea ebx,dword[eax*4+LastDialogButtons]
+ASM=mov eax,dword[ecx+108]
+ASM=mov dword[ebx],eax
+ASM=inc dword[LastDialogButtonsSize]
+ASM=popad
+ASM=sub esp,10
+ASM=ljmp DialogButtonReturn
+ASM=DialogSenderHookProc:
+ASM=push ebp
+ASM=mov ebp,esp
+ASM=mov dword[LastDialogButtonsSize],0
+ASM=mov dword[LastDialogSender],ecx
+ASM=sub esp,0c
+ASM=ljmp DialogSenderReturn
+ASM=DialogLogProc:
+ASM=push ebp
+ASM=mov ebp,esp
+ASM=mov eax,dword[ebp+8]
+ASM=mov dword[LastDialogID],eax
+ASM=mov eax,dword[ecx+8]
+ASM=mov dword[LastDialogButtonsSize],0
+ASM=test al,1
+ASM=ljmp DialogLogReturn
+
+[CreateScans]
+ScanDialogLog=8977045F5E5B5DC208
+ScanDialogButton=558BEC83EC108B41048D51088945F0
+ScanDialogSender=8B461C85C074058B4614EB0233C06A00
+
+[CreateDetours]
+DialogButtonStart=DialogButtonHookProc
+DialogSenderStart=DialogSenderHookProc
+DialogLogStart=DialogLogProc
+
+[SetValues]
+Name=DialogButtonStart
+Scan=ScanDialogButton
+Offset=1
+MemRead=0
+Add=0
+Name=DialogButtonReturn
+Scan=ScanDialogButton
+Offset=1
+MemRead=0
+Add=6
+Name=DialogSenderStart
+Scan=ScanDialogSender
+Offset=-0x2C
+MemRead=0
+Add=0
+Name=DialogSenderReturn
+Scan=ScanDialogSender
+Offset=-0x2C
+MemRead=0
+Add=6
+Name=DialogLogStart
+Scan=ScanDialogLog
+Offset=15
+MemRead=0
+Add=0
+Name=DialogLogReturn
+Scan=ScanDialogLog
+Offset=15
+MemRead=0
+Add=8
